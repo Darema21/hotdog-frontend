@@ -2,8 +2,8 @@
   "pages":[
     "pages/index/index",
     "pages/landing/landing",
-    "pages/users/profile",
-    "pages/users/matches",
+    "pages/owners/profile",
+    "pages/owners/matches",
     "pages/dogs/profile",
     "pages/logs/logs"
   ],

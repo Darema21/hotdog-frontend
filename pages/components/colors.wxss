@@ -1,0 +1,11 @@
+
+page {
+    --background-color: rgb(255, 245, 228, 1);
+    --primary-color: rgb(248, 178, 178, 1);
+    --accent-color-pink: rgb(238, 105, 131, 1);
+    --accent-color-yellow: rgb(255, 163, 0, 1);
+    --dark:rgba(0, 0, 0, 1);
+    --grey-light: rgba(152, 152, 152, 1);
+    --white: (255, 255, 255, 1);
+    --gradient: (252, 169, 132, 1)
+  }

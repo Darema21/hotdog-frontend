@@ -1,0 +1,72 @@
+.h1{
+    position: absolute;
+    width: 137px;
+    height: 40px;
+    left: 44.99px;
+    top: 27.97px;
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 40px;
+    text-transform: capitalize;
+    color: #000000;
+}
+
+.h2{
+    position: absolute;
+    width: 107px;
+    height: 30px;
+    left: 44.99px;
+    top: 78.97px;
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 30px;
+    text-transform: capitalize;
+    color: #000000;
+}
+
+.h3{
+    position: absolute;
+    width: 85px;
+    height: 25px;
+    left: 44.99px;
+    top: 116.97px;
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    text-transform: capitalize;
+    color: #000000;
+}
+
+.p1{
+    position: absolute;
+    width: 74px;
+    height: 19px;
+    left: 45px;
+    top: 150px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+}
+
+.p2{
+    position: absolute;
+    width: 64px;
+    height: 16px;
+    left: 45px;
+    top: 173px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #989898;
+}

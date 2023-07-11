@@ -4,6 +4,7 @@
     "pages/landing/landing",
     "pages/dogs/index",
     "pages/dogs/show",
+    "pages/dogs/form",
     "pages/wiki/index",
     "pages/wiki/show",
     "pages/matches/index",

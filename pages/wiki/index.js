@@ -1,5 +1,14 @@
 // pages/wiki/index.js
+const app = getApp()
+
 Page({
+
+    goToShow: function(event) {
+        const breedName = event.currentTarget.dataset.breedName;
+        wx.request({
+            url: `${app.globalData.baseUrl}breedName`
+        })
+    },
 
     /**
      * Page initial data
@@ -26,7 +35,19 @@ Page({
      * Lifecycle function--Called when page show
      */
     onShow() {
+        let page = this;
 
+        wx.request({
+          url: `${app.globalData.baseUrl}breeds`,
+          method: 'GET',
+        //   header: app.globalData.header,
+          success(res){
+              console.log(res)
+                page.setData({
+                    data: res.data
+                })
+          }
+        })
     },
 
     /**

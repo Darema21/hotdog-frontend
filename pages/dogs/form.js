@@ -1,4 +1,5 @@
-// pages/dogs/index.js
+// pages/dogs/form.js
+
 Page({
 
     /**

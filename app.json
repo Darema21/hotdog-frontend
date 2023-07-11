@@ -1,0 +1,23 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/landing/landing",
+    "pages/dogs/index",
+    "pages/dogs/show",
+    "pages/dogs/form",
+    "pages/wiki/index",
+    "pages/wiki/show",
+    "pages/matches/index",
+    "pages/matches/show",
+    "pages/owners/profile",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle":"black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

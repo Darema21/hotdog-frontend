@@ -1,0 +1,40 @@
+/* pages/wiki/index.wxss */
+
+/* Flex-properties */
+.flex {
+    display: flex;
+  }
+  
+  .column {
+    flex-direction: column;
+  }
+  
+  .ai-c {
+      align-items: center;
+  }
+  
+  .jc-c {
+      justify-content: center;
+  }
+  
+  .jc-sb {
+      justify-content: space-between;
+  }
+
+.flexbox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20rpx 10rpx;
+}
+
+.breed {
+    width: 49%;
+    height: 360rpx;
+    overflow: hidden;
+}
+
+.breed-image {
+    border-radius: 18rpx;
+}

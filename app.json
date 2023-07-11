@@ -2,9 +2,13 @@
   "pages":[
     "pages/index/index",
     "pages/landing/landing",
+    "pages/dogs/index",
+    "pages/dogs/show",
+    "pages/wiki/index",
+    "pages/wiki/show",
+    "pages/matches/index",
+    "pages/matches/show",
     "pages/owners/profile",
-    "pages/owners/matches",
-    "pages/dogs/profile",
     "pages/logs/logs"
   ],
   "window":{

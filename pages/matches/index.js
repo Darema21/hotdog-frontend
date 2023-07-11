@@ -1,4 +1,4 @@
-// pages/dogs/profile.js
+// pages/matches/index.js
 Page({
 
     /**

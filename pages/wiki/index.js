@@ -1,4 +1,6 @@
 // pages/wiki/index.js
+const app = getApp()
+
 Page({
 
     goToShow: function(event) {
@@ -33,6 +35,7 @@ Page({
      * Lifecycle function--Called when page show
      */
     onShow() {
+        let page = this;
 
         wx.request({
           url: `${app.globalData.baseUrl}breeds`,

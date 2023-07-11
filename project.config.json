@@ -37,20 +37,8 @@
           "scene": null
         },
         {
-          "name": "stories",
-          "pathName": "pages/stories/stories",
-          "query": "",
-          "scene": null
-        },
-        {
           "name": "index",
           "pathName": "pages/index/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "post",
-          "pathName": "pages/post/post",
           "query": "",
           "scene": null
         }

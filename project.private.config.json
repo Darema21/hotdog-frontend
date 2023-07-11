@@ -1,3 +1,22 @@
 {
-  "projectname": "Hot Dog"
+  "projectname": "Hot Dog",
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "logs",
+          "pathName": "pages/logs/logs",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "index",
+          "pathName": "pages/dogs/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
+  }
 }

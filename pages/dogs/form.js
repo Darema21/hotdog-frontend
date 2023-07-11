@@ -1,4 +1,4 @@
-// pages/wiki/index.js
+// pages/dogs/index.js
 Page({
 
     /**

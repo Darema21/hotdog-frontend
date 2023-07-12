@@ -26,8 +26,27 @@ Page({
      * Lifecycle function--Called when page show
      */
     onShow() {
-
-    },
+      
+      let page = this;
+    
+      // Get api data
+      wx.request({
+        url: `${getApp().globalData.baseUrl}dogs`,
+        method: 'GET',
+        header: getApp().globalData.header,
+        success(res) {
+          const dogs = res.data.dogs;
+          console.log(dogs)
+    
+          // Update local data
+          page.setData({
+            dogs: dogs
+          });
+    
+          wx.hideToast();
+        }
+      });
+      },
 
     /**
      * Lifecycle function--Called when page hide

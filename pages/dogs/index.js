@@ -35,6 +35,7 @@ Page({
         method: 'GET',
         header: getApp().globalData.header,
         success(res) {
+          console.log(res)
           const dogs = res.data.dogs;
           console.log(dogs)
     
@@ -44,6 +45,9 @@ Page({
           });
     
           wx.hideToast();
+        },
+        fail(e) {
+          console.log(e)
         }
       });
       },

@@ -1,0 +1,35 @@
+.h1,
+.h2, 
+.h3
+{
+  color: var(--dark);
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+  line-height: 1.15;
+  text-transform: capitalize;
+  margin-top: 0;
+  margin-bottom: .5em;
+}
+
+.h1 {
+  font-size: 64rpx;
+  text-align: center;
+}
+
+.h2 {
+  font-size: 48rpx;
+}
+
+.h3 {
+  font-size: 40rpx;
+}
+
+.p {
+  font-size: 32rpx;
+  font-weight: normal;
+}
+
+.p-light{
+  font-size: 28rpx;
+  color: var(--grey-light);
+}

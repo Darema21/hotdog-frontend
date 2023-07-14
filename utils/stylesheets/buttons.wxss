@@ -1,0 +1,7 @@
+.btn {
+  color: var(--white);
+}
+
+.btn-filled{
+  background: var(--primary-color);
+}

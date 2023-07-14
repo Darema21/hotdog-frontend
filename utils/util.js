@@ -14,6 +14,22 @@ const formatNumber = n => {
   return n[1] ? n : `0${n}`
 }
 
+function goToShow(i) {
+    console.log('ID:', i);
+
+    wx.navigateTo({
+      url: `/pages/dogs/show?id=${i}`,
+    })
+}
+
+function goToBreed(id) {
+  console.log('ID:', id)
+  wx.navigateTo({
+      url: `/pages/wiki/show?id=${id}`,
+  })
+}
+
 module.exports = {
-  formatTime
+  formatTime,
+  goToBreed
 }

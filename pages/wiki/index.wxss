@@ -1,40 +1,49 @@
 /* pages/wiki/index.wxss */
+.banner {
+  background-image: url('https://i.imgur.com/HDCCYo5.png');
+  background-position: bottom;
+  background-size: initial;
+  min-height: 30vh;
+}
 
-/* Flex-properties */
-.flex {
-    display: flex;
-  }
-  
-  .column {
-    flex-direction: column;
-  }
-  
-  .ai-c {
-      align-items: center;
-  }
-  
-  .jc-c {
-      justify-content: center;
-  }
-  
-  .jc-sb {
-      justify-content: space-between;
-  }
+.banner image {
+  width: 100vw;
+}
+
+.h1 {
+  color: var(--white);
+}
+
+.wrap {
+  background-color: var(--white);
+  border-top-left-radius: 40rpx;
+  border-top-right-radius: 40rpx;
+  z-index: 4;
+  margin-top: -10%;
+}
 
 .flexbox {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20rpx 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20rpx 10rpx;
+  padding-top: 56rpx;
+  margin: 0 24rpx;
 }
 
 .breed {
-    width: 49%;
-    height: 360rpx;
-    overflow: hidden;
+  width: 49%;
+  height: 360rpx;
+  overflow: hidden;
 }
 
 .breed-image {
-    border-radius: 18rpx;
+  border-radius: 18rpx;
+  background-color: var(--primary-color);
+  height: 320rpx;
+}
+
+.breed-name {
+  margin-top: .2em;
 }

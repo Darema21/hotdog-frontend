@@ -1,13 +1,12 @@
 // pages/wiki/index.js
+const utils = require('../../utils/util')
 const app = getApp()
 
 Page({
 
-    goToShow: function(event) {
-        const breedName = event.currentTarget.dataset.breedName;
-        wx.request({
-            url: `${app.globalData.baseUrl}breedName`
-        })
+    goToBreed(e) {
+        const id = e.currentTarget.dataset.id;
+        utils.goToBreed(id);
     },
 
     /**
@@ -35,7 +34,14 @@ Page({
      * Lifecycle function--Called when page show
      */
     onShow() {
-        let page = this;
+        const page = this;
+
+        if (typeof this.getTabBar === 'function' &&
+        this.getTabBar()) {
+          this.getTabBar().setData({
+            selected: 1
+          })
+        }
 
         wx.request({
           url: `${app.globalData.baseUrl}breeds`,

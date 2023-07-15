@@ -1,0 +1,20 @@
+/* Flex-properties */
+.flex {
+  display: flex;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.ai-c {
+    align-items: center;
+}
+
+.jc-c {
+    justify-content: center;
+}
+
+.jc-sb {
+    justify-content: space-between;
+}

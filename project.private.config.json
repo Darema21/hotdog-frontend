@@ -10,7 +10,28 @@
           "scene": null
         },
         {
-          "name": "index",
+          "name": "pages/wiki/show",
+          "pathName": "pages/wiki/show",
+          "query": "id=12",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/wiki/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/landing/landing",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
           "pathName": "pages/dogs/index",
           "query": "",
           "launchMode": "default",

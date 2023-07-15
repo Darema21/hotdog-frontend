@@ -1,2 +1,7 @@
 <!--pages/dogs/index.wxml-->
-<text>pages/dogs/index.wxml</text>
+<view class="container">
+    <view class="icons flex ai-с jc-sb">
+        <image src="../images/icons/notifications.png" mode="" />
+        <image src="../images/icons/settings.png" mode="" />
+    </view>
+</view>

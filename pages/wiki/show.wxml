@@ -1,2 +1,43 @@
 <!--pages/wiki/show.wxml-->
-<text>pages/wiki/show.wxml</text>
+<view class="flex ai-c jc-c">
+    <image class="breed-image" src="https://i.imgur.com/HXcGJ8i.png" mode="widthFix" />
+</view>
+<view class="breed-description">
+    <view class="container">
+        <text class="h1">{{ breed.name }}</text>
+
+        <!-- Average XXX stats -->
+        <view class="breed-stats">
+            <view class="breed-data">
+                <text class="p-light">Avg.height: </text>
+                <text class="p">{{ breed.average_height }}</text>
+            </view>
+            <view class="breed-data">
+                <text class="p-light">Avg.weight: </text>
+                <text class="p">{{ breed.average_weight }}</text>
+            </view>
+            <view class="breed-data">
+                <text class="p-light">Avg.life expectancy: </text>
+                <text class="p">{{ breed.average_life_expectancy }}</text>
+            </view>
+        </view>
+
+        <!-- Description -->
+        <text class="breed-description">{{ breed.description }}</text>
+
+        <!-- Qualities -->
+        <view class="breed-qualities">
+            <text class="breed-quality"> {{activityText}} </text>
+            <text class="breed-quality"> {{friendlinessText}} </text>
+            <text class="breed-quality"> {{maintenanceText}} </text>
+            <text class="breed-quality"> {{trainabilityText}} </text>
+        </view>
+
+        <img class="separator" src="../images/separator.png" alt="" />
+
+        <!-- Best Match -->
+        <view class="best-match">
+            <text class="h2">Best Matches With</text>
+        </view>
+    </view>
+</view>

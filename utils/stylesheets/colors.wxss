@@ -1,0 +1,11 @@
+page {
+  --primary-color: #F8B2B2;
+  --accent-pink: #EE6983;
+  --accent-yellow: #FFA300;
+  --dark:rgba(18, 13, 38, 1);
+  --grey-dark: #686868;
+  --grey-light: rgb(163, 161, 161);
+  --white: #fff;
+  --background-color: #fdf2de;
+  --gradient: linear-gradient(180deg, #FCA984 0%, #DE6089 100%);
+}

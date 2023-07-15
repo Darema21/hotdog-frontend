@@ -23,12 +23,25 @@
     gap: 10rpx;
 }
 
-.dog-quality {
-    background-color: var(--accent-pink);
+.dog-atrribute {
     border-radius: 100rpx;
     padding: 16rpx 32rpx;
-    color: var(--white);
     font-size: 28rpx;
+}
+
+.attribute-true {
+    background-color: var(--accent-pink);    
+    color: var(--white);
+}
+
+.attribute-false {
+    border: solid 2rpx var(--grey-dark);
+    color: var(--grey-dark);
+}
+
+.quality-icon {
+    width: 40rpx;
+    height: 40rpx;
 }
 
 .owner image {

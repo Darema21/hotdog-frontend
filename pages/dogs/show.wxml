@@ -36,10 +36,22 @@
         </view>
 
         <!-- Vaccine, neutered -->
-        <view class="dog-qualities">
-            <text class="dog-quality" id="activityText"> {{activityText}} </text>
-            <text class="dog-quality" id="friendlinessText"> {{friendlinessText}} </text>
+        <view class="flex">
+        
+            <view class="dog-attribute {{ neutered ? 'attribute-true' : 'attribute-false' }}">
+                <view class="flex ai-c">
+                    <image class="quality-icon" src="{{ neutered ? '/pages/images/icons/neuter_true.png' : '/pages/images/icons/neuter_false.png' }}" mode="aspectFit" />
+                    <text>{{ neutered ? 'Neutered' : 'Not neutered' }}</text>
+                </view>
+            </view>
+            <view class="dog-attribute {{ vaccinated ? 'attribute-true' : 'attribute-false' }}">
+                <view>
+                    <image  class="quality-icon" src="{{ vaccinated ? '/pages/images/icons/vaccine_true.png' : '/pages/images/icons/vaccine_false.png' }}" mode="aspectFit" />
+                    <text>{{ vaccinated ? 'Vaccinated' : 'Not vaccinated' }}</text>
+                </view>
+            </view>
         </view>
+
 
         <image class="separator" src="../images/separator.png" alt="" />
 

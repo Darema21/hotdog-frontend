@@ -47,7 +47,7 @@ Page({
       wx.request({
         url: `${app.globalData.baseUrl}dogs`,
         method: 'GET',
-        header: getApp().globalData.header,
+        header: app.globalData.header,
         success(res) {
             const dogs = res.data;
             console.log(dogs)

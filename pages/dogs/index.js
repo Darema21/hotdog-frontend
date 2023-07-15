@@ -1,4 +1,7 @@
 // pages/dogs/index.js
+const utils = require('../../utils/util');
+const app = getApp()
+
 Page({
 
     /**
@@ -6,6 +9,11 @@ Page({
      */
     data: {
 
+    },
+
+    goToShow(i) {
+        const id = e.currentTarget.dataset.dogsid;
+        utils.goToShow(id);
     },
 
     /**
@@ -26,7 +34,30 @@ Page({
      * Lifecycle function--Called when page show
      */
     onShow() {
+      const page = this
+      
+      if (typeof this.getTabBar === 'function' &&
+      this.getTabBar()) {
+        this.getTabBar().setData({
+          selected: 0
+        })
+      }
 
+      wx.request({
+        url: `${app.globalData.baseUrl}dogs`,
+        method: 'GET',
+        header: app.globalData.header,
+        success(res) {
+            const dogs = res.data;
+            console.log(dogs)
+            //Update local data
+            page.setData({
+                dogs: dogs
+            });
+
+            wx.hideToast();
+        }
+      });
     },
 
     /**

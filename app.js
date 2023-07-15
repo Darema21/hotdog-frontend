@@ -1,39 +1,81 @@
 App({
-    onLaunch() {
-        // 展示本地存储能力
-        const logs = wx.getStorageSync('logs') || [];
-        logs.unshift(Date.now());
-        wx.setStorageSync('logs', logs);
-
-        // 登录
-        const app = this; // Move this line outside the object literal
-        wx.login({
+  onLaunch: function () {
+    var logs = wx.getStorageSync('logs') || [];
+    logs.unshift(Date.now());
+    wx.setStorageSync('logs', logs);
+    // 登录
+    wx.login({
+      success: res => {
+        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+      }
+    });
+    // 获取用户信息
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+          wx.getUserInfo({
             success: res => {
-                // 发送 res.code 到后台换取 openId, sessionKey, unionId
-                console.log(res);
-                wx.request({
-                    url: `${app.globalData.baseUrl}login`, // Modify the URL according to your API endpoint
-                    method: 'POST',
-                    data: {
-                        code: res.code
-                    },
-                    success: loginRes => {
-                        app.globalData.user = loginRes.data.user;
-                        app.globalData.header = loginRes.data.headers;
-                        console.log(loginRes.data.headers);
-                        // Perform further operations with the obtained user data
-                    },
-                    fail: loginErr => {
-                        console.error(loginErr);
-                    }
-                });
+              // 可以将 res 发送给后台解码出 unionId
+              this.globalData.userInfo = res.userInfo;
+              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+              // 所以此处加入 callback 以防止这种情况
+              if (this.userInfoReadyCallback) {
+                this.userInfoReadyCallback(res);
+              }
             }
-        });
-    },
-    globalData: {
-        userInfo: null,
-        user: null,
-        header: {},
-        baseUrl: 'http://localhost:3000/api/v1/'
-    }
+          });
+        }
+      }
+    });
+    // Load custom font
+    this.loadCustomFont();
+  },
+  loadCustomFont: function () {
+    wx.loadFontFace({
+      family: "Quicksand",
+      global: true,
+      source: 'url("/pages/index/Quicksand-bold.ttf")',
+      desc: {
+        style: "normal",
+        weight: "bold"
+      },
+      complete: (msg) => {
+        // console.log(msg)
+      }
+    });
+  
+    wx.loadFontFace({
+      family: "Quicksand",
+      global: true,
+      source: 'url("/pages/index/Quicksand-regular.ttf")',
+      desc: {
+        style: "normal",
+        weight: "normal"
+      },
+      complete: (msg) => {
+        // console.log(msg)
+      }
+    });
+
+    wx.loadFontFace({
+      family: "Quicksand",
+      global: true,
+      source: 'url("/pages/index/Quicksand-light.ttf")',
+      desc: {
+        style: "normal",
+        weight: "light"
+      },
+      complete: (msg) => {
+        // console.log(msg)
+      }
+    });
+  },
+  
+  globalData: {
+    userInfo: null,
+    user: null,
+    header: {},
+    baseUrl: 'http://localhost:3000/api/v1/'
+  }
 });

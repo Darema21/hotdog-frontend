@@ -1,2 +1,13 @@
 <!--pages/wiki/index.wxml-->
-<text>pages/wiki/index.wxml</text>
+<view class="banner">
+  <text class="h1">Dog Wiki</text>
+</view>
+
+<view class="wrap">
+  <view class="flexbox">
+    <view class="breed flex column ai-c jc-c" wx:for="{{ data }}" wx:for-item="item" wx:key="id" bindtap="goToBreed" data-id="{{ item.id }}">
+      <image class="breed-image" src="{ item.photo }" mode="" />
+      <text class="breed-name p">{{ item.name }}</text>
+    </view>
+  </view>
+</view>

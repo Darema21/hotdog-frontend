@@ -1,2 +1,15 @@
 <!--pages/landing/landing.wxml-->
-<text>pages/landing/landing.wxml</text>
+<view class="container">
+  <view class="text-container flex column ai-c jc-c">
+    <text class="p">Fetch a Pawfect Date for Your Dog!</text>
+    <view class="app flex ai-c">
+    <text class="app-name">Hot</text>
+      <image class="app-logo" src="../images/icons/Icon_laiba.png" mode="" />
+      <text class="app-name">Dog!</text>
+    </view>
+  </view>
+    <navigator class="flex ai-с jc-c" open-type="switchTab" url="/pages/dogs/index">
+      <image class="btn-icon" src="../images/icons/icon_paw.png" mode="widthFix"/>
+      <text class="btn-text">Add Your Pooch</text>
+    </navigator>
+</view>

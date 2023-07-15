@@ -1,0 +1,12 @@
+.avatar-user {
+    width: 40rpx;
+    border-radius: 4rpx;
+    border: white 1px solid;
+    margin: .5rem auto;
+  }
+
+.avatar-dog {
+    width: 40rpx;
+    border-radius: 50%;
+    border: white 1px solid;
+  }

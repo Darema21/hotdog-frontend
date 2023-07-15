@@ -37,7 +37,7 @@
 
         <!-- Vaccine, neutered -->
         <view class="flex">
-        
+          
             <view class="dog-attribute {{ neutered ? 'attribute-true' : 'attribute-false' }}">
                 <view class="flex ai-c">
                     <image class="quality-icon" src="{{ neutered ? '/pages/images/icons/neuter_true.png' : '/pages/images/icons/neuter_false.png' }}" mode="aspectFit" />

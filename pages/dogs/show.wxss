@@ -37,6 +37,9 @@
 .attribute-false {
     border: solid 2rpx var(--grey-dark);
     color: var(--grey-dark);
+    padding: 8px 8px;
+    border-radius: 50px;
+    margin: .2em;
 }
 
 .quality-icon {

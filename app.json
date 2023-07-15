@@ -1,10 +1,9 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/landing/landing",
     "pages/dogs/index",
     "pages/dogs/show",
     "pages/dogs/form",
+    "pages/landing/landing",
     "custom-tab-bar/index",
     "pages/wiki/index",
     "pages/wiki/show",

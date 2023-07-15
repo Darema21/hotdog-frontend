@@ -15,6 +15,7 @@ App({
             app.globalData.owner = loginRes.data.owner
             app.globalData.header = loginRes.data.headers
             console.log(123,loginRes.data.headers) // { data: { headers: { "X-USER-TOKEN": <User Token> }, user: <User Object> }, ... }
+            console.log("owner",loginRes.data.owner)
           },
 
           fail(loginErr){

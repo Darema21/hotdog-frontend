@@ -1,6 +1,5 @@
 // pages/dogs/index.js
 const utils = require('../../utils/util');
-
 const app = getApp()
 
 Page({

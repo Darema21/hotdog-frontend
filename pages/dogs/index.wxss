@@ -7,6 +7,10 @@ page {
     margin-top: 16rpx;
 }
 
+.card {
+    background-color: var(--white);
+}
+
 .icons image {
     width: 80rpx;
     height: 80rpx;

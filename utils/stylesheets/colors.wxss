@@ -6,6 +6,6 @@ page {
   --grey-dark: #686868;
   --grey-light: rgb(163, 161, 161);
   --white: #fff;
-  --background-color: #fdf2de;
+  --background-color: #FFF5E4;
   --gradient: linear-gradient(180deg, #FCA984 0%, #DE6089 100%);
 }

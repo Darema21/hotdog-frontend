@@ -11,3 +11,9 @@ page {
     width: 80rpx;
     height: 80rpx;
 }
+
+button {
+    border-radius: 100rpx;
+    width: 144rpx;
+    height: 144rpx;
+}

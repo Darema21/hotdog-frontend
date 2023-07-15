@@ -38,22 +38,25 @@ Page({
               activityText: '',
               trainabilityText: ''
             });
-    
+            console.log('Received breed data:', breed);
+
             // Process index values and set the corresponding text
-            let friendlinessIndex = breed.friendlinessIndex;
-            let maintenanceIndex = breed.maintenanceIndex;
-            let activityIndex = breed.activityIndex;
-            let trainabilityIndex = breed.trainabilityIndex;
+            let friendlinessIndex = breed.friendliness_index;
+            console.log(friendlinessIndex)
+            let maintenanceIndex = breed.maintenance_index;
+            let activityIndex = breed.activity_index;
+            let trainabilityIndex = breed.trainability_index;
     
             let friendlinessText, maintenanceText, activityText, trainabilityText;
     
             // Friendliness
             if (friendlinessIndex <= 3) {
-              friendlinessText = 'Not very friendly';
+              friendlinessText = 'Grumpkin';
             } else if (friendlinessIndex <= 6) {
-              friendlinessText = 'Friendly';
+              friendlinessText = 'Friendly buddy';
             } else {
               friendlinessText = 'Super friendly';
+              friendlinessText = 'Life of the party';
             }
     
             // Maintenance
@@ -67,20 +70,20 @@ Page({
     
             // Activity
             if (activityIndex <= 3) {
-              activityText = 'Slow';
+              activityText = 'Chill';
             } else if (activityIndex <= 6) {
               activityText = 'Active';
             } else {
-              activityText = 'Super active';
+              activityText = 'Little rocket';
             }
     
             // Trainability
             if (trainabilityIndex <= 3) {
-              trainabilityText = 'Not very trainable';
+              trainabilityText = 'Stubborn';
             } else if (trainabilityIndex <= 6) {
-              trainabilityText = 'Moderately trainable';
+              trainabilityText = 'Easy to train';
             } else {
-              trainabilityText = 'Highly trainable';
+              trainabilityText = 'Smart pants';
             }
     
             // Set the texts in the data object

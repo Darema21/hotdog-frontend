@@ -36,6 +36,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/dogs/show",
+          "query": "id=2",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

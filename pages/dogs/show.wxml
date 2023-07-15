@@ -1,2 +1,58 @@
 <!--pages/dogs/show.wxml-->
-<text>pages/dogs/show.wxml</text>
+<!--pages/wiki/show.wxml-->
+<scroll-view class="container-horizontal" scroll-x="{{true}}">
+    <image class="dog-show-image" src="https://i.imgur.com/HXcGJ8i.png" mode="aspectFill" />
+    <image class="dog-show-image" src="https://i.imgur.com/HXcGJ8i.png" mode="aspectFill" />
+    <image class="dog-show-image" src="https://i.imgur.com/HXcGJ8i.png" mode="aspectFill" />
+</scroll-view>
+
+<view class="dog-description">
+    <view class="container">
+        <text class="h1">Baoan</text>
+
+        <!-- Average XXX stats -->
+        <view class="dog-stats flex ai-с jc-sb">
+            <view class="dog-data flex column ai-c">
+                <image class="stats-icon" src="../images/icons/gender.png" mode="" />
+                <text class="p-light">Gender</text>
+                <text class="p">Male</text>
+            </view>
+            <view class="dog-data flex column ai-c">
+                <image class="stats-icon" src="../images/icons/date.png" mode="" />
+                <text class="p-light">Age</text>
+                <text class="p">3 years old</text>
+            </view>
+            <view class="dog-data flex column ai-c">
+                <image class="stats-icon" src="../images/icons/breed.png" mode="" />
+                <text class="p-light">Breed</text>
+                <text class="p">Fox Terrier</text>
+            </view>
+        </view>
+
+        <!-- Description -->
+        <view class="dog-description flex column">
+            <text class="h3">Description:</text>
+            <text></text>
+        </view>
+
+        <!-- Vaccine, neutered -->
+        <view class="dog-qualities">
+            <text class="dog-quality" id="activityText"> {{activityText}} </text>
+            <text class="dog-quality" id="friendlinessText"> {{friendlinessText}} </text>
+        </view>
+
+        <image class="separator" src="../images/separator.png" alt="" />
+
+        <!-- Owner -->
+        <view class="owner flex ai-с">
+            <image class="" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=761&q=80" mode="widthFix" />
+            <view class="owner-text flex column jc-c">
+                <text class="h2">Owner Name</text>
+                <text class="p-light">28 years old</text>
+            </view>
+        </view>
+        <text class="owner-description">
+            Blah blah too much said.
+        </text>
+    </view>
+</view>

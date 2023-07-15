@@ -6,9 +6,13 @@
 
 .breed-description {
     background-color: var(--white);
-    background-color: var(--white);
     border-top-left-radius: 40rpx;
     border-top-right-radius: 40rpx;
+    margin: 32rpx 0;
+}
+
+.breed-stats {
+    margin: .2em 1.4em;
 }
 
 .breed-qualities {
@@ -23,10 +27,4 @@
     padding: 16rpx 32rpx;
     color: var(--white);
     font-size: 28rpx;
-}
-
-.separator {
-    display: inline-block;
-    width: 100%;
-    height: 40px;
 }

@@ -1,1 +1,38 @@
 /* pages/dogs/show.wxss */
+.dog-show-image {
+    height: 400rpx;
+    width: 336rpx;
+    margin: 32rpx 16rpx 32rpx 0;
+    border-radius: 18rpx;
+}
+
+.dog-description {
+    background-color: var(--white);
+    border-top-left-radius: 40rpx;
+    border-top-right-radius: 40rpx;
+    margin: 16rpx 0 24rpx 0;
+}
+
+.dog-stats {
+    margin: .2em 1.4em;
+}
+
+.dog-qualities {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10rpx;
+}
+
+.dog-quality {
+    background-color: var(--accent-pink);
+    border-radius: 100rpx;
+    padding: 16rpx 32rpx;
+    color: var(--white);
+    font-size: 28rpx;
+}
+
+.owner image {
+    width: 192rpx;
+    height: 192rpx;
+    margin-right: .5em;
+}

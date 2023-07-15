@@ -7,33 +7,39 @@
         <text class="h1">{{ breed.name }}</text>
 
         <!-- Average XXX stats -->
-        <view class="breed-stats">
-            <view class="breed-data">
+        <view class="breed-stats flex ai-с jc-sb">
+            <view class="breed-data flex column ai-c">
+                <image class="stats-icon" src="../images/icons/height.png" mode=""/>
                 <text class="p-light">Avg.height: </text>
                 <text class="p">{{ breed.average_height }}</text>
             </view>
-            <view class="breed-data">
+            <view class="breed-data flex column ai-c">
+                <image class="stats-icon" src="../images/icons/weight.png" mode=""/>
                 <text class="p-light">Avg.weight: </text>
                 <text class="p">{{ breed.average_weight }}</text>
             </view>
-            <view class="breed-data">
-                <text class="p-light">Avg.life expectancy: </text>
+            <view class="breed-data flex column ai-c">
+                <image class="stats-icon" src="../images/icons/life.png" mode=""/>
+                <text class="p-light">Avg.years: </text>
                 <text class="p">{{ breed.average_life_expectancy }}</text>
             </view>
         </view>
 
         <!-- Description -->
-        <text class="breed-description">{{ breed.description }}</text>
+        <view class="breed-description flex column">        
+            <text class="h3">Description:</text>
+            <text>{{ breed.description }}</text>
+        </view>
 
         <!-- Qualities -->
         <view class="breed-qualities">
-            <text class="breed-quality"> {{activityText}} </text>
-            <text class="breed-quality"> {{friendlinessText}} </text>
-            <text class="breed-quality"> {{maintenanceText}} </text>
-            <text class="breed-quality"> {{trainabilityText}} </text>
+            <text class="breed-quality" id="activityText"> {{activityText}} </text>
+            <text class="breed-quality" id="friendlinessText"> {{friendlinessText}} </text>
+            <text class="breed-quality" id="trainabilityText"> {{trainabilityText}} </text>
+            <text class="breed-quality" id="maintenanceText"> {{maintenanceText}} </text>
         </view>
 
-        <img class="separator" src="../images/separator.png" alt="" />
+        <image class="separator" src="../images/separator.png" alt="" />
 
         <!-- Best Match -->
         <view class="best-match">

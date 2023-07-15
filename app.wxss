@@ -1,6 +1,7 @@
 /**app.wxss**/
 
 @import "./utils/stylesheets/banner.wxss";
+@import "./utils/stylesheets/buttons.wxss";
 @import "./utils/stylesheets/colors.wxss";
 @import "./utils/stylesheets/flexbox.wxss";
 @import "./utils/stylesheets/typography.wxss";
@@ -29,6 +30,8 @@ button {
 .container-horizontal{
     white-space: nowrap;
 }
+
+
 /* Images */
 .separator {
     display: inline-block;

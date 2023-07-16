@@ -9,6 +9,9 @@ page {
 
 .card {
     background-color: var(--white);
+    padding: 1em;
+    border-radius: 18rpx;
+    margin-top: .5em;
 }
 
 .icons image {
@@ -16,8 +19,8 @@ page {
     height: 80rpx;
 }
 
-button {
-    border-radius: 100rpx;
-    width: 144rpx;
-    height: 144rpx;
+button image {
+    width: 40rpx;
+    height: 40rpx;
 }
+

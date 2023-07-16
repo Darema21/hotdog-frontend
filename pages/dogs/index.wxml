@@ -37,13 +37,13 @@
 
         <!-- Buttons -->
         <view class="buttons">
-            <button class="cancel">
-                <image src="../images/buttons/cross.png" mode="heightFix" />
+            <button class="flex ai-с jc-c btn-decision btn-no">
+                <!-- <image src="../images/buttons/cross.png" mode="heightFix" /> -->
             </button>
-            <button class="superlike">
+            <button class="btn-decision btn-superlike">
                 <image src="../images/buttons/star.png" mode="scaleToFill" />
             </button>
-            <button class="like">
+            <button class="btn-decision btn-yes">
                 <image src="../images/buttons/heart.png" mode="scaleToFill" />
             </button>
         </view>

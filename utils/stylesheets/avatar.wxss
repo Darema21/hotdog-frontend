@@ -1,12 +1,16 @@
 .avatar-user {
-    width: 40rpx;
-    border-radius: 4rpx;
+    width: 144rpx;
+    height: 144rpx;
+    border-radius: 18rpx;
     border: white 1px solid;
-    margin: .5rem auto;
+    margin-right: 20rpx;
   }
 
 .avatar-dog {
-    width: 40rpx;
+    width: 80rpx;
+    height: 80rpx;
     border-radius: 50%;
     border: white 1px solid;
+    margin-right: .5rem;
+    background-color: var(--accent-pink);
   }

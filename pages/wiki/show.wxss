@@ -1,3 +1,9 @@
+.best-match {
+    border-bottom: 1px solid var(--grey-light);
+    padding: .7em 0;
+}
+
+
 .breed-image {
     width: 320rpx;
     height: 320rpx;

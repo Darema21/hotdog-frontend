@@ -1,6 +1,6 @@
 <!--pages/wiki/show.wxml-->
 <view class="flex ai-c jc-c">
-    <image class="breed-image" src="https://i.imgur.com/HXcGJ8i.png" mode="widthFix" />
+    <image class="breed-image" src="{{ breed.image_url }}" mode="widthFix" />
 </view>
 <view class="breed-description">
     <view class="container">
@@ -9,24 +9,24 @@
         <!-- Average XXX stats -->
         <view class="breed-stats flex ai-с jc-sb">
             <view class="breed-data flex column ai-c">
-                <image class="stats-icon" src="../images/icons/height.png" mode=""/>
+                <image class="stats-icon" src="../images/icons/height.png" mode="" />
                 <text class="p-light">Avg.height: </text>
                 <text class="p">{{ breed.average_height }}</text>
             </view>
             <view class="breed-data flex column ai-c">
-                <image class="stats-icon" src="../images/icons/weight.png" mode=""/>
+                <image class="stats-icon" src="../images/icons/weight.png" mode="" />
                 <text class="p-light">Avg.weight: </text>
                 <text class="p">{{ breed.average_weight }}</text>
             </view>
             <view class="breed-data flex column ai-c">
-                <image class="stats-icon" src="../images/icons/life.png" mode=""/>
+                <image class="stats-icon" src="../images/icons/life.png" mode="" />
                 <text class="p-light">Avg.years: </text>
                 <text class="p">{{ breed.average_life_expectancy }}</text>
             </view>
         </view>
 
         <!-- Description -->
-        <view class="breed-description flex column">        
+        <view class="breed-description flex column">
             <text class="h3">Description:</text>
             <text>{{ breed.description }}</text>
         </view>
@@ -42,8 +42,13 @@
         <image class="separator" src="../images/separator.png" alt="" />
 
         <!-- Best Match -->
-        <view class="best-match">
-            <text class="h2">Best Matches With</text>
+        <text class="h2">Best Matches With</text>
+        <view class="best-match flex ai-с jc-sb" wx:for="{{ bestMatches }}" wx:for-item="match" wx:key="id" bindtap="goToBreed" data-id="{{ breed.id }}">
+            <view class="flex ai-c">
+                <image class="avatar-dog" src="{{ match.image_url }}" mode="" />
+                <text class="p">{{match.name}}</text>
+            </view>
+            <text class="p">{{match.similarity_score}}</text>
         </view>
     </view>
 </view>

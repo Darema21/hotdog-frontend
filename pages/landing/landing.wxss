@@ -41,6 +41,11 @@ image {
   width: 80rpx;
 }
 
+.btn-text{
+  vertical-align: middle;
+  margin: auto;
+}
+
 navigator {
   position: fixed;
   bottom: 10%;

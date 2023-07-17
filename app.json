@@ -10,7 +10,8 @@
     "pages/matches/index",
     "pages/matches/show",
     "pages/owners/profile",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "components/swipe-card/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",
@@ -44,5 +45,8 @@
     ]
   },
   "style": "v2",
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "SwipeCard": "/components/swipe-card"
+  }
 }

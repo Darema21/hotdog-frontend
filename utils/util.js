@@ -46,5 +46,6 @@ function goToBreed(e) {
 
 module.exports = {
   formatTime,
-  goToBreed
+  goToBreed,
+  goToShow
 }

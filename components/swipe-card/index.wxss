@@ -1,18 +1,3 @@
-.id-text {
-  font-size: 48rpx;
-}
-
-.name-text {
-  font-size: 64rpx;
-}
-
-.mp-swipe-card-item {
-  height: 100%;
-  width: 100%;
-  padding: 20rpx;
-  /* background: linear-gradient(to right bottom, red, orange, green, purple); */
-}
-
 .mp-swipe-card-container {
   width: 100%;
   height: 100%;

@@ -1,6 +1,7 @@
 {
     "usingComponents": {
         "custom-tab-bar": "../../custom-tab-bar/index",
-        "mp-swipe-card": "../../components/swipe-card"
+        "mp-swipe-card": "../../components/swipe-card/index",
+        "card-item": "../../components/card-item/index"
     }
 }

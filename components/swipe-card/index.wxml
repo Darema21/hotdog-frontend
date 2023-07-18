@@ -22,10 +22,8 @@
     class="mp-swipe-card-item {{list.length - 1 === idx ? 'top' : ''}}"
     style="transform: translate3d({{list.length - 1 === idx ? position.x : 0}}rpx, 0rpx, 0rpx);"
   >
-  <view data-id="{{item.id}}"
-        item-data="{{item}}">
-    <view class="id-text">{{item.id}}</view>
-    <view class="name-text">{{item.name}}</view>
-  </view>
+  <mp-swipe-card-item
+      item-data="{{item}}"
+    ></mp-swipe-card-item>
 </view>
 

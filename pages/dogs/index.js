@@ -5,7 +5,8 @@ Page({
   data: {
     pushList: [
 
-    ]
+    ],
+    currentCard: {}
   },
   //事件处理函数
   bindViewTap: function() {
@@ -29,20 +30,6 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad(options) {
-    
-  },
-
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
-  onReady() {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page show
-   */
-  onShow() {
     const page = this
       
     if (typeof this.getTabBar === 'function' &&
@@ -58,17 +45,17 @@ Page({
       header: getApp().globalData.header,
       success(res) {
         const dogs = res.data;
-
+        console.log("dogs:", dogs )
         // Update local data
         const updatedDogs = dogs.map((dog) => {
           return {
             id: dog.id,
             name: dog.name,
             gender: dog.gender,
-            image_url: dog.image_urls ? dog.image_urls[0] : '', // Get the first image URL
+            imageUrl: dog.image_urls ? dog.image_urls[0] : '', // Get the first image URL
             neutered: dog.neutered,
             vaccinated: dog.vaccinated,
-            // Add more properties: breed and owner
+            ownerId: dog.owner_id
           };
         });
   
@@ -82,6 +69,36 @@ Page({
         wx.hideToast();
       },
     });
+  },
+
+  handleSwipeOut(args) {
+    console.log("Handle swipe out", args)
+    const page = this;
+    const direction = args.detail.direction;
+    const dogId = args.detail.item.id;
+    console.log("Direction:", direction);
+    console.log("Dog Id:", dogId);
+    console.log("Type of direction:", typeof direction);
+  },
+ 
+  getUserInfo: function(e) {
+    
+  },
+
+addMatch: function(options) {
+
+},
+  /**
+   * Lifecycle function--Called when page is initially rendered
+   */
+  onReady() {
+  },
+
+  /**
+   * Lifecycle function--Called when page show
+   */
+  onShow() {
+    
   },
 
   /**

@@ -1,9 +1,7 @@
 const HTRESHOLD = 150;
 
 Component({
-  /**
-   * 组件的属性列表
-   */
+
   properties: {
     itemData: {
       type: Object,
@@ -39,10 +37,10 @@ Component({
       type: Boolean,
       value: false
     },
-    goToShow: {
-      type: Function,
-      required: true
-    }
+    // goToShow: {
+    //   type: Function,
+    //   required: true
+    // }
   },
 
   /**
@@ -63,11 +61,7 @@ Component({
    */
   methods: {
     handleTap() {
-      const id = this.data.itemData.id;
-      console.log(`Go to Dog with id: ${id}`);
-      wx.navigateTo({
-        url: `/pages/dogs/show?id=${id}`,
-      })
+
     },
 
     handleTouchStart(e) {

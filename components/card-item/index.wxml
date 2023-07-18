@@ -1,0 +1,4 @@
+<view class="mp-swipe-card-item">
+  <view bind:tap="handleTap" data-id="{{itemData.id}}" class="id-text">{{itemData.id}}</view>
+  <view class="name-text">{{itemData.name}}</view>
+</view>

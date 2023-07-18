@@ -2,11 +2,13 @@
 
 <view class="container">
   <view class="swipe-card-container">
-    <view class="placeholder-0" wx:if="{{ pushList.length > 0 }}"></view>
-    <view class="placeholder-1" wx:if="{{ pushList.length > 0 }}"></view>
-    <view class="placeholder-2" wx:if="{{ pushList.length > 0 }}"></view>
+    <view class="placeholder-0"></view>
+    <view class="placeholder-1"></view>
+    <view class="placeholder-2"></view>
     <mp-swipe-card
-      push-list="{{pushList}}"  
+      push-list="{{pushList}}"
+      bind:swipeout="handleSwipeOut"
+      generic:mp-swipe-card-item="card-item"   
     >
       <view>{{item}}</view>  
     </mp-swipe-card>

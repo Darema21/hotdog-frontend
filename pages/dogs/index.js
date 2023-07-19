@@ -9,19 +9,18 @@ Page({
     currentCard: {}
   },
   //事件处理函数
-  bindViewTap: function() {
-    
+  bindViewTap: function () {
+
   },
   onLoad: function () {
     setInterval(() => {
       this.setData({
-        pushList: [
-        ]
+        pushList: []
       })
     }, 5000)
   },
 
-  goToShow: function(e) {
+  goToShow: function (e) {
     const id = e.currentTarget.dataset.dogid
     utils.goToShow(id)
   },
@@ -31,9 +30,9 @@ Page({
    */
   onLoad(options) {
     const page = this
-      
+
     if (typeof this.getTabBar === 'function' &&
-    this.getTabBar()) {
+      this.getTabBar()) {
       this.getTabBar().setData({
         selected: 0
       })
@@ -45,7 +44,7 @@ Page({
       header: getApp().globalData.header,
       success(res) {
         const dogs = res.data;
-        console.log("dogs:", dogs )
+        console.log("dogs:", dogs)
         // Update local data
         const updatedDogs = dogs.map((dog) => {
           return {
@@ -58,14 +57,14 @@ Page({
             ownerId: dog.owner_id
           };
         });
-  
+
         page.setData({
           pushList: updatedDogs, // Set the updated dogs array to pushList
         }, () => {
           console.log("Push List", page.data.pushList)
         });
-        
-        
+
+
         wx.hideToast();
       },
     });
@@ -75,30 +74,110 @@ Page({
     console.log("Handle swipe out", args)
     const page = this;
     const direction = args.detail.direction;
-    const dogId = args.detail.item.id;
+    const dog_id = args.detail.item.id;
+    const to_owner_id = args.detail.item.ownerId;
+    const from_owner_id = 2;
     console.log("Direction:", direction);
-    console.log("Dog Id:", dogId);
+    console.log("Dog Id:", dog_id);
     console.log("Type of direction:", typeof direction);
-  },
- 
-  getUserInfo: function(e) {
+
+    console.log("Before sending requests");
+
+    // Send the POST request
+    wx.request({
+      url: `${app.globalData.baseUrl}owners/${from_owner_id}/matches`,
+      method: 'POST',
+      data: {
+        match: {
+          from_owner_id: from_owner_id,
+          to_owner_id: to_owner_id,
+          from_owner_decision: direction
+        }
+      },
+      success(res) {
+        console.log("POST request successful");
+        console.log("Response:", res);
+
+        // Handle the success response
+        if (res.statusCode === 200) {
+          const match = res.data;
+          if (match.status === "like") {
+            console.log("Mutual match found:", match);
+            wx.navigateTo({
+              //Need to add dogs somehow
+              // url: `${mutuallikepage}?from_owner_id=${from_owner_id}&to_owner_id=${to_owner_id}`,
+            });
+          } else {
+            console.log("Match created successfully");
+            wx.showToast({
+              title: 'Match created successfully',
+              icon: 'success',
+              duration: 2000
+            });
+          }
+        } else {
+          console.log("Failed to create match");
+          wx.showToast({
+            title: 'Failed to create match',
+            icon: 'none',
+            duration: 2000
+          });
+        }
+      },
+      fail(res) {
+        console.log("POST request failed");
+        console.log("Error:", res);
+
+        // Handle the failure response
+        wx.showToast({
+          title: 'Failed to create match',
+          icon: 'none',
+          duration: 2000
+        });
+      }
+    });
+
+    
+    // Send the GET request
+    // wx.request({
+    //   url: `${app.globalData.baseUrl}owners/${from_owner_id}/matches`,
+    //   method: 'GET',
+    //   success(res) {
+    //     console.log("GET request successful");
+    //     console.log("Response:", res);
+    
+    //     // Handle the success response
+    //     // Check if there is an existing match
+    //   },
+    //   fail(res) {
+    //     console.log("GET request failed");
+    //     console.log("Error:", res);
+    
+    //     // Handle the failure response
+    //   }
+    // });
+    
+    console.log("After sending requests");
     
   },
 
-addMatch: function(options) {
+  getUserInfo: function (e) {
 
-},
+  },
+
+  addMatch: function (options) {
+
+  },
   /**
    * Lifecycle function--Called when page is initially rendered
    */
-  onReady() {
-  },
+  onReady() {},
 
   /**
    * Lifecycle function--Called when page show
    */
   onShow() {
-    
+
   },
 
   /**

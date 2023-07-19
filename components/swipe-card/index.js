@@ -14,7 +14,6 @@ Component({
         this.setData({
           list: value.concat(this.data.list)
         });
-        console.log("Updated list:", this.data.list);
       }
     },
     pushUpdate: {

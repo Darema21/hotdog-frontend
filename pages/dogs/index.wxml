@@ -1,7 +1,14 @@
 <!--index.wxml-->
 
-<view class="container">
-  <view class="swipe-card-container">
+<view class="swipe-card-container">
+<!-- Icons -->
+  <view class="icons flex ai-с jc-sb">
+        <image src="../images/icons/notifications.png" mode="" />
+        <image src="../images/icons/settings.png" mode="" />
+    </view>
+    
+<!-- Card -->
+  <view class="">
     <view class="placeholder-0"></view>
     <view class="placeholder-1"></view>
     <view class="placeholder-2"></view>

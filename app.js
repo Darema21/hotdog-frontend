@@ -4,7 +4,7 @@ App({
     const app = this
     wx.login({
       success: res => {
-        console.log(res)
+        // console.log(app.globalData.headers)
         wx.request ({
           // url: 'http://localhost:3000/api/v1/login',
           url: `${app.globalData.baseUrl}login`,
@@ -27,7 +27,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    user: null,
+    owner: null,
     header: {},
     baseUrl: 'http://localhost:3000/api/v1/'
   }

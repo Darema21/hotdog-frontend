@@ -1,4 +1,5 @@
 // pages/dogs/index.js
+const app = getApp()
 Page({
 
     /**
@@ -28,12 +29,13 @@ Page({
     onShow() {
       
       let page = this;
+      console.log("index.js", app.globalData.header)
     
       // Get api data
       wx.request({
-        url: `${getApp().globalData.baseUrl}dogs`,
+        url: `${app.globalData.baseUrl}dogs`,
         method: 'GET',
-        header: getApp().globalData.header,
+        header: app.globalData.header,
         success(res) {
           console.log(res)
           const dogs = res.data.dogs;

@@ -1,3 +1,4 @@
+
 .id-text {
   font-size: 48rpx;
 }
@@ -7,8 +8,66 @@
 }
 
 .mp-swipe-card-item {
+  /* height: 100%;
+  width: 100%;*/
   height: 100%;
-  width: 100%;
-  padding: 20rpx;
+  margin: 20rpx;
   /* background: linear-gradient(to right bottom, red, orange, green, purple); */
+}
+
+.item {
+  padding: 20rpx;
+  border-radius: 20rpx;
+}
+
+.avatar-user {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 18rpx;
+  border: white 1px solid;
+  margin-right: 20rpx;
+}
+
+
+/* Neutered, vaccinated */
+.dog-atrribute {
+  border-radius: 100rpx;
+  padding: 16rpx 32rpx;
+  font-size: 28rpx;
+}
+
+.attribute-true {
+  background-color: var(--accent-pink);    
+  color: var(--white);
+}
+
+.attribute-false {
+  border: solid 2rpx var(--grey-dark);
+  color: var(--grey-dark);
+}
+
+.quality-icon {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+/* Flex-properties */
+.flex {
+  display: flex;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.ai-c {
+    align-items: center;
+}
+
+.jc-c {
+    justify-content: center;
+}
+
+.jc-sb {
+    justify-content: space-between;
 }

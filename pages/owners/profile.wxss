@@ -1,1 +1,19 @@
 /* pages/users/profile.wxss */
+.profile-card {
+  background-color: var(--white);
+  /* height: ; */
+  border-radius: 30rpx;
+  padding: 15rpx;
+  margin: 50rpx;
+  margin-bottom: 1.2em;
+  text-align: center;
+}
+
+.owner-card {
+  background-color: var(--white);
+  border-radius: 30rpx;
+  padding: 5rpx;
+  margin: 5rpx;
+  margin-bottom: 0.2em;
+  text-align: left;
+}

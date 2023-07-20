@@ -1,2 +1,17 @@
 <!--pages/users/profile.wxml-->
-<text>pages/users/profile.wxml</text>
+<view class="profile-card">
+<view class="--accent-pink h3">Welcome back!</view>
+<view class="--dark owner-dog-name h2"> #owner & #dog</view>
+</view>
+
+<view class="owner-card">
+Edit User info
+</view>
+<view class="owner-card">
+Edit dog's info 
+</view>
+<view class="owner-card">
+Set your preferences
+</view>
+
+

@@ -43,6 +43,13 @@
           "query": "id=2",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/owners/profile",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

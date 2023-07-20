@@ -3,9 +3,18 @@ page {
   background:var(--primary-color);
 }
 
+.icons {
+  margin: 16rpx 0;
+}
+
+.icons image {
+  width: 80rpx;
+  height: 80rpx;
+}
+
 .swipe-card-container {
-  width: 600rpx;
-  height: 900rpx;
+  width: 620rpx;
+  height: 840rpx;
   margin-top: 20rpx;
   margin-left: auto;
   margin-right: auto;

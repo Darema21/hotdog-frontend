@@ -16,13 +16,37 @@
 }
 
 .item {
+  position: relative;
   padding: 20rpx;
   border-radius: 20rpx;
+  height: 65%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.item-data {
+  position: absolute;
+  bottom: 5%;
+}
+
+.item::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+}
+
+.item-name {
+  margin-bottom: .3em;
 }
 
 .avatar-user {
-  width: 160rpx;
-  height: 160rpx;
+  width: 200rpx;
+  height: 200rpx;
   border-radius: 18rpx;
   border: white 1px solid;
   margin-right: 20rpx;
@@ -30,10 +54,11 @@
 
 
 /* Neutered, vaccinated */
-.dog-atrribute {
+.dog-attribute {
   border-radius: 100rpx;
-  padding: 16rpx 32rpx;
+  padding: .5em .7em;
   font-size: 28rpx;
+  margin-right: 20rpx;
 }
 
 .attribute-true {
@@ -43,12 +68,13 @@
 
 .attribute-false {
   border: solid 2rpx var(--grey-dark);
-  color: var(--grey-dark);
+  color: var(--dark);
+  background-color: var(--white);
 }
 
 .quality-icon {
-  width: 40rpx;
-  height: 40rpx;
+  width: 60rpx;
+  height: 60rpx;
 }
 
 /* Flex-properties */
@@ -70,4 +96,22 @@
 
 .jc-sb {
     justify-content: space-between;
+}
+
+
+/* Typography */
+.h1,
+.h2, 
+.h3
+{
+  color: var(--dark);
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+  line-height: 1.15;
+  text-transform: capitalize;
+}
+
+.h1 {
+  font-size: 64rpx;
+  text-align: center;
 }

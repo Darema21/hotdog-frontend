@@ -4,7 +4,7 @@ page {
 }
 
 .icons {
-  margin: 16rpx 0;
+  margin: 1rem 0;
 }
 
 .icons image {
@@ -13,8 +13,8 @@ page {
 }
 
 .swipe-card-container {
-  width: 620rpx;
-  height: 840rpx;
+  width: 680rpx;
+  height: 1000rpx;
   margin-top: 20rpx;
   margin-left: auto;
   margin-right: auto;

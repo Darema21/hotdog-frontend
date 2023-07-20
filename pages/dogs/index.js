@@ -99,13 +99,13 @@ Page({
         console.log("Response:", res);
 
         // Handle the success response
-        if (res.statusCode === 200) {
+        if (res.statusCode === 200 || res.statusCode === 201 ) {
           const match = res.data;
           if (match.status === "like") {
             console.log("Mutual match found:", match);
             wx.navigateTo({
               //Need to add dogs somehow
-              // url: `${mutuallikepage}?from_owner_id=${from_owner_id}&to_owner_id=${to_owner_id}`,
+              url: `pages/matches/mutual?from_owner_id=${from_owner_id}&to_owner_id=${to_owner_id}`,
             });
           } else {
             console.log("Match created successfully");

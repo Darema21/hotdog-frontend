@@ -1,14 +1,13 @@
 .tab-bar {
     height: 128rpx;
     position: absolute;
-    bottom: 0;
+    bottom: 10%;
     left: 0;
     right: 0;
-    height: 96rpx;
     background: white;
     display: flex;
-    padding: 16rpx 0;
-    /* padding-bottom: env(safe-area-inset-bottom); */
+    padding: 16rpx 0 0 0 ;
+    padding-bottom: env(safe-area-inset-bottom);
     box-shadow: 0px 3px 24px 0px rgba(92, 91, 91, 0.15);
     pointer-events: auto;
 }

@@ -9,6 +9,7 @@
     "pages/wiki/show",
     "pages/matches/index",
     "pages/matches/show",
+    "pages/matches/mutual",
     "pages/owners/profile",
     "pages/logs/logs",
     "components/swipe-card/index",

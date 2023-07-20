@@ -1,6 +1,6 @@
 <!--pages/wiki/show.wxml-->
 <view class="flex ai-c jc-c">
-    <image class="breed-image" src="{{ breed.image_url }}" mode="widthFix" />
+    <image class="breed-image" src="{{ 'https://res.cloudinary.com/ds0c8uqvx/image/upload/v1689510757/hotdog/' + breed.image_url + '.png' }}" mode="aspectFit" />
 </view>
 <view class="breed-description">
     <view class="container">
@@ -11,12 +11,12 @@
             <view class="breed-data flex column ai-c">
                 <image class="stats-icon" src="../images/icons/height.png" mode="" />
                 <text class="p-light">Avg.height: </text>
-                <text class="p">{{ breed.average_height }}</text>
+                <text class="p">{{ breed.average_height }} cm </text>
             </view>
             <view class="breed-data flex column ai-c">
                 <image class="stats-icon" src="../images/icons/weight.png" mode="" />
                 <text class="p-light">Avg.weight: </text>
-                <text class="p">{{ breed.average_weight }}</text>
+                <text class="p">{{ breed.average_weight }} kg</text>
             </view>
             <view class="breed-data flex column ai-c">
                 <image class="stats-icon" src="../images/icons/life.png" mode="" />
@@ -43,12 +43,12 @@
 
         <!-- Best Match -->
         <text class="h2">Best Matches With</text>
-        <view class="best-match flex ai-с jc-sb" wx:for="{{ bestMatches }}" wx:for-item="match" wx:key="id" bindtap="goToBreed" data-id="{{ breed.id }}">
+        <view class="best-match flex ai-с jc-sb" wx:for="{{ bestMatches }}" wx:for-item="match" wx:key="id" bindtap="goToBreed" data-id="{{ match.id }}">
             <view class="flex ai-c">
-                <image class="avatar-dog" src="{{ match.image_url }}" mode="" />
+                <image class="avatar-dog" src="{{ 'https://res.cloudinary.com/ds0c8uqvx/image/upload/v1689510757/hotdog/' + match.image_url + '.png' }}" mode="aspectFit" />
                 <text class="p">{{match.name}}</text>
             </view>
-            <text class="p">{{match.similarity_score}}</text>
+            <text class="p percentage">{{match.similarity_score}}</text>
         </view>
     </view>
 </view>

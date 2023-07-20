@@ -25,13 +25,6 @@
         },
         {
           "name": "",
-          "pathName": "pages/landing/landing",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
           "pathName": "pages/dogs/index",
           "query": "",
           "launchMode": "default",
@@ -47,6 +40,20 @@
         {
           "name": "",
           "pathName": "pages/landing/landing",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/matches/mutual",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/matches/mutual",
           "query": "",
           "launchMode": "default",
           "scene": null

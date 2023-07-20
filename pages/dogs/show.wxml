@@ -1,82 +1,78 @@
 <!--pages/dogs/show.wxml-->
-<!--pages/wiki/show.wxml-->
+
 <scroll-view class="container-horizontal" scroll-x="{{true}}">
-    <block wx:for="{{ dog.image_url.length > 0}}" wx:key="image">
-        <image class="dog-show-image" src="{{ image.image_url}}" mode="aspectFill" />
-    </block>
+  <block wx:for="{{ dog.image_url.length > 0}}" wx:key="image">
+    <image class="dog-show-image" src="{{ image.image_url}}" mode="aspectFill" />
+  </block>
 </scroll-view>
 
 <view class="dog-description">
-    <view class="container">
-        <text class="h1">{{ dog.name }}</text>
+  <view class="container">
+    <text class="h1">{{ dog.name }}</text>
 
-        <!-- Average XXX stats -->
-        <view class="dog-stats flex ai-с jc-sb">
-            <view class="dog-data flex column ai-c">
-                <image class="stats-icon" src="../images/icons/gender.png" mode="" />
-                <text class="p-light">Gender</text>
-                <text class="p">{{ dog.gender }}</text>
-            </view>
-            <view class="dog-data flex column ai-c">
-                <image class="stats-icon" src="../images/icons/date.png" mode="" />
-                <text class="p-light">Age</text>
-                <block wx:if="{{ dog.age % 10 == 1 && dog.age != 11 }}">
-                    <text class="p">{{ dog.age }} year old</text>
-                </block>
-                <block wx:else>
-                    <text class="p">{{ dog.age }} years old</text>
-                </block>
-            </view>
-            <view class="dog-data flex column ai-c" bindtap="goToBreed" data-id="{{ breed.id }}">
-                <image class="stats-icon" src="../images/icons/breed.png" mode="" />
-                <text class="p-light">Breed</text>
-                <text class="p">{{ breed.name }}</text>
-            </view>
+    <!-- XXX stats -->
+    <view class="dog-stats flex ai-с jc-sb">
+      <view class="dog-data flex column ai-c">
+        <image class="stats-icon" src="../images/icons/gender.png" mode="" />
+        <text class="p-light">Gender</text>
+        <text class="p">{{ dog.gender }}</text>
+      </view>
+      <view class="dog-data flex column ai-c">
+        <image class="stats-icon" src="../images/icons/date.png" mode="" />
+        <text class="p-light">Age</text>
+        <block wx:if="{{ dog.age % 10 == 1 && dog.age != 11 }}">
+          <text class="p">{{ dog.age }} year old</text>
+        </block>
+        <block wx:else>
+          <text class="p">{{ dog.age }} years old</text>
+        </block>
+      </view>
+      <view class="dog-data flex column ai-c" bindtap="goToBreed" data-id="{{ breed.id }}">
+        <image class="stats-icon" src="../images/icons/breed.png" mode="" />
+        <text class="p-light">Breed</text>
+        <text class="p link">{{ breed.name }}</text>
+      </view>
 
-        </view>
-
-        <!-- Description -->
-        <view class="dog-description flex column">
-            <text class="h3">Description:</text>
-            <text>{{ dog.bio }}</text>
-        </view>
-
-        <!-- Vaccine, neutered -->
-        <view class="flex">
-
-            <view class="dog-attribute {{ dog.neutered ? 'attribute-true' : 'attribute-false' }}">
-                <view class="flex ai-c">
-                    <image class="quality-icon" src="{{ dog.neutered ? '/pages/images/icons/neuter_true.png' : '/pages/images/icons/neuter_false.png' }}" mode="aspectFit" />
-                    <text>{{ dog.neutered ? 'Neutered' : 'Not neutered' }}</text>
-                </view>
-            </view>
-            <view class="dog-attribute {{ dog.vaccinated ? 'attribute-true' : 'attribute-false' }}">
-                <view>
-                    <image class="quality-icon" src="{{ dog.vaccinated ? '/pages/images/icons/vaccine_true.png' : '/pages/images/icons/vaccine_false.png' }}" mode="aspectFit" />
-                    <text>{{ dog.vaccinated ? 'Vaccinated' : 'Not vaccinated' }}</text>
-                </view>
-            </view>
-        </view>
-
-
-        <image class="separator" src="../images/separator.png" alt="" />
-
-        <!-- Owner -->
-        <view class="owner flex ai-с">
-            <image class="avatar-user" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=761&q=80" mode="aspectFill" />
-            <view class="owner-text flex column jc-c">
-                <text class="h2">{{ owner.name }}</text>
-                <block wx:if="{{ owner.age % 10 == 1 && owner.age != 11 }}">
-                    <text class="p-light">{{ owner.age }} year old</text>
-                </block>
-                <block wx:else>
-                    <text class="p-light">{{ owner.age }} years old</text>
-                </block>
-
-            </view>
-        </view>
-        <text class="owner-description">
-            {{ owner.bio }}
-        </text>
     </view>
+
+    <!-- Description -->
+    <view class="dog-description flex column">
+      <text class="h3">Description:</text>
+      <text>{{ dog.bio }}</text>
+    </view>
+
+    <!-- Vaccine, neutered -->
+    <view class="flex">
+
+      <view class="flex ai-c dog-attribute {{ dog.neutered ? 'attribute-true' : 'attribute-false' }}">
+        <image class="quality-icon" src="{{ dog.neutered ? '/pages/images/icons/neuter_true.png' : '/pages/images/icons/neuter_false.png' }}" mode="aspectFit" />
+        <text>{{ dog.neutered ? 'Neutered' : 'Not neutered' }}</text>
+      </view>
+      <view class="flex ai-c dog-attribute {{ dog.vaccinated ? 'attribute-true' : 'attribute-false' }}">
+        <image class="quality-icon" src="{{ dog.vaccinated ? '/pages/images/icons/vaccine_true.png' : '/pages/images/icons/vaccine_false.png' }}" mode="aspectFit" />
+        <text>{{ dog.vaccinated ? 'Vaccinated' : 'Not vaccinated' }}</text>
+      </view>
+    </view>
+
+
+    <image class="separator" src="../images/separator.png" alt="" />
+
+    <!-- Owner -->
+    <view class="owner flex ai-с">
+      <image class="avatar-user" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=761&q=80" mode="aspectFill" />
+      <view class="owner-text flex column jc-c">
+        <text class="h2">{{ owner.name }}</text>
+        <block wx:if="{{ owner.age % 10 == 1 && owner.age != 11 }}">
+          <text class="p-light">{{ owner.age }} year old</text>
+        </block>
+        <block wx:else>
+          <text class="p-light">{{ owner.age }} years old</text>
+        </block>
+
+      </view>
+    </view>
+    <text class="owner-description">
+      {{ owner.bio }}
+    </text>
+  </view>
 </view>

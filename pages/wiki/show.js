@@ -1,5 +1,6 @@
 // pages/wiki/show.js
 const app = getApp();
+const utils = require('../../utils/util');
 
 Page({
   /**
@@ -11,6 +12,11 @@ Page({
     activityText: '',
     trainabilityText: '',
     bestMatches: [],
+  },
+
+  goToBreed(e) {
+    const id = e.currentTarget.dataset.id;
+    utils.goToBreed(id);
   },
 
   /**

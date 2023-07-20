@@ -14,7 +14,17 @@
 }
 
 .dog-stats {
-    margin: .2em 1.4em;
+    margin: .2em 0;
+}
+
+.dog-data {
+  flex: 1;
+  text-align: center;
+}
+
+.link {
+  text-decoration: underline;
+  color: var(--accent-pink);
 }
 
 .dog-qualities {

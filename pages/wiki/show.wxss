@@ -1,9 +1,3 @@
-.best-match {
-    border-bottom: 1px solid var(--grey-light);
-    padding: .7em 0;
-}
-
-
 .breed-image {
     width: 320rpx;
     height: 320rpx;
@@ -33,4 +27,15 @@
     padding: 16rpx 32rpx;
     color: var(--white);
     font-size: 28rpx;
+}
+
+.best-match {
+  padding: .7em 0;
+}
+
+.percentage {
+  vertical-align: middle;
+  margin: auto 0;
+  color: var(--accent-pink);
+  font-weight: bold;
 }

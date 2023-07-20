@@ -49,4 +49,9 @@ image {
 navigator {
   position: fixed;
   bottom: 10%;
+  align-items: center;
+}
+
+navigator image {
+  margin-bottom: .3rem;
 }

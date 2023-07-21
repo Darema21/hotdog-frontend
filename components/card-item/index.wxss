@@ -77,6 +77,13 @@
   height: 60rpx;
 }
 
+/* Buttons */
+.match-button {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+
 /* Flex-properties */
 .flex {
   display: flex;

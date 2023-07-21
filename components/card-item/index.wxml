@@ -21,6 +21,10 @@
       </view>
     </view>
 
-
+    <!-- Buttons -->
+    <view class="buttons">
+      <image class="match-button" src="/pages/images/buttons/No.png" mode="aspectFit"/>
+      <image src="/pages/images/buttons/Yes.png" mode=""/>
+    </view>
   </view>
 </view>

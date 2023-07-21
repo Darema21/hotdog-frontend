@@ -1,6 +1,7 @@
 .avatar-user {
     border-radius: 18rpx;
     border: white 4rpx solid;
+    margin-right: .5em;
   }
 
   .avatar-user-lg {

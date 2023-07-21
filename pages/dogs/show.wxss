@@ -34,7 +34,5 @@
 }
 
 .owner image {
-    width: 192rpx;
-    height: 192rpx;
     margin-right: .5em;
 }

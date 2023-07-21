@@ -31,8 +31,8 @@ image {
 }
 
 .match-image {
-  width: 42vw;
-  height: 40vh;
+  width: 300rpx;
+  height: 400rpx;
   border-radius: 20rpx;
   border: 6rpx solid var(--white);
 }

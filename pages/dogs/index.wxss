@@ -14,7 +14,7 @@ page {
 
 .swipe-card-container {
   width: 680rpx;
-  height: 1000rpx;
+  height: 70vh;
   margin-top: 20rpx;
   margin-left: auto;
   margin-right: auto;

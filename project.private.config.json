@@ -47,13 +47,13 @@
         {
           "name": "",
           "pathName": "pages/matches/mutual",
-          "query": "",
+          "query": "from_owner_id=2&to_owner_id=$3",
           "launchMode": "default",
           "scene": null
         },
         {
           "name": "",
-          "pathName": "pages/matches/mutual",
+          "pathName": "pages/matches/index",
           "query": "",
           "launchMode": "default",
           "scene": null

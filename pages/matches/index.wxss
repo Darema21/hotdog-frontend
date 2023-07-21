@@ -1,5 +1,17 @@
 /* pages/matches/index.wxss */
 
+page {
+  background-color: var(--white);
+}
+
+.section-text {
+  margin-bottom: .5em;
+}
+
+.section-h {
+  margin-bottom: 1rem;
+}
+
 .avatar-dog {
   margin-left: -2rem;
 }

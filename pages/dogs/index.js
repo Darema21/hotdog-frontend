@@ -35,7 +35,7 @@ Page({
       this.getTabBar()) {
       this.getTabBar().setData({
         selected: 0
-      })
+      });
     }
 
     wx.request({

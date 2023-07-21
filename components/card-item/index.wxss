@@ -78,9 +78,17 @@
 }
 
 /* Buttons */
+.match-buttons {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .match-button {
-  width: 80rpx;
-  height: 80rpx;
+  width: 200rpx;
+  height: 200rpx;
+  margin: 0 .5em;
 }
 
 

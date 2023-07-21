@@ -1,1 +1,57 @@
 /* pages/matches/mutual.wxss */
+page {
+  background-image: var(--gradient);
+  font-family: "Quicksand";
+  color: var(--white);
+  background-image: url('https://i.imgur.com/HDCCYo5.png');
+}
+
+image {
+  margin-right: .5rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.app {
+  margin-top: .5em;
+}
+
+.h1{
+  color: var(--white);
+  margin-bottom: 1.5rem;
+}
+
+.match-image {
+  width: 42vw;
+  height: 40vh;
+  border-radius: 20rpx;
+  border: 6rpx solid var(--white);
+}
+
+.btn-icon {
+  width: 80rpx;
+}
+
+.btn-text{
+  vertical-align: middle;
+  margin: auto;
+}
+
+navigator {
+  position: fixed;
+  bottom: 10%;
+  align-items: center;
+}
+
+navigator image {
+  margin-bottom: .3rem;
+}

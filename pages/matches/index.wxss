@@ -1,1 +1,5 @@
 /* pages/matches/index.wxss */
+
+.avatar-dog {
+  margin-left: -2rem;
+}

@@ -4,7 +4,7 @@
 
     <view class="item-data flex column">
       <view class="item-name flex ai-c">
-        <text class="name-text h1">{{itemData.name}}</text>
+        <text class="name-text">{{itemData.name}}</text>
         <image class="quality-icon" src="{{ itemData.gender === 'Female' ? '/pages/images/icons/female_icon.png' : '/pages/images/icons/male_icon.png' }}" mode="aspectFit" mode="" />
       </view>
 

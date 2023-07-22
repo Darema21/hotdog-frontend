@@ -1,10 +1,16 @@
-
 .id-text {
   font-size: 48rpx;
 }
 
 .name-text {
   font-size: 64rpx;
+  font-weight: bold;
+  color: black;
+  text-shadow:
+    -2rpx -2rpx 0 white,
+    2rpx -2rpx 0 white,
+    -2rpx 2rpx 0 white,
+    2rpx 2rpx 0 white;
 }
 
 .mp-swipe-card-item {
@@ -30,7 +36,7 @@
   bottom: 5%;
 }
 
-.item::before{
+.item::before {
   content: "";
   position: absolute;
   top: 0;
@@ -62,7 +68,7 @@
 }
 
 .attribute-true {
-  background-color: var(--accent-pink);    
+  background-color: var(--accent-pink);
   color: var(--white);
 }
 
@@ -102,23 +108,22 @@
 }
 
 .ai-c {
-    align-items: center;
+  align-items: center;
 }
 
 .jc-c {
-    justify-content: center;
+  justify-content: center;
 }
 
 .jc-sb {
-    justify-content: space-between;
+  justify-content: space-between;
 }
 
 
 /* Typography */
 .h1,
-.h2, 
-.h3
-{
+.h2,
+.h3 {
   color: var(--dark);
   font-family: 'Quicksand', sans-serif;
   font-weight: bold;

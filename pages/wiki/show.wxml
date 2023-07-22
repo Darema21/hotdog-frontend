@@ -48,7 +48,7 @@
                 <image class="avatar-dog" src="{{ 'https://res.cloudinary.com/ds0c8uqvx/image/upload/v1689510757/hotdog/' + match.image_url + '.png' }}" mode="aspectFit" />
                 <text class="p">{{match.name}}</text>
             </view>
-            <text class="p percentage">{{match.similarity_score}}</text>
+            <text class="p p-pink percentage">{{match.similarity_score}}</text>
         </view>
     </view>
 </view>

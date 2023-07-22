@@ -1,4 +1,8 @@
 // pages/matches/index.js
+
+const app = getApp()
+const utils = require('../../utils/util')
+
 Page({
 
     /**
@@ -8,6 +12,14 @@ Page({
 
     },
 
+    goToMatch(event) {
+      console.log('ID:', event.currentTarget.dataset.matchId);
+      const match_id = event.currentTarget.dataset.matchId;
+      wx.navigateTo({
+        url: `/pages/matches/show?id=${match_id}`,
+      });
+    },
+    
     /**
      * Lifecycle function--Called when page load
      */

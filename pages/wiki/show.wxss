@@ -36,6 +36,4 @@
 .percentage {
   vertical-align: middle;
   margin: auto 0;
-  color: var(--accent-pink);
-  font-weight: bold;
 }

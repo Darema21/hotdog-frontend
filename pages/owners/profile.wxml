@@ -1,9 +1,12 @@
 <!--pages/users/profile.wxml-->
 <view class="profile-container">
   <view class="profile-card">
-    <image class="user-avatar" src="https://images.unsplash.com/photo-1466995937966-2e6f29c6ed60?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" mode=""/>
-    <view class="h3 profile-greeting">Welcome back!
-      <view class="--dark owner-dog-name h2"> #owner & #dog</view>
+    <view class="owner-dog-avatar">
+      <image class="avatar-user-lg profile-owner" src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" mode=""/>
+      <image class="avatar-dog profile-dog-avatar" src="https://images.unsplash.com/photo-1575383095193-52195a64e3a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60" mode="aspectFill" />
+    </view>
+    <view class="h3 profile-greeting welcome">Welcome back!
+      <view class="--dark owner-dog-name h2"> Sammi & Baoan</view>
     </view>
   </view>
 </view>

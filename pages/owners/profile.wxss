@@ -8,28 +8,37 @@
     margin-bottom: 1.2em;
     text-align: center;
   }
-  
+
   .profile-card {
+    display: flex;
+    flex-wrap: wrap;
     height: 100%;
     justify-content: center;
-  }
-  
-  .user-avatar {
-    border-radius: 50%;
-    /* background-size: cover; */
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100rpx;
-    height: 100rpx;
-    /* margin: .5rem auto; */
+    margin-bottom: 20rpx;
   }
 
   .profile-greeting {
-   display: flex;
+    margin-top: 50rpx;
    flex-direction: column;
    align-items: flex-start;
    justify-content: center;
    margin-left: 10rpx;
+  }
+
+  .welcome {
+    color: var(--accent-pink)
+  }
+
+  .profile-owner {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+
+  .profile-dog-avatar {
+    position: absolute;
+    top: 200rpx;
+    left: 220rpx;
   }
 
 .arrow {

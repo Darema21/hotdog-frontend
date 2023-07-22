@@ -1,0 +1,29 @@
+<view class="mp-swipe-card-item" bind:tap="handleTap" data-id="{{itemData.id}}">
+  <view class="item" style="background-image: url(https://images.unsplash.com/photo-1615751072497-5f5169febe17?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80);">
+    <image class="avatar-user avatar-user-lg" src="https://images.unsplash.com/photo-1689363199550-d0f417ed21db?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" mode="aspectFill" />
+
+    <view class="item-data flex column">
+      <view class="item-name flex ai-c">
+        <text class="name-text">{{itemData.name}}</text>
+        <image class="quality-icon" src="{{ itemData.gender === 'Female' ? '/pages/images/icons/female_icon.png' : '/pages/images/icons/male_icon.png' }}" mode="aspectFit" mode="" />
+      </view>
+
+      <!-- Vaccine, neutered -->
+      <view class="flex">
+        <view class="flex ai-c dog-attribute {{ itemData.neutered ? 'attribute-true' : 'attribute-false' }}">
+          <image class="quality-icon" src="{{ itemData.neutered ? '/pages/images/icons/neuter_true.png' : '/pages/images/icons/neuter_false.png' }}" mode="aspectFit" />
+          <text>{{ itemData.neutered ? 'Neutered' : 'Not neutered' }}</text>
+        </view>
+        <view class="flex ai-c dog-attribute {{ itemData.vaccinated ? 'attribute-true' : 'attribute-false' }}">
+          <image class="quality-icon" src="{{ itemData.vaccinated ? '/pages/images/icons/vaccine_true.png' : '/pages/images/icons/vaccine_false.png' }}" mode="aspectFit" />
+          <text>{{ itemData.vaccinated ? 'Vaccinated' : 'Not vaccinated' }}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+    <!-- Buttons -->
+    <view class="match-buttons">
+      <image class="match-button" src="/pages/images/buttons/No.png" mode="aspectFit"/>
+      <image class="match-button" src="/pages/images/buttons/Yes.png" mode=""/>
+    </view>
+</view>

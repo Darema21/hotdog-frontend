@@ -28,3 +28,12 @@
     color: var(--white);
     font-size: 28rpx;
 }
+
+.best-match {
+  padding: .7em 0;
+}
+
+.percentage {
+  vertical-align: middle;
+  margin: auto 0;
+}

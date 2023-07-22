@@ -1,4 +1,4 @@
-/* pages/landing/landing.wxss */
+/* pages/matches/mutual.wxss */
 page {
   background-image: var(--gradient);
   font-family: "Quicksand";
@@ -25,16 +25,16 @@ image {
   margin-top: .5em;
 }
 
-.app-name{
-  font-family: 'Quicksand', sans-serif;
-  font-size: 96rpx;
-  font-weight: bold;
+.h1{
+  color: var(--white);
+  margin-bottom: 1.5rem;
 }
 
-.app-logo {
-  width: 144rpx;
-  height: 120rpx;
-  margin-left: .7em;
+.match-image {
+  width: 300rpx;
+  height: 400rpx;
+  border-radius: 20rpx;
+  border: 6rpx solid var(--white);
 }
 
 .btn-icon {

@@ -1,1 +1,39 @@
 /* pages/matches/show.wxss */
+
+.banner{
+  background-color: var(--white);
+  height: 310rpx;
+  box-shadow: 0 0 15rpx rgba(0,0,0,0.2);
+}
+
+.avatar-user avatar-user-sm{
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.avatar-dog{
+  position: absolute;
+  top: 130rpx;
+  left: 400rpx;
+}
+
+.h3 {
+  margin-left: 10rpx;
+  margin-top: 50rpx;
+}
+
+input[type="text"], textarea {
+  border: solid 1px #999;
+  border-radius: 10rpx;
+  padding: 5rpx;
+  margin-bottom: 20rpx;
+  width: auto;
+}
+button {
+  margin: 20rpx 0;
+}
+
+.owner{
+  width: auto;
+}

@@ -1,2 +1,31 @@
 <!--pages/matches/show.wxml-->
-<text>pages/matches/show.wxml</text>
+<view class="banner">
+  <view>
+    <image class="avatar-user avatar-user-sm" src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" mode="aspectFill" />
+
+    <image class="avatar-dog" src="https://images.unsplash.com/photo-1575383095193-52195a64e3a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60" mode="aspectFill" />
+  </view>
+  <text class="h3">Sammi & Baoan</text>
+</view>
+
+<!--Message Cards-->
+<view class="cards">
+    <view class="card" wx:for="{{messages}}" wx:for-item="message" bindtap="goToShow" data-id="{{message.id}}">
+      <!-- <text>{{message}}</text> -->
+      <text>{{message.content}}</text>
+    </view>
+</view>
+
+<!--Message Form-->
+<view class="container">
+  <view class="messages">
+    <form bindsubmit="formSubmit">
+      <view>Owner:</view>
+      <input class="owner" type="text" name="owner" value="{{owner}}"/>
+      <view>Content:</view>
+      <!-- <input type="text" placeholder="content" name="content"/> -->
+      <textarea name="message" value="{{ message}}"/>
+      <button form-type="Submit" type="primary">submit</button>
+    </form>
+  </view>
+</view>

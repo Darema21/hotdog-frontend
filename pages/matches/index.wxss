@@ -13,5 +13,5 @@ page {
 }
 
 .avatar-dog {
-  margin-left: -2rem;
+  margin-left: 2rem;
 }

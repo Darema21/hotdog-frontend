@@ -1,4 +1,7 @@
 // pages/dogs/show.js
+const utils = require('../../utils/util');
+const app = getApp();
+
 Page({
 
     /**
@@ -8,11 +11,37 @@ Page({
 
     },
 
+    goToBreed(e) {
+        console.log(e)
+        const data = e.currentTarget.dataset.id;
+        console.log('Data:', data);
+        utils.goToBreed(data);
+      },
+      
     /**
      * Lifecycle function--Called when page load
      */
     onLoad(options) {
+        const id = options.id
+        let page = this;
 
+        wx.request({
+          url: `${app.globalData.baseUrl}dogs/${id}`,
+          method: 'GET',
+          header: app.globalData.header,
+          success(res){
+              console.log(res);
+              const dog = res.data;
+
+              page.setData({
+                dog: dog,
+                owner: dog.owner,
+                breed: dog.breed
+              });
+
+              wx.hideToast();
+          }
+        })
     },
 
     /**

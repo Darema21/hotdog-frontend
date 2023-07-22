@@ -10,9 +10,30 @@
           "scene": null
         },
         {
-          "name": "index",
+          "name": "pages/wiki/show",
+          "pathName": "pages/wiki/show",
+          "query": "id=12",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/wiki/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
           "pathName": "pages/dogs/index",
           "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/dogs/show",
+          "query": "id=2",
           "launchMode": "default",
           "scene": null
         },
@@ -25,7 +46,14 @@
         },
         {
           "name": "",
-          "pathName": "pages/dogs/index",
+          "pathName": "pages/matches/mutual",
+          "query": "from_owner_id=2&to_owner_id=$3",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/matches/index",
           "query": "",
           "launchMode": "default",
           "scene": null

@@ -1,1 +1,39 @@
-/* pages/wiki/show.wxss */
+.breed-image {
+    width: 320rpx;
+    height: 320rpx;
+    margin: 32rpx 0;
+}
+
+.breed-description {
+    background-color: var(--white);
+    border-top-left-radius: 40rpx;
+    border-top-right-radius: 40rpx;
+    margin: 32rpx 0;
+}
+
+.breed-stats {
+    margin: .2em 1.4em;
+}
+
+.breed-qualities {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10rpx;
+}
+
+.breed-quality {
+    background-color: var(--accent-pink);
+    border-radius: 100rpx;
+    padding: 16rpx 32rpx;
+    color: var(--white);
+    font-size: 28rpx;
+}
+
+.best-match {
+  padding: .7em 0;
+}
+
+.percentage {
+  vertical-align: middle;
+  margin: auto 0;
+}

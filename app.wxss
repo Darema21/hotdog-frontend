@@ -1,5 +1,6 @@
 /**app.wxss**/
 
+@import "./utils/stylesheets/avatar.wxss";
 @import "./utils/stylesheets/banner.wxss";
 @import "./utils/stylesheets/buttons.wxss";
 @import "./utils/stylesheets/colors.wxss";

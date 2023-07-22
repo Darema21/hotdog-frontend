@@ -25,30 +25,32 @@
   border-radius: 50%;
 }
 
+.btn-decision {
+    width: 160rpx;
+    height: 160rpx;
+    border-radius: 50%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }  
+
 .btn-no{
   background: var(--white);
-  width: 40rpx;
-  border-radius: 50%;
 }
 
 .btn-superlike{
   background-color: var(--accent-yellow);
-  width: 40rpx;
-  border-radius: 50%;
 }
 
 .btn-yes{
   background-color: var(--gradient);
-  width: 40rpx;
-  border-radius: 50%;
 }
 
 
 /* Neutered, vaccinated */
-.dog-atrribute {
+.dog-attribute {
     border-radius: 100rpx;
-    padding: 16rpx 32rpx;
+    padding: .5em 1.2rem;
     font-size: 28rpx;
+    margin-right: 20rpx;
 }
 
 .attribute-true {
@@ -62,6 +64,7 @@
 }
 
 .quality-icon {
-    width: 40rpx;
-    height: 40rpx;
+    width: 60rpx;
+    height: 60rpx;
+    margin-right: .2em;
 }

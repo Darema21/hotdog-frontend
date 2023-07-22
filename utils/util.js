@@ -22,14 +22,30 @@ function goToShow(i) {
     })
 }
 
-function goToBreed(id) {
-  console.log('ID:', id)
-  wx.navigateTo({
-      url: `/pages/wiki/show?id=${id}`,
-  })
+// function goToBreed(data) {
+  
+//     // Check if the data is an ID or a name
+//     if (typeof data === 'number') {
+//       // Data is an ID
+//       wx.navigateTo({
+//         url: `/pages/wiki/show?id=${data}`,
+//       });
+//     } else if (typeof data === 'string') {
+//       // Data is a name
+//       wx.navigateTo({
+//         url: `/pages/wiki/show?name=${encodeURIComponent(data)}`,
+//       });
+//     }
+//   }  
+
+function goToBreed(e) {
+    wx.navigateTo({
+      url: `/pages/wiki/show?id=${e}`,
+    })
 }
 
 module.exports = {
   formatTime,
-  goToBreed
+  goToBreed,
+  goToShow
 }

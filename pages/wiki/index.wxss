@@ -36,10 +36,10 @@
   width: 49%;
   height: 360rpx;
   overflow: hidden;
+  border-radius: 18rpx;
 }
 
 .breed-image {
-  border-radius: 18rpx;
   background-color: var(--primary-color);
   height: 320rpx;
 }

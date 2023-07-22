@@ -30,30 +30,30 @@ Page({
      */
   onShow() {
       
-    let page = this;
-    console.log("index.js", app.globalData.header)
-    
-      // Get api data
-    wx.request({
-      url: `${app.globalData.baseUrl}dogs`,
-      method: 'GET',
-      header: app.globalData.header,
-      success(res) {
-        console.log(res)
-        const dogs = res.data.dogs;
-        console.log(dogs)
+    // let page = this;
+    // console.log("index.js", app.globalData.header)
+    // console.log(app.globalData)
+    //   // Get api data
+    // wx.request({
+    //   url: `${app.globalData.baseUrl}dogs`,
+    //   method: 'GET',
+    //   header: app.globalData.header,
+    //   success(res) {
+    //     console.log(res)
+    //     const dogs = res.data.dogs;
+    //     console.log(dogs)
   
-        // Update local data
-        page.setData({
-          dogs: dogs
-        });
+    //     // Update local data
+    //     page.setData({
+    //       dogs: dogs
+    //     });
     
-        wx.hideToast();
-      },
-      fail(e) {
-        console.log(e)
-      }
-    });
+    //     wx.hideToast();
+    //   },
+    //   fail(e) {
+    //     console.log(e)
+    //   }
+    // });
     },
     
   onLoad(options) {
@@ -66,10 +66,11 @@ Page({
       });
     }
 
+    console.log(app.globalData.owner)
     wx.request({
       url: `${app.globalData.baseUrl}dogs`,
       method: 'GET',
-      header: getApp().globalData.header,
+      header: app.globalData.header,
       success(res) {
         const dogs = res.data;
         console.log("dogs:", dogs)
@@ -104,7 +105,7 @@ Page({
     const direction = args.detail.direction;
     const dog_id = args.detail.item.id;
     const to_owner_id = args.detail.item.ownerId;
-    const from_owner_id = 2;
+    const from_owner_id = 11;
     console.log("Direction:", direction);
     console.log("Dog Id:", dog_id);
     console.log("Type of direction:", typeof direction);
@@ -115,6 +116,7 @@ Page({
     wx.request({
       url: `${app.globalData.baseUrl}owners/${from_owner_id}/matches`,
       method: 'POST',
+      header: app.globalData.header,
       data: {
         match: {
           from_owner_id: from_owner_id,
@@ -133,7 +135,13 @@ Page({
             console.log("Mutual match found:", match);
             wx.navigateTo({
               //Need to add dogs somehow
-              url: `pages/matches/mutual?from_owner_id=${from_owner_id}&to_owner_id=${to_owner_id}`,
+              url: `/pages/matches/mutual?from_owner_id=${from_owner_id}&to_owner_id=${to_owner_id}`,
+              success(res) {
+                console.log(res)
+              },
+              fail(err) {
+                console.error(err)
+              }
             });
           } else {
             console.log("Match created successfully");

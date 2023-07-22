@@ -18,13 +18,10 @@ Page({
     const fromOwnerId = options.from_owner_id;
     const toOwnerId = options.to_owner_id;
 
-    // You can use the owner IDs to fetch data from the backend or perform any necessary operations
-    // For example, you can fetch data for dogs related to these owners
-
-    // Example API request using wx.request
     wx.request({
       url: `${app.globalData.baseUrl}owners/${fromOwnerId}`,
       method: 'GET',
+      header: app.globalData.header,
       success: (res) => {
         console.log("res", res)
         const dogsForFromOwner = res.data;
@@ -39,6 +36,7 @@ Page({
     wx.request({
       url: `${app.globalData.baseUrl}owners/${toOwnerId}`,
       method: 'GET',
+      header: app.globalData.header,
       success: (res) => {
         const dogsForToOwner = res.data;
         console.log('Dogs for to_owner_id:', dogsForToOwner);

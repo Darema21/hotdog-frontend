@@ -1,3 +1,4 @@
+let app = getApp();
 Component({
   data: {
     "list": [

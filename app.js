@@ -1,15 +1,32 @@
 App({
-  onLaunch: function () {
-    var logs = wx.getStorageSync('logs') || [];
+  onLaunch() {
+    const logs = wx.getStorageSync('logs') || [];
     logs.unshift(Date.now());
     wx.setStorageSync('logs', logs);
-    // 登录
+    const app = this
     wx.login({
       success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        // console.log(app.globalData.headers)
+        wx.request ({
+          // url: 'http://localhost:3000/api/v1/login',
+          url: `${app.globalData.baseUrl}login`,
+          method: 'POST',
+          data: { code: res.code }, // pass code in request body
+          success(loginRes) {
+            console.log(loginRes)
+            app.globalData.owner = loginRes.data.owner
+            app.globalData.header = loginRes.data.headers
+            console.log(123,loginRes.data.headers) // { data: { headers: { "X-USER-TOKEN": <User Token> }, user: <User Object> }, ... }
+            console.log("owner",loginRes.data.owner)
+          },
+
+          fail(loginErr){
+            console.error({loginErr})
+          }
+        })
       }
-    });
-    // 获取用户信息
+    }),
+
     wx.getSetting({
       success: res => {
         if (res.authSetting['scope.userInfo']) {
@@ -28,9 +45,11 @@ App({
         }
       }
     });
-    // Load custom font
+
     this.loadCustomFont();
   },
+    // Load custom font
+    
   loadCustomFont: function () {
     wx.loadFontFace({
       family: "Quicksand",
@@ -74,8 +93,8 @@ App({
   
   globalData: {
     userInfo: null,
-    user: null,
+    owner: null,
     header: {},
     baseUrl: 'http://localhost:3000/api/v1/'
   }
-});
+})

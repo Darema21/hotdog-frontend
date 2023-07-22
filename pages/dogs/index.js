@@ -25,9 +25,37 @@ Page({
     utils.goToShow(id)
   },
 
-  /**
-   * Lifecycle function--Called when page load
-   */
+    /**
+     * Lifecycle function--Called when page show
+     */
+  onShow() {
+      
+    let page = this;
+    console.log("index.js", app.globalData.header)
+    
+      // Get api data
+    wx.request({
+      url: `${app.globalData.baseUrl}dogs`,
+      method: 'GET',
+      header: app.globalData.header,
+      success(res) {
+        console.log(res)
+        const dogs = res.data.dogs;
+        console.log(dogs)
+  
+        // Update local data
+        page.setData({
+          dogs: dogs
+        });
+    
+        wx.hideToast();
+      },
+      fail(e) {
+        console.log(e)
+      }
+    });
+    },
+    
   onLoad(options) {
     const page = this
 

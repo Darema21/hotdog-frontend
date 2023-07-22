@@ -1,19 +1,64 @@
-/* pages/users/profile.wxss */
-.profile-card {
-  background-color: var(--white);
-  /* height: ; */
-  border-radius: 30rpx;
-  padding: 15rpx;
-  margin: 50rpx;
-  margin-bottom: 1.2em;
-  text-align: center;
+
+  /* pages/users/profile.wxss */
+  .profile-container {
+    background-color: var(--white);
+    border-radius: 30rpx;
+    padding: 15rpx;
+    margin: 50rpx;
+    margin-bottom: 1.2em;
+    text-align: center;
+  }
+  
+  .profile-card {
+    height: 100%;
+    justify-content: center;
+  }
+  
+  .user-avatar {
+    border-radius: 50%;
+    /* background-size: cover; */
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100rpx;
+    height: 100rpx;
+    /* margin: .5rem auto; */
+  }
+
+  .profile-greeting {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   justify-content: center;
+   margin-left: 10rpx;
+  }
+
+.arrow {
+  float: right;
+  margin-top: 30rpx;
 }
 
-.owner-card {
+
+.setting-card {
+  /* display: flex; */
+  height: 100rpx;
+  line-height: 100rpx;
+  margin-bottom: 1rem;
+  margin-top: 5rpx;
   background-color: var(--white);
   border-radius: 30rpx;
-  padding: 5rpx;
-  margin: 5rpx;
+  padding: 15rpx;
+  margin-left: 50rpx;
+  margin-right: 50rpx;
   margin-bottom: 0.2em;
-  text-align: left;
 }
+
+image {
+  width: 45rpx;
+  height: 45rpx;
+  margin-right: 10rpx;
+}
+
+/* .separator {
+
+} */
+

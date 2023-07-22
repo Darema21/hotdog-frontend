@@ -1,17 +1,33 @@
 <!--pages/users/profile.wxml-->
-<view class="profile-card">
-<view class="--accent-pink h3">Welcome back!</view>
-<view class="--dark owner-dog-name h2"> #owner & #dog</view>
+<view class="profile-container">
+  <view class="profile-card">
+    <image class="user-avatar" src="https://images.unsplash.com/photo-1466995937966-2e6f29c6ed60?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" mode=""/>
+    <view class="h3 profile-greeting">Welcome back!
+      <view class="--dark owner-dog-name h2"> #owner & #dog</view>
+    </view>
+  </view>
 </view>
 
-<view class="owner-card">
-Edit User info
-</view>
-<view class="owner-card">
-Edit dog's info 
-</view>
-<view class="owner-card">
-Set your preferences
-</view>
+  <view>
+  <image class="separator" src="/pages/images/icons/profile-separator.png" mode=""/>
+  </view>
+
+  <view class="setting-container p">
+    <navigator url="#" class="setting-card">
+      <image src="/pages/images/icons/profile-user_icon.png" mode=""/>
+        <text> Edit User info </text>
+      <image src="/pages/images/icons/profile-arrow.png" class="arrow" mode=""/>
+    </navigator>
+    <navigator url="/pages/dogs/form" class="setting-card">
+    <image src="/pages/images/icons/profile-dog.png" mode=""/>
+      <text>  Edit dog's info </text> 
+      <image src="/pages/images/icons/profile-arrow.png" class="arrow" mode=""/>
+    </navigator>
+    <navigator url="#" class="setting-card">
+      <image src="/pages/images/icons/profile-settings_icon.png" mode=""/>
+        <text> Set your preferences </text> 
+      <image src="/pages/images/icons/profile-arrow.png" class="arrow" mode=""/>
+    </navigator>
+  </view>
 
 

@@ -17,6 +17,7 @@ page {
   top: 0;
   left: 0;
 }
+
 /* adding this to make it attached to owner photo */
 .avatar-dog {
   position: absolute;

@@ -83,7 +83,8 @@ Page({
             imageUrl: dog.image_urls ? dog.image_urls[0] : '', // Get the first image URL
             neutered: dog.neutered,
             vaccinated: dog.vaccinated,
-            ownerId: dog.owner_id
+            ownerId: dog.owner_info.id,
+            ownerImg: dog.owner_info.image_url
           };
         });
 

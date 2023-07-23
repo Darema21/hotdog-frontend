@@ -1,7 +1,6 @@
 <view class="mp-swipe-card-item" bind:tap="handleTap" data-id="{{itemData.id}}">
-  <view class="item" style="background-image: url(https://images.unsplash.com/photo-1615751072497-5f5169febe17?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80);">
-    <image class="avatar-user avatar-user-lg" src="https://images.unsplash.com/photo-1689363199550-d0f417ed21db?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" mode="aspectFill" />
-
+  <view class="item" style="background-image: url('https://res.cloudinary.com/ds0c8uqvx/image/upload/v1689510757/hotdog/{{itemData.imageUrl}}.png');">
+    <image class="avatar-user avatar-user-lg" src="https://res.cloudinary.com/ds0c8uqvx/image/upload/v1689510757/hotdog/{{itemData.ownerImg}}.jpg" mode="aspectFill" />
     <view class="item-data flex column">
       <view class="item-name flex ai-c">
         <text class="name-text">{{itemData.name}}</text>

@@ -7,19 +7,19 @@ Page({
      */
     data: {
       owner: "Owner",
-      message: "Message"
+      comment: "Send Message..."
     },
     formSubmit (e) {
       let owner = e.detail.value.owner;
-      let message = e.detail.value.message;
+      let comment = e.detail.value.comment;
       let story = {
         owner: owner,
-        message: message
+        comment: comment
       }
       wx.request({
-        url: `http://localhost:3000/matches`,
+        url: `${app.globalData.baseUrl}owners/:owner_id/matches/:match_id/comments`,
         method: 'POST',
-        data: story,
+        data: { comment: comment },
         success() {
           // redirect to index page when done
           wx.redirectTo({
@@ -32,21 +32,24 @@ Page({
      * Lifecycle function--Called when page load
      */
     onLoad(options) {
-      let page = this;
-      // Get api data
+      const page = this
       wx.request({
-        url: "http://localhost:3000/matches",
+        url: `${app.globalData.baseUrl}owners/:owner_id/matches/:match_id/comments`,
         method: 'GET',
+        // header: {},
+        // data: {},
         success(res) {
-          const messages = res.data.messages;
-          console.log(res)
-          // Update local data
+          console.log({res})
           page.setData({
-            messages: messages
-          });
-          wx.hideToast();
+            comment: res.data.comment
+          })
         }
-      });
+      })
+      const stories = wx.getStorageSync('comment')
+      this.setData({
+        comment: comment
+        // stories: []
+      })
     },
     /**
      * Lifecycle function--Called when page is initially rendered

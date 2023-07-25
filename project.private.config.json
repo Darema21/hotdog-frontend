@@ -64,6 +64,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/dogs/form",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

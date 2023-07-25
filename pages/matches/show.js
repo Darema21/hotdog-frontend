@@ -7,7 +7,6 @@ Page({
      */
     data: {
       owner: "Owner",
-      comment: "Send Message..."
     },
     formSubmit (e) {
       let owner = e.detail.value.owner;

@@ -1,5 +1,5 @@
-<view class="mp-swipe-card-item" bind:tap="handleTap" data-id="{{itemData.id}}">
-  <view class="item" style="background-image: url('https://res.cloudinary.com/ds0c8uqvx/image/upload/v1689510757/hotdog/{{itemData.imageUrl}}.png');">
+<view class="mp-swipe-card-item" >
+  <view class="item" bind:tap="handleTap" data-id="{{itemData.id}}" style="background-image: url('https://res.cloudinary.com/ds0c8uqvx/image/upload/v1689510757/hotdog/{{itemData.imageUrl}}.png');">
     <image class="avatar-user avatar-user-lg" src="https://res.cloudinary.com/ds0c8uqvx/image/upload/v1689510757/hotdog/{{itemData.ownerImg}}.jpg" mode="aspectFill" />
     <view class="item-data flex column">
       <view class="item-name flex ai-c">
@@ -20,9 +20,11 @@
       </view>
     </view>
   </view>
-    <!-- Buttons -->
-    <view class="match-buttons">
-      <image class="match-button" src="/pages/images/buttons/No.png" mode="aspectFit"/>
-      <image class="match-button" src="/pages/images/buttons/Yes.png" mode=""/>
-    </view>
+  <!-- Buttons -->
+  <view class="match-buttons">
+    <image class="match-button" src="/pages/images/buttons/No.png" mode="aspectFit" bind:tap="onButtonTap" data-direction="left" data-id="{{itemData.id}}"/>
+
+    <image class="match-button" src="/pages/images/buttons/Yes.png" mode="" bind:tap="onButtonTap" data-direction="right" data-id="{{itemData.id}}" />
+
+  </view>
 </view>

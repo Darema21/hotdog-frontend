@@ -3,12 +3,9 @@ const utils = require('../../utils/util')
 
 Page({
   data: {
-    pushList: [
-
-    ],
+    pushList: [],
     currentCard: {}
   },
-  //事件处理函数
   bindViewTap: function () {
 
   },
@@ -25,37 +22,9 @@ Page({
     utils.goToShow(id)
   },
 
-    /**
-     * Lifecycle function--Called when page show
-     */
   onShow() {
-      
-    // let page = this;
-    // console.log("index.js", app.globalData.header)
-    // console.log(app.globalData)
-    //   // Get api data
-    // wx.request({
-    //   url: `${app.globalData.baseUrl}dogs`,
-    //   method: 'GET',
-    //   header: app.globalData.header,
-    //   success(res) {
-    //     console.log(res)
-    //     const dogs = res.data.dogs;
-    //     console.log(dogs)
-  
-    //     // Update local data
-    //     page.setData({
-    //       dogs: dogs
-    //     });
-    
-    //     wx.hideToast();
-    //   },
-    //   fail(e) {
-    //     console.log(e)
-    //   }
-    // });
-    },
-    
+  },
+
   onLoad(options) {
     const page = this
 
@@ -74,13 +43,12 @@ Page({
       success(res) {
         const dogs = res.data;
         console.log("dogs:", dogs)
-        // Update local data
         const updatedDogs = dogs.map((dog) => {
           return {
             id: dog.id,
             name: dog.name,
             gender: dog.gender,
-            imageUrl: dog.image_urls ? dog.image_urls[0] : '', // Get the first image URL
+            imageUrl: dog.image_urls ? dog.image_urls[0] : '',
             neutered: dog.neutered,
             vaccinated: dog.vaccinated,
             ownerId: dog.owner_info.id,
@@ -89,11 +57,10 @@ Page({
         });
 
         page.setData({
-          pushList: updatedDogs, // Set the updated dogs array to pushList
+          pushList: updatedDogs,
         }, () => {
           console.log("Push List", page.data.pushList)
         });
-
 
         wx.hideToast();
       },
@@ -107,95 +74,8 @@ Page({
     const dog_id = args.detail.item.id;
     const to_owner_id = args.detail.item.ownerId;
     const from_owner_id = 11;
-    console.log("Direction:", direction);
-    console.log("Dog Id:", dog_id);
-    console.log("Type of direction:", typeof direction);
 
-    console.log("Before sending requests");
-
-    // Send the POST request
-    wx.request({
-      url: `${app.globalData.baseUrl}owners/${from_owner_id}/matches`,
-      method: 'POST',
-      header: app.globalData.header,
-      data: {
-        match: {
-          from_owner_id: from_owner_id,
-          to_owner_id: to_owner_id,
-          from_owner_decision: direction
-        }
-      },
-      success(res) {
-        console.log("POST request successful");
-        console.log("Response:", res);
-
-        // Handle the success response
-        if (res.statusCode === 200 || res.statusCode === 201 ) {
-          const match = res.data;
-          if (match.status === "like") {
-            console.log("Mutual match found:", match);
-            wx.navigateTo({
-              //Need to add dogs somehow
-              url: `/pages/matches/mutual?from_owner_id=${from_owner_id}&to_owner_id=${to_owner_id}`,
-              success(res) {
-                console.log(res)
-              },
-              fail(err) {
-                console.error(err)
-              }
-            });
-          } else {
-            console.log("Match created successfully");
-            wx.showToast({
-              title: 'Match created successfully',
-              icon: 'success',
-              duration: 2000
-            });
-          }
-        } else {
-          console.log("Failed to create match");
-          wx.showToast({
-            title: 'Failed to create match',
-            icon: 'none',
-            duration: 2000
-          });
-        }
-      },
-      fail(res) {
-        console.log("POST request failed");
-        console.log("Error:", res);
-
-        // Handle the failure response
-        wx.showToast({
-          title: 'Failed to create match',
-          icon: 'none',
-          duration: 2000
-        });
-      }
-    });
-
-    
-    // Send the GET request
-    // wx.request({
-    //   url: `${app.globalData.baseUrl}owners/${from_owner_id}/matches`,
-    //   method: 'GET',
-    //   success(res) {
-    //     console.log("GET request successful");
-    //     console.log("Response:", res);
-    
-    //     // Handle the success response
-    //     // Check if there is an existing match
-    //   },
-    //   fail(res) {
-    //     console.log("GET request failed");
-    //     console.log("Error:", res);
-    
-    //     // Handle the failure response
-    //   }
-    // });
-    
-    console.log("After sending requests");
-    
+    sendPostRequest(page, direction, dog_id, to_owner_id, from_owner_id);
   },
 
   getUserInfo: function (e) {
@@ -205,50 +85,90 @@ Page({
   addMatch: function (options) {
 
   },
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
   onReady() {},
 
-  /**
-   * Lifecycle function--Called when page show
-   */
-  onShow() {
+  onShow() {},
 
-  },
+  onHide() {},
 
-  /**
-   * Lifecycle function--Called when page hide
-   */
-  onHide() {
+  onUnload() {},
 
-  },
+  onPullDownRefresh() {},
 
-  /**
-   * Lifecycle function--Called when page unload
-   */
-  onUnload() {
+  onReachBottom() {},
 
-  },
-
-  /**
-   * Page event handler function--Called when user drop down
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * Called when page reach bottom
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * Called when user click on the top right corner to share
-   */
-  onShareAppMessage() {
-
-  }
+  onShareAppMessage() {}
 })
+
+function sendPostRequest(page, direction, dog_id, to_owner_id, from_owner_id) {
+  wx.request({
+    url: `${app.globalData.baseUrl}owners/${from_owner_id}/matches`,
+    method: 'POST',
+    header: app.globalData.header,
+    data: {
+      match: {
+        from_owner_id: from_owner_id,
+        to_owner_id: to_owner_id,
+        from_owner_decision: direction
+      }
+    },
+    success(res) {
+      handleSuccessResponse(page, res, from_owner_id, to_owner_id);
+    },
+    fail(res) {
+      handleFailureResponse(res);
+    }
+  });
+}
+
+function handleSuccessResponse(page, res, from_owner_id, to_owner_id) {
+  console.log("POST request successful");
+  console.log("Response:", res);
+
+  if (res.statusCode === 200 || res.statusCode === 201 ) {
+    const match = res.data;
+    if (match.status === "like") {
+      navigateToMatchPage(page, from_owner_id, to_owner_id);
+    } else {
+      showToast('Match created successfully');
+    }
+  } else {
+    showToast('Failed to create match');
+  }
+}
+
+function handleFailureResponse(res) {
+  console.log("POST request failed");
+  console.log("Error:", res);
+
+  showToast('Failed to create match');
+}
+
+function navigateToMatchPage(page, from_owner_id, to_owner_id) {
+  wx.navigateTo({
+    url: `/pages/matches/mutual?from_owner_id=${from_owner_id}&to_owner_id=${to_owner_id}`,
+    success(res) {
+      console.log(res)
+      // Update the pushList after successful match
+      const newList = page.data.pushList.filter((item) => item.ownerId !== to_owner_id);
+      page.setData({
+        pushList: newList
+      });
+    },
+    fail(err) {
+      console.error(err)
+    }
+  });
+}
+
+function showToast(message) {
+  wx.showToast({
+    title: message,
+    icon: 'none',
+    duration: 2000
+  });
+}
+
+module.exports = {
+  sendPostRequest: sendPostRequest
+};

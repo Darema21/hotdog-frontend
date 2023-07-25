@@ -1,7 +1,7 @@
+const dog = require('../../pages/dogs/index'); 
+
 Component({
-  /**
-   * 组件的属性列表
-   */
+
   properties: {
     itemData: {
       type: Object,
@@ -9,25 +9,31 @@ Component({
     }
   },
 
-  /**
-   * 组件的初始数据
-   */
-  data: {
-
-  },
-
-  /**
-   * 组件的方法列表
-   */
   methods: {
+    handleSwipeOut(e, direction) {
+      const dogId = this.properties.itemData.id; 
+      const toOwnerId = this.properties.itemData.ownerId; 
+      const fromOwnerId = 11; 
+
+      dog.sendPostRequest(this, direction, dogId, toOwnerId, fromOwnerId);
+    },
+
     handleTap(e) {
-      console.log(e)
-      console.log(e.currentTarget.dataset.id)
-      // dog = e.currentTarget.dataset.id;
-      // console.log("ID:", dog)
+      console.log(e);
+      console.log(e.currentTarget.dataset.id);
       wx.navigateTo({
         url: `/pages/dogs/show?id=${e.currentTarget.dataset.id}`,
-      })      
+      });
+    },
+
+    onButtonTap(e) {
+      const direction = e.currentTarget.dataset.direction;
+      if (direction === "left") {
+        console.log("No button tapped");
+      } else if (direction === "right") {
+        console.log("Yes button tapped");
+        this.handleSwipeOut(e, direction);
+      }
     }
   }
 })

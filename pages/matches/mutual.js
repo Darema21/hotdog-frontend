@@ -14,7 +14,6 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
-    // options object contains query parameters from the previous page
     const fromOwnerId = options.from_owner_id;
     const toOwnerId = options.to_owner_id;
 
@@ -45,8 +44,6 @@ Page({
         console.error('Failed to fetch dogs for to_owner_id:', error);
       },
     });
-
-    // Perform any other necessary operations with the owner IDs or data
   },
 
   /**

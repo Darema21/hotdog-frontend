@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/landing/landing",
+    "pages/home/index",
     "pages/dogs/index",
     "pages/dogs/show",
     "pages/dogs/form",

@@ -30,6 +30,10 @@
   font-weight: normal;
 }
 
+.p-dark {
+  color: var(--dark);
+}
+
 .p-light{
   font-size: 28rpx;
   color: var(--grey-light);

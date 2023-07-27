@@ -13,38 +13,18 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    console.log(options)
-    const fromOwnerId = options.from_owner_id;
-    const toOwnerId = options.to_owner_id;
-
-    wx.request({
-      url: `${app.globalData.baseUrl}owners/${fromOwnerId}`,
-      method: 'GET',
-      header: app.globalData.header,
-      success: (res) => {
-        console.log("res", res)
-        const dogsForFromOwner = res.data;
-        console.log("dogsForFromOwner", dogsForFromOwner);
-        console.log('Dogs for from_owner_id:', dogsForFromOwner);
-      },
-      fail: (error) => {
-        console.error('Failed to fetch dogs for from_owner_id:', error);
-      },
-    });
-
-    wx.request({
-      url: `${app.globalData.baseUrl}owners/${toOwnerId}`,
-      method: 'GET',
-      header: app.globalData.header,
-      success: (res) => {
-        const dogsForToOwner = res.data;
-        console.log('Dogs for to_owner_id:', dogsForToOwner);
-      },
-      fail: (error) => {
-        console.error('Failed to fetch dogs for to_owner_id:', error);
-      },
-    });
+    console.log("Options", options);
+    const from_owner_id = options.from_owner_id;
+    const to_owner_id = options.to_owner_id;
+  
+    console.log("Global dogs", app.globalData.dogs)
+    const dogForFromOwner = app.globalData.dogs.find(dog => dog.ownerId === from_owner_id);
+    console.log("dogForFromOwner", dogForFromOwner);
+  
+    const dogForToOwner = app.globalData.dogs.find(dog => dog.ownerId === to_owner_id);
+    console.log("dogForToOwner", dogForToOwner);
   },
+  
 
   /**
    * Lifecycle function--Called when page is initially rendered
@@ -105,7 +85,7 @@ Page({
   /**
    * Called when user click on floating tab
    */
-  onTabItemTap(item) {
+  onTabItemTap: function (item) { // Corrected the method name
     // Do something when tab item tapped
   },
 });

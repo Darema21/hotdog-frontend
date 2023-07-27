@@ -60,16 +60,37 @@ Page({
     /**
      * Lifecycle function--Called when page show
      */
-    // onShow() {
-    //     const page = this
-      
-    //     if (typeof this.getTabBar === 'function' &&
-    //     this.getTabBar()) {
-    //       this.getTabBar().setData({
-    //         selected: 2
-    //       })
-    //     }
-    // },
+    onShow() {
+    },
+
+    addComment(e) {
+      const app = getApp();
+      const comment = e.detail.value; 
+    
+      wx.request({
+        url: `${app.globalData.baseUrl}matches/${match_id}/comments`,
+        method: 'POST',
+        data: { comment: comment },
+        success(res) {
+          console.log('update success?', res)
+          if (res.statusCode === 422) {
+            wx.showModal({
+              title: 'Error!',
+              content: res.data.errors.join(', '),
+              showCancel: false,
+              confirmText: 'OK'
+            })
+          } else {
+            wx.switchTab({
+              url: '/pages/matches/show',
+            })
+          }
+        },
+        fail(error) {
+          console.log({ error })
+        }
+      })
+    },
 
     /**
      * Lifecycle function--Called when page hide

@@ -23,8 +23,49 @@ Page({
     /**
      * Lifecycle function--Called when page load
      */
-    onLoad(options) {
+    onLoad: function () {
+      setInterval(() => {
+        this.setData({
+          pushList: []
+        })
+      }, 5000)
+    },
 
+    onLoad(options) {
+      const page = this
+
+      if (typeof this.getTabBar === 'function' &&
+        this.getTabBar()) {
+        this.getTabBar().setData({
+          selected: 0
+        });
+      }
+
+      wx.request({
+        url: `${app.globalData.baseUrl}owners/${owner_id}/matches/${match_id}/comments/${id}`,
+        method: 'GET',
+        header: getApp().globalData.header,
+        success(res) {
+          const matches = res.matches;
+          console.log("matches:", matches)
+          // Update local data
+          const updatedDogs = matches.map((matches) => {
+            return {
+              id: match.id,
+              name: match.name,
+              imageUrl: dog.image_urls ? dog.image_urls[0] : '', // Get the first image URL
+              ownerId: dog.owner_id
+            };
+          });
+
+          // page.setData({
+          //   pushList: updatedDogs, // Set the updated dogs array to pushList
+          // }, () => {
+          //   console.log("Push List", page.data.pushList)
+          // });
+          // wx.hideToast();
+        },
+      });
     },
 
     /**
@@ -43,7 +84,31 @@ Page({
           this.getTabBar().setData({
             selected: 2
           })
+        } 
+      let page = this;
+      console.log("index.js", app.globalData.header)
+      
+        // Get api data
+      wx.request({
+        url: `${app.globalData.baseUrl}owners/${owner_id}/matches`,
+        method: 'GET',
+        header: app.globalData.header,
+        success(res) {
+          console.log(res)
+          const matches = res.data.matches;
+          console.log(matches)
+    
+          // Update local data
+          page.setData({
+            matches: matches
+          });
+      
+          wx.hideToast();
+        },
+        fail(e) {
+          console.log(e)
         }
+      });
     },
 
     /**

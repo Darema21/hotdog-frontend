@@ -18,8 +18,8 @@
 <!--Comment Form-->
 <view class="container">
   <view class="comments">
-    <form bindsubmit="formSubmit">
-      <textarea name="comment" value="Send Message Here"/>
+    <form bindsubmit="addComment">
+      <textarea name="comment" placeholder="Send Message Here" bindconfirm="addComment"></textarea>
     </form>
   </view>
 </view>

@@ -29,7 +29,7 @@ Page({
      * Lifecycle function--Called when page show
      */
   onShow() {
-      
+     
     let page = this;
     console.log("index.js", app.globalData.header)
     

@@ -8,14 +8,16 @@
   <form bindsubmit="save">
     <view class="flex ai-c jc-c">
       <view class="input-container">
-        <button type="btn btn-filled" bindtap="listenerBtnChooseImage"> Upload Photo</button> 
-        <button type="btn btn-filled" bindtap="listenerBtnChooseImage"> Upload Photo</button>
-        <button type="btn btn-filled" bindtap="listenerBtnChooseImage"> Upload Photo</button>
+        <button type="btn btn-filled" bindtap="listenerBtnChooseImage"> 
+          <image class="quality-icon" src="/pages/images/icons/plus_sign.png"  mode=""></image>
+        </button> 
+        <button type="btn btn-filled" bindtap="listenerBtnChooseImage"> 
+          <image class="quality-icon" src="/pages/images/icons/plus_sign.png"  mode=""></image>
+        </button> 
+        <button type="btn btn-filled" bindtap="listenerBtnChooseImage"> 
+          <image class="quality-icon" src="/pages/images/icons/plus_sign.png"  mode=""></image>
+        </button> 
       </view>
-
-      <!-- <button type="btn btn-filled" bindtap="listenerBtnChooseImage">Upload Photo</button> 
-      <button type="btn btn-filled" bindtap="listenerBtnChooseImage">Upload Photo</button> -->
-
     </view>
 
     <view class="input-container">
@@ -23,10 +25,8 @@
     </view>
 
     <view class="input-container">
-      <picker mode="selector" range="{{ age }}" value="{{ formData.age }}" bindchange="bindAgeChange" data-field ="age" >
-        <!-- <view> Age{{age[formData.age]}}</view> -->
-        <input id="age" placeholder="Pet's Age" bindchange="bindAgeChange" value="{{ formData.age }}" disabled />
-      </picker>
+      <input id="age" placeholder="Pet's Age" bindchange="bindAgeChange" value="{{ formData.age }}"
+      bindinput="setInputData" type="text" name="age" data-field ="age" />
     </view>
 
     <view class="input-container">
@@ -39,8 +39,8 @@
     <view>
       <!-- <view class="input-container"> -->
         <picker mode="selector" range="{{ gender }}" value="{{ formData.gender }}" bindchange="bindGenderChange" data-field ="gender" >
-          <view> Pet's Gender{{gender[formData.gender]}}</view>
-          <input id="gender" bindchange="bindGenderChange" value="{{ formData.gender }}" disabled />
+          <!-- <view> Pet's Gender{{gender[formData.gender]}}</view> -->
+          <input id="gender" placeholder="Pet's Gender" bindchange="bindGenderChange" value="{{ formData.gender }}" disabled />
         </picker>
       <!-- </view> -->
 

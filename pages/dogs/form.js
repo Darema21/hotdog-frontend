@@ -8,7 +8,7 @@ Page({
       name: "",
       gender: ["male", "female"],
       age: '00', 
-      breed: "",
+      breed: ["Beagle", "Bulldog", "Chihuahua", "Corgi", "French Bulldog", "German Shepherd", "Golden Retriever", "Husky", "Labrador", "Parson Russell Terrier", "Pug", "Poodle (Toy)", "Other"],
       bio: "",
       neutered: ["neutered", "not neutred"],
       vaccinated: ["vaccinated", "not vaccinated"],
@@ -43,7 +43,7 @@ Page({
      },
       // adding this line below to have upload function and save images into cloudinary
 
-      imgLongTap: function (){
+      imgLongPress: function (){
         // Save image to album
         wx.saveImageToPhotosAlbum({
           filePath: this.data.src,
@@ -90,7 +90,7 @@ Page({
       if (id) {
         console.log('id found');
         wx.request({
-          url: `${app.globalData.baseUrl}/dogs/${id}`,
+          url: `${app.globalData.baseUrl}dogs/${id}`,
           success(res) {
             console.log(res);
             page.setData({
@@ -135,61 +135,60 @@ Page({
       let page = this
       page.setData({resetData:false})
       let { formData } = this.data;
-      formData[''] = e.detail.value;
+      formData['dogIndex'] = e.detail.value;
       this.setData({ formData });
     },
 
-  //   save(e) {
-  //     // Post data to API
-  //     const page = this;
-  //     const event = e.detail.value;
-  //     event.owner_id = 1;
+    save(e) {
+      // Post data to API
+      const page = this;
+      const event = e.detail.value;
+      event.owner_id = 1;
   
-  //     if (page.data.editedId !== undefined && page.data.editedId !== null) {
-  //       wx.request({
-  //         url: `${app.globalData.baseUrl}dogs/${page.data.editedId}`,
-  //         method: 'PUT',
-  //         data: { dog: dog },
-  //         success(res) {
-  //           console.log(res);
-  //           page.setData({resetData:true})
-  //           wx.switchTab({
-  //             url: '/pages/dogs/index',
-  //           })
-  //         }
-  //       });
-  //     } else {
-  //       wx.request({
-  //         header: app.globalData.header,
-  //         url: `${app.globalData.baseUrl}dogs`,
-  //         method: 'POST',
-  //         data: { dog: dog },
-  //         success(res) {
-  //           console.log(res);
-  //           page.setData({resetData:true})
-  //           wx.switchTab({
-  //             url: '/pages/dogs/index',
-  //           })
-  //         },
-  //         fail(res) {
-  //           console.log(res);
-  //           // Handle failure response
-  //           console.log(res);
-  //           wx.showToast({
-  //             title: 'Failed to create dog profile',
-  //             icon: 'none',
-  //             duration: 2000
-  //           });
-  //         }
-  //       });
-  //     }
-  //   },
+      if (page.data.editedId !== undefined && page.data.editedId !== null) {
+        wx.request({
+          url: `${app.globalData.baseUrl}dogs/${page.data.editedId}`,
+          method: 'PUT',
+          data: { dog: dog },
+          success(res) {
+            console.log(res);
+            page.setData({resetData:true})
+            wx.switchTab({
+              url: '/pages/dogs/index',
+            })
+          }
+        });
+      } else {
+        wx.request({
+          header: app.globalData.header,
+          url: `${app.globalData.baseUrl}dogs/`,
+          method: 'POST',
+          data: { dog: dog },
+          success(res) {
+            console.log(res);
+            page.setData({resetData:true})
+            wx.switchTab({
+              url: '/pages/dogs/index',
+            })
+          },
+          fail(res) {
+            console.log(res);
+            // Handle failure response
+            console.log(res);
+            wx.showToast({
+              title: 'Failed to create dog profile',
+              icon: 'none',
+              duration: 2000
+            });
+          }
+        });
+      }
+    },
   
-  //   resetData(){
-  //     this.setData({
-  //       formData: {},
-  //     })
-  //   },
-  // });
+    resetData(){
+      this.setData({
+        formData: {},
+      })
+    },
 })
              

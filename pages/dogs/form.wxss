@@ -13,7 +13,11 @@ textarea {
   margin-bottom: 15rpx;
 }
 
-.time-inputs {
-  display: flex;
-  gap: 2%;
-}
+/* upload-container {
+  border-top-left-radius: 40rpx;
+  border-top-right-radius: 40rpx;
+  z-index: 4;
+  margin-top: -10%;
+} */
+
+

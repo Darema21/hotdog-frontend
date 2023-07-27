@@ -6,19 +6,21 @@
   <image src="{{src}}" mode="Fill" bindlongtap="imgLongTap"/>
   
   <form bindsubmit="save">
-    <view class="flex ai-c jc-c">
+    <!-- <view class="flex ai-c jc-c"> -->
       <view class="input-container">
         <button type="btn btn-filled" bindtap="listenerBtnChooseImage"> 
           <image class="quality-icon" src="/pages/images/icons/plus_sign.png"  mode=""></image>
         </button> 
+
         <button type="btn btn-filled" bindtap="listenerBtnChooseImage"> 
           <image class="quality-icon" src="/pages/images/icons/plus_sign.png"  mode=""></image>
         </button> 
+
         <button type="btn btn-filled" bindtap="listenerBtnChooseImage"> 
           <image class="quality-icon" src="/pages/images/icons/plus_sign.png"  mode=""></image>
         </button> 
       </view>
-    </view>
+    <!-- </view> -->
 
     <view class="input-container">
         <input id="name" placeholder="Pet's Name" value="{{ formData.name }}" bindinput="setInputData" type="text" name="name" data-field ="name" />

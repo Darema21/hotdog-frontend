@@ -1,88 +1,86 @@
-<text>pages/dogs/form.wxml</text>
-<!-- <view class="profile-container">
-  <view class="profile-card"> -->
-<view class="container flex column">
-  <text class="h1">Pet's Profile</text>
-  <image src="{{src}}" mode="Fill" bindlongtap="imgLongTap"/>
-  
-  <form bindsubmit="save">
-    <!-- <view class="flex ai-c jc-c"> -->
-      <view class="input-container">
-        <button type="btn btn-filled" bindtap="listenerBtnChooseImage"> 
-          <image class="quality-icon" src="/pages/images/icons/plus_sign.png"  mode=""></image>
-        </button> 
-
-        <button type="btn btn-filled" bindtap="listenerBtnChooseImage"> 
-          <image class="quality-icon" src="/pages/images/icons/plus_sign.png"  mode=""></image>
-        </button> 
-
-        <button type="btn btn-filled" bindtap="listenerBtnChooseImage"> 
-          <image class="quality-icon" src="/pages/images/icons/plus_sign.png"  mode=""></image>
-        </button> 
-      </view>
-    <!-- </view> -->
-
-    <view class="input-container">
-        <input id="name" placeholder="Pet's Name" value="{{ formData.name }}" bindinput="setInputData" type="text" name="name" data-field ="name" />
-    </view>
-
-    <view class="input-container">
-      <input id="age" placeholder="Pet's Age" bindchange="bindAgeChange" value="{{ formData.age }}"
-      bindinput="setInputData" type="text" name="age" data-field ="age" />
-    </view>
-
-    <view class="input-container">
-      <picker mode="selector" range="{{ breed }}" value="{{ formData.breed }}" bindchange="bindBreedChange" data-field ="breed" >
-        <!-- <view> Breed{{breed[formData.breed]}}</view> -->
-        <input id="breed" placeholder="Pet's Breed" bindchange="bindBreedChange" value="{{ formData.breed }}" disabled />
-      </picker>
-    </view>
+<!-- <text>pages/dogs/form.wxml</text> -->
+<view class="profile-container">
+    <!-- <view class="profile-card"> --> -->
+  <view class="container flex column">
+    <text class="h1">Pet's Profile</text>
+    <image src="{{src}}" mode="Fill" bindtap="imgTap"/>
     
-    <view>
-      <!-- <view class="input-container"> -->
-        <picker mode="selector" range="{{ gender }}" value="{{ formData.gender }}" bindchange="bindGenderChange" data-field ="gender" >
-          <!-- <view> Pet's Gender{{gender[formData.gender]}}</view> -->
-          <input id="gender" placeholder="Pet's Gender" bindchange="bindGenderChange" value="{{ formData.gender }}" disabled />
-        </picker>
-      <!-- </view> -->
+    <form bindsubmit="save">
+      <view class="flex">
+        <view class="image-container">
+          <button type="btn btn-filled" bindtap="btnChooseImage"> 
+            <image class="quality-icon" src="/pages/images/icons/plus_sign.png"  mode=""></image>
+          </button> 
 
-      <view class="switch-container">
-        <text> Is your pet neutered?  </text>
-        <switch checked="{{neutered}}" bindchange="onSwitchChange"></switch>
-      </view>
+          <button type="btn btn-filled" bindtap="btnChooseImage"> 
+            <image class="quality-icon" src="/pages/images/icons/plus_sign.png"  mode=""></image>
+          </button> 
 
-      <view class="switch-container">
-          <text> Is your pet rabies vaccinated?  </text>
-          <switch checked="{{vaccinated}}" bindchange="onSwitchChange"></switch>
-      </view>
-      <view>
-      
-      </view>
-
-      <!-- <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-  <label for="vehicle1"> I have a bike</label> -->
-     </view>
-    
-    <view class="input-container">
-      <input id="address" placeholder="Address" value="{{ formData.address }}" bindinput="setInputData" type="text" name="address" data-field ="address" />
-    </view>
-    
-    <text class="h3">Pet's Bio</text>
-    <view class="input-container">
-      <textarea id="bio" placeholder="Write a fun & punchy intro" value="{{ formData.bio }}" bindinput="setInputData" name="bio" data-field ="bio" ></textarea>
-    </view>
-    
-    <!-- <view class="input-container">
-      <icon class="input-icon" type="category"/>
-      <view class="category_selector"></view>
-      <picker bindchange="bindPickerChange" value="{{index}}" range="{{categories}}">
-        <view class="picker">
-          Category: {{categories[index]}}
+          <button type="btn btn-filled" bindtap="tnChooseImage"> 
+            <image class="quality-icon" src="/pages/images/icons/plus_sign.png"  mode=""></image>
+          </button> 
         </view>
-      </picker>
-  </view> -->
+      </view>
 
-    <button class="btn btn-filled" form-type="submit">Save</button>
+      <view class="input-container">
+          <input id="name" placeholder="Pet's Name" value="{{ formData.name }}" bindinput="setNameData" type="text" name="name" data-field ="name" />
+      </view>
 
-  </form>
+      <view class="input-container">
+        <input id="age" placeholder="Pet's Age" value="{{ formData.age }}"
+        bindinput="setAgeData" type="text" name="age" data-field ="age" />
+      </view>
+
+      <view class="input-container">
+        <picker mode="selector" range="{{ breed }}" value="{{ formData.breed }}" bindchange="bindBreedChange" data-field ="breed" >
+          <!-- <view> Breed{{breed[formData.breed]}}</view> -->
+          <input id="breed" placeholder="Pet's Breed" bindchange="bindBreedChange" value="{{ formData.breed }}" disabled />
+        </picker>
+      </view>
+      
+      <view>
+        <!-- <view class="input-container"> -->
+          <picker mode="selector" range="{{ gender }}" value="{{ formData.gender }}" bindchange="bindGenderChange" data-field ="gender" >
+            <!-- <view> Pet's Gender{{gender[formData.gender]}}</view> -->
+            <input id="gender" placeholder="Pet's Gender" bindchange="bindGenderChange" value="{{ formData.gender }}" disabled />
+          </picker>
+        <!-- </view> -->
+
+        <view class="switch-container">
+          <text> Is your pet neutered?  </text>
+          <switch checked="{{neutered}}" bindchange="onNeuteredChange"></switch>
+        </view>
+
+        <view class="switch-container">
+            <text> Is your pet rabies vaccinated?  </text>
+            <switch checked="{{vaccinated}}" bindchange="onVaccinatedChange"></switch>
+        </view>
+        <view>
+        
+        </view>
+      </view>
+      
+      <view class="input-container">
+        <input id="address" placeholder="Address" value="{{ formData.address }}" bindinput="setAddressData" type="text" name="address" data-field ="address" />
+      </view>
+      
+      <text class="h3">Pet's Bio</text>
+      <view class="input-container">
+        <textarea id="bio" placeholder="Write a fun & punchy intro" value="{{ formData.bio }}" bindinput="setBioData" name="bio" data-field ="bio" ></textarea>
+      </view>
+      
+      <!-- <view class="input-container">
+        <icon class="input-icon" type="category"/>
+        <view class="category_selector"></view>
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{categories}}">
+          <view class="picker">
+            Category: {{categories[index]}}
+          </view>
+        </picker>
+    </view> -->
+
+      <button class="btn btn-filled" form-type="submit">Save</button>
+
+    </form>
+  </view>
 </view>

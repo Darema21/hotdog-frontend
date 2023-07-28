@@ -18,7 +18,7 @@ Page({
       src: [],
     },
 
-    listenerBtnChooseImage: function () {
+    btnChooseImage: function () {
       const page = this
       // Upload an image
       wx.chooseMedia({
@@ -59,12 +59,17 @@ Page({
       })
     },
     
-    // onSwitchChange: function (dog) {
-    //   this.setData({
-    //     isVaccinated: dog.detail.value,
-    //     isNeutered: dog.detail.value,
-    //   });
-    // },
+    onNeuteredChange: function (dog) {
+      this.setData({
+        isNeutered: dog.detail.value,
+      });
+    },
+
+    onVaccinatedChange: function (dog) {
+      this.setData({
+        isVaccinated: dog.detail.value,
+      });
+    },
     /**
      * Lifecycle function--Called when page load
      */

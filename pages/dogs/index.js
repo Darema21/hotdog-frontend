@@ -32,11 +32,10 @@ Page({
     console.log('Handle swipe out', args);
     const page = this;
     const direction = args.detail.direction;
-    const dog_id = args.detail.item.id;
     const to_owner_id = args.detail.item.ownerId;
     const from_owner_id = app.globalData.owner.id;
-
-    sendPostRequest(page, direction, dog_id, to_owner_id, from_owner_id);
+    console.log("To Owner id", to_owner_id)
+    sendPostRequest(direction, to_owner_id, from_owner_id);
   },
 
   getUserInfo: function (e) {},
@@ -56,7 +55,7 @@ Page({
   onShareAppMessage() {},
 });
 
-function sendPostRequest(page, direction, dog_id, to_owner_id, from_owner_id) {
+function sendPostRequest(direction, from_owner_id, to_owner_id) {
   wx.request({
     url: `${app.globalData.baseUrl}owners/${from_owner_id}/matches`,
     method: 'POST',
@@ -69,7 +68,7 @@ function sendPostRequest(page, direction, dog_id, to_owner_id, from_owner_id) {
       }
     },
     success(res) {
-      handleSuccessResponse(res, from_owner_id, to_owner_id);
+      handleSuccessResponse(res);
     },
     fail(res) {
       handleFailureResponse(res);
@@ -77,26 +76,23 @@ function sendPostRequest(page, direction, dog_id, to_owner_id, from_owner_id) {
   });
 }
 
-function handleSuccessResponse(res, from_owner_id, to_owner_id) {
+function handleSuccessResponse(res) {
   console.log("POST request successful");
   console.log("Response:", res);
 
   if (res.statusCode === 200 || res.statusCode === 201) {
     const match = res.data;
+    const match_id = match.id;
+    const from_dog_img = match.from_dog.image_url;
+    const to_dog_id = match.to_dog.id;
+    const to_dog_img = match.to_dog.image_url;
+    const to_dog_name = match.to_dog.name;
+
     console.log("Match status:", match.status);
     if (match.status === "like") {
-      console.log("Finding dogs for mutual match:", from_owner_id, to_owner_id);
-      const from_owner_dog = app.globalData.currentOwnerDog;
-      const to_owner_dog = findDogByOwnerId(to_owner_id);
-
-      if (from_owner_dog && to_owner_dog) {
-        console.log("Navigating to mutual page...");
-        navigateToMutualPage(from_owner_dog, to_owner_dog);
-      } else {
-        console.log("Dogs not found for the specified owners");
-      }
+      navigateToMutualPage(match_id, from_dog_img, to_dog_id, to_dog_img, to_dog_name);
     } else {
-      showToast('Match created successfully');
+      console.log("Dogs not found for the specified owners");
     }
   } else {
     showToast('Failed to create match');
@@ -110,16 +106,13 @@ function handleFailureResponse(res) {
   showToast('Failed to create match');
 }
 
-function navigateToMutualPage(page, from_owner_dog, to_owner_dog) {
+function navigateToMutualPage(match_id, from_dog_img, to_dog_id, to_dog_img, to_dog_name) {
+  console.log("Navigating to mutual page: From dog", app.globalData.currentOwnerDog.id, "To dog:", to_dog_id);
+
   wx.navigateTo({
-    url: `/pages/matches/mutual?from_owner_id=${from_owner_dog.ownerId}&to_owner_id=${to_owner_dog.ownerId}&from_owner_dog_id=${from_owner_dog.id}&to_owner_dog_id=${to_owner_dog.id}`,
+    url: `/pages/matches/mutual?match_id=${match_id}&from_dog_img=${from_dog_img}&to_dog_id=${to_dog_id}&to_dog_img=${to_dog_img}&to_dog_name=${to_dog_name}`,
     success(res) {
       console.log("Navigation success:", res);
-      // Update the pushList after successful match
-      const newList = page.data.pushList.filter((item) => item.ownerId !== to_owner_dog.ownerId && item.ownerId !== from_owner_dog.ownerId);
-      page.setData({
-        pushList: newList
-      });
     },
     fail(err) {
       console.error("Navigation failed:", err);
@@ -133,13 +126,6 @@ function showToast(message) {
     icon: 'none',
     duration: 2000
   });
-}
-
-function findDogByOwnerId(owner_id) {
-  const dog = app.globalData.dogs.find((dog) => dog.ownerId === owner_id);
-  console.log(owner_id);
-  console.log("Dog:", dog);
-  return dog;
 }
 
 module.exports = {

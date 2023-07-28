@@ -24,8 +24,11 @@ App({
               method: 'GET',
               header: app.globalData.header,
               success(res) {
-                const dogs = res.data;
-  
+                const dogs = res.data.dogs;
+                const current_owner_dog = res.data.current_owner_dog;
+                console.log("Current Owner Dog", current_owner_dog);
+                app.globalData.currentOwnerDog = current_owner_dog;
+                 
                 // Transform the dogs' information and store it in globalData
                 app.globalData.dogs = dogs.map((dog) => {
                   return {
@@ -43,15 +46,6 @@ App({
               },
               fail(err) {
                 console.error("Error fetching dogs:", err);
-              }
-            });
-
-            wx.request({
-              url: `${app.globalData.baseUrl}owners/${owner.id}/current_owner_dog`,
-              method: 'GET',
-              header: app.globalData.header,
-              success(res) {
-                app.globalData.currentOwnerDog = res.data
               }
             });
           },

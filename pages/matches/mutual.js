@@ -14,15 +14,15 @@ Page({
    */
   onLoad: function (options) {
     console.log("Options", options);
-    const from_owner_id = options.from_owner_id;
-    const to_owner_id = options.to_owner_id;
-  
-    console.log("Global dogs", app.globalData.dogs)
-    const dogForFromOwner = app.globalData.dogs.find(dog => dog.ownerId === from_owner_id);
-    console.log("dogForFromOwner", dogForFromOwner);
-  
-    const dogForToOwner = app.globalData.dogs.find(dog => dog.ownerId === to_owner_id);
-    console.log("dogForToOwner", dogForToOwner);
+    let page = this;
+
+    page.setData({
+      match_id: options.match_id,
+      from_dog_img: options.from_dog_img,
+      to_dog_id: options.to_dog_id,
+      to_dog_img: options.to_dog_img,
+      to_dog_name: options.to_dog_name
+    })
   },
   
 

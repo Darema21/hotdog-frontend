@@ -1,20 +1,55 @@
 // pages/matches/show.js
+const app = getApp()
 Page({
 
     /**
      * Page initial data
      */
     data: {
-
+      owner: "Owner",
     },
-
+    formSubmit (e) {
+      let owner = e.detail.value.owner;
+      let comment = e.detail.value.comment;
+      let story = {
+        owner: owner,
+        comment: comment
+      }
+      wx.request({
+        url: `${app.globalData.baseUrl}owners/:owner_id/matches/:match_id/comments`,
+        method: 'POST',
+        data: { comment: comment },
+        success() {
+          // redirect to index page when done
+          wx.redirectTo({
+            url: '/pages/matches/show'
+          });
+        }
+      });
+    },
     /**
      * Lifecycle function--Called when page load
      */
     onLoad(options) {
-
+      const page = this
+      wx.request({
+        url: `${app.globalData.baseUrl}owners/:owner_id/matches/:match_id/comments`,
+        method: 'GET',
+        // header: {},
+        // data: {},
+        success(res) {
+          console.log({res})
+          page.setData({
+            comment: res.data.comment
+          })
+        }
+      })
+      const stories = wx.getStorageSync('comment')
+      this.setData({
+        comment: comment
+        // stories: []
+      })
     },
-
     /**
      * Lifecycle function--Called when page is initially rendered
      */
@@ -26,14 +61,35 @@ Page({
      * Lifecycle function--Called when page show
      */
     onShow() {
-        const page = this
-      
-        if (typeof this.getTabBar === 'function' &&
-        this.getTabBar()) {
-          this.getTabBar().setData({
-            selected: 2
-          })
+    },
+
+    addComment(e) {
+      const app = getApp();
+      const comment = e.detail.value; 
+    
+      wx.request({
+        url: `${app.globalData.baseUrl}matches/${match_id}/comments`,
+        method: 'POST',
+        data: { comment: comment },
+        success(res) {
+          console.log('update success?', res)
+          if (res.statusCode === 422) {
+            wx.showModal({
+              title: 'Error!',
+              content: res.data.errors.join(', '),
+              showCancel: false,
+              confirmText: 'OK'
+            })
+          } else {
+            wx.switchTab({
+              url: '/pages/matches/show',
+            })
+          }
+        },
+        fail(error) {
+          console.log({ error })
         }
+      })
     },
 
     /**

@@ -50,11 +50,6 @@ page {
   margin-right: 30rpx;
 }
 
-.place-box {
-  width: 100%;
-  height:170rpx;
-}
-
 
 .breed-image {
   background-color: var(--primary-color);

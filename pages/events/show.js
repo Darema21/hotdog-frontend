@@ -1,26 +1,23 @@
-// pages/users/profile.js
-const app = getApp();
-
+// pages/events/show.js
 Page({
+
   /**
    * Page initial data
    */
   data: {
-    owner: {},
-    dog: {}
+
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad(options) {
-    // Set the owner and dog data from app.globalData
-    this.setData({
-      owner: app.globalData.owner,
-      dog: app.globalData.currentOwnerDog
-    });
+
   },
 
+  /**
+   * Lifecycle function--Called when page is initially rendered
+   */
   onReady() {
 
   },
@@ -29,14 +26,7 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow() {
-      const page = this
-    
-      if (typeof this.getTabBar === 'function' &&
-      this.getTabBar()) {
-        this.getTabBar().setData({
-          selected: 3
-        })
-      }
+
   },
 
   /**
@@ -73,4 +63,4 @@ Page({
   onShareAppMessage() {
 
   }
-});
+})

@@ -30,16 +30,10 @@ Page({
   onShow() {
     const page = this;
 
-    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
-      this.getTabBar().setData({
-        selected: 1,
-      });
-    }
-
     wx.request({
       url: `${app.globalData.baseUrl}breeds`,
       method: 'GET',
-      // header: app.globalData.header,
+      header: app.globalData.header,
       success(res) {
         console.log(res);
         const breeds = res.data;

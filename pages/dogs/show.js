@@ -30,7 +30,7 @@ Page({
           method: 'GET',
           header: app.globalData.header,
           success(res){
-              console.log(res);
+              console.log("Dog data", res);
               const dog = res.data;
 
               page.setData({

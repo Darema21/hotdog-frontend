@@ -13,7 +13,7 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    console.log("Options", options);
+    console.log("Mutual options", options);
     let page = this;
 
     page.setData({

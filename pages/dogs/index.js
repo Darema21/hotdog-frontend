@@ -9,6 +9,7 @@ Page({
   bindViewTap: function () {},
 
   onLoad: function () {
+
     setInterval(() => {
       this.setData({
         pushList: [],
@@ -22,6 +23,14 @@ Page({
   },
 
   onShow() {
+    const page = this;
+
+    if (typeof this.getTabBar === 'function' &&
+      this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 1
+      });
+    }
     // Retrieve the dogs from globalData and set them in the pushList
     this.setData({
       pushList: app.globalData.dogs,
@@ -30,7 +39,6 @@ Page({
 
   handleSwipeOut(args) {
     console.log('Handle swipe out', args);
-    const page = this;
     const direction = args.detail.direction;
     const to_owner_id = args.detail.item.ownerId;
     const from_owner_id = app.globalData.owner.id;

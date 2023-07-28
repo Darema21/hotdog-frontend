@@ -4,12 +4,12 @@
   <!-- Profile card -->
   <view class="profile-card flex ai-c">
     <view class="owner-dog-avatar">
-      <image class="avatar-user-lg" src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" mode="aspectFill" />
-      <image class="avatar-dog" src="https://images.unsplash.com/photo-1575383095193-52195a64e3a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60" mode="aspectFill" />
+      <image class="avatar-user-lg" src="{{ 'https://res.cloudinary.com/ds0c8uqvx/image/upload/v1689510757/hotdog/' + owner.image_url + '.png' }}" mode="aspectFill" />
+      <image class="avatar-dog" src="{{ 'https://res.cloudinary.com/ds0c8uqvx/image/upload/v1689510757/hotdog/' + dog.image_url+ '.png' }}" mode="aspectFill" />
     </view>
     <view class="flex column">
       <text class="p p-pink">Welcome back!</text>
-      <text class="h3">Sammi & Baoan</text>
+      <text class="h3">{{ owner.name }} & {{ dog.name }}</text>
     </view>
   </view>
 

@@ -1,6 +1,6 @@
 <!--pages/home/index.wxml-->
 <view class="banner">
-  <text class="h1">Hello there!</text>
+  <text class="h1 white">Hello there!</text>
   <text class="p">Time to find your pawfect match!</text>
 </view>
 

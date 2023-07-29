@@ -109,10 +109,8 @@ Page({
     method: 'GET',
     header: getApp().globalData.header,
     success(res) {
-      const events = res.data.events;
-      console.log(events)
-
-      // Update local data
+      const events = res.data;
+      
       page.setData({
         events: events
       });

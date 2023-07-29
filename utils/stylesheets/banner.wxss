@@ -1,10 +1,7 @@
 .banner {
   overflow: hidden;
   height: 16vh;
-  background-color: linear-gradient(180deg, rgba(0, 0, 0, 0.17) 0%, rgba(28, 2, 40, 0.83) 100%);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background: linear-gradient(180deg, #FCA984 0%, #DE6089 100%);
   display: flex;
   flex-direction: column;
   align-items: center;

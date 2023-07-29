@@ -1,11 +1,5 @@
 .banner {
-  background: linear-gradient(180deg, #FCA984 0%, #DE6089 100%);
-}
-
-.h1 {
-  color: var(--white);
-  margin-bottom: .1em;
-  text-align: left;
+  background: var(--gradient);
 }
 
 /* Categories */

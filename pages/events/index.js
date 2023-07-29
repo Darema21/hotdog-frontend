@@ -1,6 +1,6 @@
 // pages/index/index.js
 const app = getApp()
-const { goToEvent } = require('../../utils/util');
+const utils = require('../../utils/util');
 
 Page({
   /**
@@ -25,8 +25,9 @@ Page({
   },
 
   addBooking: function(options) {
+    console.log("Index options", options);
     const page = this;
-    const eventId = options.currentTarget.dataset.eventid;
+    const eventId = options.currentTarget.dataset.id;
     console.log({ eventId })
   
     const events = page.data.events;

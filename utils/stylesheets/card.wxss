@@ -41,8 +41,8 @@
 
 .img-small {
   height: 100%;
-  min-width: 160rpx;
-  margin-right: .75rem;
+  min-width: 100rpx;
+  margin-right: .5rem;
 }
 
 .card-info-hor {

@@ -2,7 +2,7 @@
 
 <!-- **Banner** -->
 <view class="banner">
-  <text class="h1">Pet-Friendly Events</text>
+  <text class="h1 white">Pet-Friendly Events</text>
   <text class="p">Have fun together with your doggo!</text>
 </view>
 
@@ -46,12 +46,18 @@
   <block wx:if="{{events.length > 0}}">
     <view class="cards">
       <view class="card card-hor flex" wx:for="{{events}}" wx:key="index" wx:for-item="event">
-        <image class="card-image img-small" src="https://img.freepik.com/free-photo/cute-puppy-celebrates-birthday-with-colorful-balloons-generative-ai_188544-9519.jpg?w=2000&t=st=1690605981~exp=1690606581~hmac=7932ddf5796a17f1d1cff42423bb883ccb02117fda87432f3cf4bd0c30b86491" mode="aspectFill" />
+        <image bindtap="goToEvent" data-id="{{event.id}}" class="card-image img-small" src="https://img.freepik.com/free-photo/cute-puppy-celebrates-birthday-with-colorful-balloons-generative-ai_188544-9519.jpg?w=2000&t=st=1690605981~exp=1690606581~hmac=7932ddf5796a17f1d1cff42423bb883ccb02117fda87432f3cf4bd0c30b86491" mode="aspectFill" />
         <view class="card-info-hor">
           <view class="flex column">
-            <text class="p p-pink card-date">{{event.start_time}}</text>
+            <view class="date flex ai-с jc-sb">
+                <text class="p p-pink start-time">{{event.start_time}}</text>
+                <image class="category-icon" src="{{event.has_booking ? '/pages/images/icons/bookmark_checked.png' : '/pages/images/icons/bookmark_unchecked.png'}}" bindtap="addBooking" data-id="{{event.id}}" mode="aspectFill" />
+              </view>
             <text class="h3 truncate">{{event.title}}</text>
-            <text class="card-address">{{event.address}}</text>
+            <view class="address flex ai-c">
+                <image class="geo-icon" src="/pages/images/icons/geo.png" mode="" />
+                <text class="card-address">{{event.address}}</text>
+              </view>
           </view>
         </view>
       </view>

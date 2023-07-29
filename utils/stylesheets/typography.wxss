@@ -25,6 +25,11 @@
   margin-bottom: .3em;
 }
 
+.white {
+  color: var(--white);
+  margin-bottom: .1em;
+}
+
 .p {
   font-size: 32rpx;
   font-weight: normal;

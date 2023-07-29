@@ -1,1 +1,35 @@
 /* pages/dogs/form.wxss */
+.h1{
+  margin-top: 2rem;
+}
+
+.add-image-button-box {
+  display: flex;
+}
+
+.input-container {
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.breed-title, .gender-title, .bio-title {
+  font-size: 40rpx;
+  font-weight: 600;
+}
+
+textarea {
+  color: car(--grey-light);
+  background-color: rgb(255, 255, 255, .8);
+  border-radius: 20rpx;
+  padding: 20rpx 40rpx;
+  margin-bottom: 15rpx;
+}
+
+/* upload-container {
+  border-top-left-radius: 40rpx;
+  border-top-right-radius: 40rpx;
+  z-index: 4;
+  margin-top: -10%;
+} */
+
+

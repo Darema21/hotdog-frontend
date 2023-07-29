@@ -16,7 +16,14 @@
         },
         {
           "name": "",
-          "pathName": "pages/matches/index",
+          "pathName": "pages/dogs/form",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/owners/profile",
           "query": "",
           "launchMode": "default",
           "scene": null

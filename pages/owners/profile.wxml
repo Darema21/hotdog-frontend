@@ -6,7 +6,7 @@
       <image class="avatar-dog profile-dog-avatar" src="https://images.unsplash.com/photo-1575383095193-52195a64e3a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60" mode="aspectFill" />
     </view>
     <view class="h3 profile-greeting welcome">Welcome back!
-      <view class="--dark owner-dog-name h2"> Sammi & Baoan</view>
+      <view class="--dark owner-dog-name h2"> #S {{owner_name}} & #{{dog_name}} Baoan</view>
     </view>
   </view>
 </view>

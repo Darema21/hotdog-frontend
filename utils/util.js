@@ -26,8 +26,15 @@ function goToBreed(e) {
     })
 }
 
+function goToEvent(event_id) {  
+  wx.navigateTo({
+    url: `/pages/events/show?id=${event_id}`,
+  });
+}
+
 module.exports = {
   formatTime,
   goToBreed,
-  goToShow
+  goToShow,
+  goToEvent
 }

@@ -1,1 +1,64 @@
-/* pages/events/show.wxss */
+/* pages/pages/show.wxss */
+.info {
+  margin-bottom: 40rpx;
+  background-color: var(--white);
+  padding: 30rpx;
+  border-radius: 20rpx;
+}
+
+.attendees {
+  background-color: var(--white);
+  border-radius: 100rpx;
+  padding: 20rpx 100rpx;
+  margin-top: -64rpx;
+  box-shadow: 0px 10px 35px rgba(87, 92, 138, 0.1);
+}
+
+.attendees text {
+  font-weight: bold;
+}
+
+.h1 {
+  margin-top: .7em;
+}
+
+.details:not(:last-child) {
+  margin-bottom: .7rem;
+}
+
+.details-img {
+  width: 80rpx;
+  margin-right: 1em;
+}
+
+.details-text {
+  width: 85%;
+} 
+
+.label {
+  color: #333;
+  text-align: left;
+}
+
+.value {
+  color: #666;
+  text-align: left;
+}
+
+.profile-btn {
+  background-color: var(--accent-color-pink);
+  color: var(--dark);  
+  /* display: inline-block; */
+  font-size: 24rpx;
+  height: 100%;
+  padding: 16rpx;
+  max-width: 140rpx;
+}
+
+.event-description{
+  margin-bottom: 2.2rem;
+}
+
+.buttons {
+  gap: 5%;
+}

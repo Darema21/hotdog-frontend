@@ -12,6 +12,7 @@
     "pages/matches/mutual",
     "pages/events/index",
     "pages/events/show",
+    "pages/events/form",
     "pages/owners/profile",
     "custom-tab-bar/index",
     "pages/logs/logs",

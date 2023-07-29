@@ -13,7 +13,7 @@ Component({
     handleSwipeOut(e, direction) {
       const dogId = this.properties.itemData.id; 
       const toOwnerId = this.properties.itemData.ownerId; 
-      const fromOwnerId = 11; 
+      const fromOwnerId = app.globalData.owner.id; 
 
       dog.sendPostRequest(this, direction, dogId, toOwnerId, fromOwnerId);
     },

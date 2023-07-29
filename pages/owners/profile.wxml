@@ -4,8 +4,8 @@
   <!-- Profile card -->
   <view class="profile-card flex ai-c">
     <view class="owner-dog-avatar">
-      <image class="avatar-user-lg" src="{{ 'https://res.cloudinary.com/ds0c8uqvx/image/upload/v1689510757/hotdog/' + owner.image_url + '.png' }}" mode="aspectFill" />
-      <image class="avatar-dog" src="{{ 'https://res.cloudinary.com/ds0c8uqvx/image/upload/v1689510757/hotdog/' + dog.image_url+ '.png' }}" mode="aspectFill" />
+      <image class="avatar-user-lg" src="{{ owner.image_url }}" mode="aspectFill" />
+      <image class="avatar-dog" src="{{ 'currentOwnerDogImage' }}" mode="aspectFill" />
     </view>
     <view class="flex column">
       <text class="p p-pink">Welcome back!</text>

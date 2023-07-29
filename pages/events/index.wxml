@@ -49,8 +49,8 @@
         <image class="card-image img-small" src="https://img.freepik.com/free-photo/cute-puppy-celebrates-birthday-with-colorful-balloons-generative-ai_188544-9519.jpg?w=2000&t=st=1690605981~exp=1690606581~hmac=7932ddf5796a17f1d1cff42423bb883ccb02117fda87432f3cf4bd0c30b86491" mode="aspectFill" />
         <view class="card-info-hor">
           <view class="flex column">
-            <text class="card-date">{{event.start_time}}</text>
-            <text class="h3">{{event.title}}</text>
+            <text class="p p-pink card-date">{{event.start_time}}</text>
+            <text class="h3 truncate">{{event.title}}</text>
             <text class="card-address">{{event.address}}</text>
           </view>
         </view>

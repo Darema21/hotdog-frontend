@@ -17,7 +17,7 @@
     bind:swipeout="handleSwipeOut"
     wx:for="{{list}}" 
     wx:for-index="idx"
-    wx:key="id"
+    wx:key="unique"
     wx:if="{{list.length - idx < 4}}"
     class="mp-swipe-card-item {{list.length - 1 === idx ? 'top' : ''}}"
     style="transform: translate3d({{list.length - 1 === idx ? position.x : 0}}rpx, 0rpx, 0rpx);"

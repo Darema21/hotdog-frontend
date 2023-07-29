@@ -14,6 +14,7 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad(options) {
+    console.log("Profile:", options)
     // Set the owner and dog data from app.globalData
     this.setData({
       owner: app.globalData.owner,

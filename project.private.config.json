@@ -25,10 +25,14 @@
         },
         {
           "name": "",
-          "pathName": "pages/landing/landing",
+          "pathName": "pages/dogs/form",
           "query": "",
           "launchMode": "default",
-          "scene": null
+          "scene": null,
+          "partialCompile": {
+            "enabled": false,
+            "pages": []
+          }
         },
         {
           "name": "",

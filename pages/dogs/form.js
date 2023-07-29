@@ -20,6 +20,7 @@ Page({
       address: "",
       owner: "",
       formData: {},
+      src: ""
       // src: [],
     },
 
@@ -31,9 +32,9 @@ Page({
         header: app.globalData.header,
         name:'image',
         success (res){
-          wx.navigateTo({
-            url: `/pages/dogs/index`
-          })
+          // wx.navigateTo({
+          //   url: `/pages/dogs/index`
+          // })
           page.setData({resetForm: true})
           console.log('from upload, res',res)
           console.log('from upload, page.data', page.data)
@@ -53,7 +54,7 @@ Page({
           console.log('res.tempFiles', res.tempFiles)
           console.log('image upload success, res', res)
           page.setData({
-            src: res.tempFiles
+            src: res.tempFiles[0].tempFilePath
             // src: res.tempFilePaths
           })
         }
@@ -344,9 +345,9 @@ Page({
         header: app.globalData.header,
         name: 'image',
         success (res) {
-          wx.navigateTo({
-            url: `/pages/dogs/index`
-          })
+          // wx.navigateTo({
+          //   url: `/pages/dogs/index`
+          // })
           page.setData({resetForm: true})
           console.log('res from upload', res)
         }

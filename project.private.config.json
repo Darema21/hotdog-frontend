@@ -19,14 +19,11 @@
           "pathName": "pages/dogs/form",
           "query": "",
           "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/owners/profile",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
+          "scene": null,
+          "partialCompile": {
+            "enabled": false,
+            "pages": []
+          }
         }
       ]
     }

@@ -9,7 +9,7 @@
     </view>
     <scroll-view class="match-queue-images container-horizontal" scroll-x="{{true}}">
       <block wx:for="{{ matches }}" wx:key="index" wx:for-item="match">
-        <image class="avatar-user avatar-user-sm" src="{{ 'https://res.cloudinary.com/ds0c8uqvx/image/upload/v1689510757/hotdog/' + match.matched_owner.image_url + '.jpg' }}" mode="aspectFill" bindtap="goToShow" data-id="{{ match.matched_dog.id }}" />
+        <image class="avatar-user avatar-user-sm" src="{{ match.matched_owner.image_url }}" mode="aspectFill" bindtap="goToShow" data-id="{{ match.matched_dog.id }}" />
       </block>
     </scroll-view>
 
@@ -27,8 +27,8 @@
       <block wx:for="{{ matches }}" wx:key="index" wx:for-item="match">
         <view class="match-chat flex ai-c" bindtap="goToMatch" data-id="match.id">
           <view class="match-chat-photos flex">
-            <image class="avatar-user avatar-user-sm" src="{{ 'https://res.cloudinary.com/ds0c8uqvx/image/upload/v1689510757/hotdog/' + match.matched_owner.image_url + '.jpg' }}" mode="aspectFill" />
-            <image class="avatar-dog" src="{{ 'https://res.cloudinary.com/ds0c8uqvx/image/upload/v1689510757/hotdog/' + match.matched_dog.image_url + '.jpg' }}" mode="aspectFill" />
+            <image class="avatar-user avatar-user-sm" src="{{ match.matched_owner.image_url }}" mode="aspectFill" />
+            <image class="avatar-dog" src="{{ match.matched_dog.image_url }}" mode="aspectFill" />
 
           </view>
           <view class="match-chat-text flex column">

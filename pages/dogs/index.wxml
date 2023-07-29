@@ -14,7 +14,7 @@
     <view class="placeholder-2"></view>
     <mp-swipe-card
       push-list="{{pushList}}"
-      wx:key="id"
+      wx:key="unique"
       bind:swipeout="handleSwipeOut"
       generic:mp-swipe-card-item="card-item"   
     >

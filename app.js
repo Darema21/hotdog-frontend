@@ -25,10 +25,12 @@ App({
               header: app.globalData.header,
               success(res) {
                 const dogs = res.data.dogs;
+                console.log("App data", res)
                 const current_owner_dog = res.data.current_owner_dog;
-                console.log("Current Owner Dog", current_owner_dog);
                 app.globalData.currentOwnerDog = current_owner_dog;
                  
+                const current_dog_img = res.data.current_owner_dog_image
+                app.globalData.currentOwnerDogImage = current_dog_img
                 // Transform the dogs' information and store it in globalData
                 app.globalData.dogs = dogs.map((dog) => {
                   return {
@@ -126,6 +128,7 @@ App({
     header: {},
     baseUrl: 'http://localhost:3000/api/v1/',
     dogs: [],
-    currentOwnerDog: null
+    currentOwnerDog: null,
+    currentOwnerDogImage: null
   }
 })

@@ -3,7 +3,7 @@
 <view class="container">
   <text class="h1">Pawfect Match!</text>
   <view class="flex ai-c jc-c">
-    <image class="match-image" src="{{ 'https://res.cloudinary.com/ds0c8uqvx/image/upload/v1689510757/hotdog/' + from_dog_img + '.png' }}" mode="aspectFill" />
+    <image class="match-image" src="{{ from_dog_img }}" mode="aspectFill" />
     <image class="match-image" src="{{ 'https://res.cloudinary.com/ds0c8uqvx/image/upload/v1689510757/hotdog/' + to_dog_img + '.png' }}" mode="aspectFill" />
   </view>
   <navigator class="flex column ai-с jc-c" open-type="switchTab" url="/pages/matches/index">

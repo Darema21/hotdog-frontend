@@ -40,12 +40,12 @@ Page({
     });
   },
 
-  
-  addBooking: function(options) {
+
+  addBooking: function (options) {
     const page = this;
     const event_id = options.currentTarget.dataset.id;
-    console.log({ event_id })
-  
+    console.log("Event id:", event_id);
+
     const events = page.data.events;
     const updatedEvents = events.map(event => {
       if (event.id === event_id) {
@@ -57,23 +57,24 @@ Page({
       }
       return event;
     });
-  
-    page.setData({ events: updatedEvents });
-  
+
+    page.setData({
+      events: updatedEvents
+    });
+
     // Send a request to the server to add/delete the booking
     wx.request({
       url: `${getApp().globalData.baseUrl}events/${event_id}/booking`,
       method: 'POST', // or 'DELETE' depending on the scenario
       header: app.globalData.header,
+    
       data: {
         booking: {
           event_id: event_id,
-          owner_id: app.globalData.owner
+          owner_id: app.globalData.owner.id 
         }
       },  
       success(res) {
-        // Handle the success response
-        console.log(res)
         if (res.statusCode === 200) {
           console.log("Created booking");
         } else {
@@ -90,7 +91,9 @@ Page({
         });
       }
     });
-  }, 
+    
+
+  },
 
   /**
    * Lifecycle function--Called when page load
@@ -115,10 +118,10 @@ Page({
         selected: 0,
       });
     }
-  
+
     // Store the reference to the page instance in a variable
     const page = this;
-  
+
     wx.request({
       url: `${app.globalData.baseUrl}events`,
       method: 'GET',
@@ -137,7 +140,7 @@ Page({
       }
     });
   },
-  
+
   /**
    * Lifecycle function--Called when page hide
    */

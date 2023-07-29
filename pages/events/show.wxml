@@ -33,11 +33,10 @@
     <view class="details flex">
       <image class="details-img" src="/pages/images/icons/location.png" mode="widthFix" />
       <view class="details-text flex column">
-        <text class="label p p-dark">Address</text>
+        <text class="label p p-dark">Address</text>        
         <text class="value p p-light">{{event.address}}</text>
       </view>
     </view>
-    <button class="profile-btn" bindtap="goToPromoter" data-id="{{event.user_id}}">Profile</button>
   </view>
 </view>
 

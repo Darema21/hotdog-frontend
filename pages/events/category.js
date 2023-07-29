@@ -1,27 +1,23 @@
-// pages/users/profile.js
-const app = getApp();
-
+// pages/events/category.js
 Page({
+
   /**
    * Page initial data
    */
   data: {
-    owner: {},
-    dog: {}
+
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad(options) {
-    console.log("Profile:", options)
-    // Set the owner and dog data from app.globalData
-    this.setData({
-      owner: app.globalData.owner,
-      dog: app.globalData.currentOwnerDog
-    });
+
   },
 
+  /**
+   * Lifecycle function--Called when page is initially rendered
+   */
   onReady() {
 
   },
@@ -29,17 +25,30 @@ Page({
   /**
    * Lifecycle function--Called when page show
    */
-  onShow() {
-      const page = this
-    
-      if (typeof this.getTabBar === 'function' &&
-      this.getTabBar()) {
-        this.getTabBar().setData({
-          selected: 3
-        })
-      }
-  },
+  onShow: function() {
+    const category = this.options.category;
+    let page = this;
 
+    wx.request({
+      url: `${getApp().globalData.baseUrl}events/category`,
+      method: 'GET',
+      data: {
+        category: category
+      },
+      success: function(res) {
+        console.log(res.data);
+        const events = res.data.events
+        page.setData({
+          category: category,
+          events: events
+        })
+      },
+      fail: function(error) {
+        console.error(error);
+      }
+    });
+  },
+  
   /**
    * Lifecycle function--Called when page hide
    */
@@ -74,4 +83,4 @@ Page({
   onShareAppMessage() {
 
   }
-});
+})

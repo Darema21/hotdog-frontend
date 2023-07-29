@@ -1,43 +1,40 @@
 <!--pages/events/index.wxml-->
-<!--pages/events/index.wxml-->
 
 <!-- **Banner** -->
-<navigator open-type="switchTab" url="/pages/events/form">
-    <view class="banner banner-dark" style="background-image: url('https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');">
-        <text class="title">Post Your Event</text>
-        <text>Get Hundreds of Sign Ups </text>
-    </view>
-</navigator>
+<view class="banner">
+  <text class="h1">Pet-Friendly Events</text>
+  <text class="p">Have fun together with your doggo!</text>
+</view>
 
 <!-- Category -->
-<scroll-view class="container container-horizontal category-buttons" scroll-x="{{true}}">
-  <view class="category" style="background-color: #F0635A;"bindtap="navigateToCategoryPage" data-category="food">
+<scroll-view class="container-horizontal category-buttons" scroll-x="{{true}}">
+  <view class="category" bindtap="navigateToCategoryPage" data-category="food">
     <view class="flex ai-c jc-c">
-      <image src="/pages/images/category-icon-food-white.png" mode=""/>
+      <image src="/pages/images/icons/category/category-icon-food-white.png" mode="" />
       <text>Food</text>
     </view>
   </view>
-  <view class="category" style="background-color: #F59762;"bindtap="navigateToCategoryPage" data-category="food">
+  <view class="category" bindtap="navigateToCategoryPage" data-category="food">
     <view class="flex ai-c jc-c">
-      <image src="/pages/images/category-icon-guitar-white.png" mode=""/>
+      <image src="/pages/images/icons/category/category-icon-guitar-white.png" mode="" />
       <text>Music</text>
     </view>
   </view>
-  <view class="category" style="background-color: #29D697;"bindtap="navigateToCategoryPage" data-category="food">
+  <view class="category" bindtap="navigateToCategoryPage" data-category="food">
     <view class="flex ai-c jc-c">
-      <image src="/pages/images/category-icon-football-ball-white.png" mode=""/>
+      <image src="/pages/images/icons/category/category-icon-football-ball-white.png" mode="" />
       <text>Sports</text>
     </view>
   </view>
-  <view class="category" style="background-color: #46CDFB;"bindtap="navigateToCategoryPage" data-category="food">
+  <view class="category" bindtap="navigateToCategoryPage" data-category="food">
     <view class="flex ai-c jc-c">
-      <image src="/pages/images/category-icon-nightlife-white.png" mode=""/>
+      <image src="/pages/images/icons/category/category-icon-nightlife-white.png" mode="" />
       <text>Nightlife</text>
     </view>
   </view>
-  <view class="category" style="background-color: #ADA2FF;"bindtap="navigateToCategoryPage" data-category="food">
+  <view class="category" bindtap="navigateToCategoryPage" data-category="food">
     <view class="flex ai-c jc-c">
-      <image src="/pages/images/category-icon-drawing-palette-white.png" mode=""/>
+      <image src="/pages/images/icons/category/category-icon-drawing-palette-white.png" mode="" />
       <text>Art</text>
     </view>
   </view>
@@ -46,31 +43,24 @@
 
 <!-- Event-cards -->
 <view class="container">
-
-    <text class="p p-dark">Sort by</text>
-    <block wx:if="{{events.length > 0}}">
-        <view class="cards">
-            <view class="card card-hor" wx:for="{{events}}" wx:key="index" wx:for-item="event">
-                <view class="card-image img-small" style="background-image: url('https://images.unsplash.com/photo-1687421419353-db28220cef00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80')" bindtap="goToShow" data-id="{{event.id}}">
-                    <text class="poster-details p">Details</text>
-                </view>
-                <view class="card-info-hor">
-                    <view class="flex column">
-                        <text class="card-date">{{event.start_time}}</text>
-                        <text class="h3">{{event.title}}</text>
-                        <text class="card-address">{{event.address}}</text>
-                    </view>
-                    <button class="booking-button {{event.has_booking ? 'booking-button-going' : 'booking-button-attend'}}" bindtap="addBooking" data-eventid="{{event.id}}">
-                        {{ event.has_booking ? 'Going!!!' : 'Attend'}}
-                    </button>
-                </view>
-            </view>
+  <block wx:if="{{events.length > 0}}">
+    <view class="cards">
+      <view class="card card-hor flex" wx:for="{{events}}" wx:key="index" wx:for-item="event">
+        <image class="card-image img-small" src="https://img.freepik.com/free-photo/cute-puppy-celebrates-birthday-with-colorful-balloons-generative-ai_188544-9519.jpg?w=2000&t=st=1690605981~exp=1690606581~hmac=7932ddf5796a17f1d1cff42423bb883ccb02117fda87432f3cf4bd0c30b86491" mode="aspectFill" />
+        <view class="card-info-hor">
+          <view class="flex column">
+            <text class="p p-pink card-date">{{event.start_time}}</text>
+            <text class="h3 truncate">{{event.title}}</text>
+            <text class="card-address">{{event.address}}</text>
+          </view>
         </view>
-    </block>
-    <block wx:else>
-        <view class="flex column">
-            <text>No events posted yet. Be the first one</text>
-            <navigator open-type="switchTab" url="/pages/events/form">Post event →</navigator>
-        </view>
-    </block>
+      </view>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="flex column">
+      <text>No events posted yet. Be the first one</text>
+      <navigator open-type="switchTab" url="/pages/events/form">Post event →</navigator>
+    </view>
+  </block>
 </view>

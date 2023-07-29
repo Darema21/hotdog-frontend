@@ -11,6 +11,7 @@
     "pages/matches/show",
     "pages/matches/mutual",
     "pages/events/index",
+    "pages/events/category",
     "pages/events/show",
     "pages/events/form",
     "pages/owners/profile",

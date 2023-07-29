@@ -1,11 +1,15 @@
 /* pages/events/index.wxss */
-/* pages/events/index.wxss */
+.category {
+  background-color: var(--accent-pink);
+}
+
 .category-buttons {
   z-index: 100;
-  margin-top: -60rpx;
+  margin-top: -1rem;
   margin-bottom: 1em;
   white-space: nowrap;
 }
+
 .category-buttons .category {
   display: inline-block;
   width: fit-content;

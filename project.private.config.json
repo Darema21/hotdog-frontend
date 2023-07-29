@@ -85,6 +85,13 @@
           "query": "id=1",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/events/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

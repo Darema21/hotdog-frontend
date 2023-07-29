@@ -20,8 +20,8 @@
     <!-- Input Name -->
     <view class="input-container">
       <view class="breed-title"> Your Pet's Name</view>
-      <input id="name" name="name" placeholder="" maxlength="20" bindinput="setInputData" data-field="name"> 
-      </input>
+      <input id="name" name="name" placeholder="Charlie" maxlength="20" bindinput="setInputData" data-field="name"  /> 
+   
         <!-- <input id="name" placeholder="Pet's Name" value="{{ formData.name }}" 
         bind:change="inputName"
         type="text" name="name" data-field ="name" /> -->
@@ -29,8 +29,8 @@
     <!-- Input Age -->
     <view class="input-container">
       <view class="breed-title"> Your Pet's Age </view>
-      <input id="age" name="age" placeholder="" maxlength="10" bindinput="setInputData" data-field="age">
-      </input>
+      <input id="age" name="age" placeholder="2" maxlength="10" bindinput="setInputData" data-field="age" type="number" />
+     
       <!-- <input id="age" placeholder="Pet's Age" value="{{ formData.age }}"
       bind:change="inputAge"
       type="text" name="age" data-field ="age" /> -->
@@ -55,13 +55,13 @@
     <view>
       <!-- Switch: Neutered -->
       <view class="switch-container">
-        <text> Is your pet neutered?  </text>
+        <text class="title-title"> Is your pet neutered?  </text>
         <switch name="neutered" value="{{formData.vaccinated}}" bindchange="onSwitchNeutered"></switch>
       </view>
 
       <!-- Switch: Vaccinated -->
       <view class="switch-container">
-          <text> Is your pet rabies vaccinated?  </text>
+          <text class="title-title"> Is your pet rabies vaccinated?  </text>
           <switch name="vaccinated" value="{{formData.vaccinated}}" bindchange="onSwitchVaccinated"></switch>
       </view>
       <!-- <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
@@ -70,7 +70,7 @@
     
     <!-- Input Address -->
     <view class="input-container">
-      <input id="address" placeholder="Address" bindinput="setInputData" type="text" name="address" data-field ="address" />
+      <input class="title-title" id="address" placeholder="Address" bindinput="setInputData" type="text" name="address" data-field ="address" />
     </view>
     
     <!-- Input Pets Bio -->

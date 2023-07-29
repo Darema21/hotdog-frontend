@@ -12,9 +12,10 @@
   margin-bottom: 30rpx;
 }
 
-.breed-title, .gender-title, .bio-title {
-  font-size: 40rpx;
+.breed-title, .gender-title, .bio-title, .title-title {
+  font-size: 32rpx;
   font-weight: 600;
+  color: black;
 }
 
 textarea {

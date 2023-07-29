@@ -329,7 +329,7 @@ Page({
                 success(resolve) {
                   setTimeout(() => {
                     wx.navigateTo({
-                      url: `/pages/dogs/show?=${page.data.id}`
+                      url: `/pages/dogs/show?id=${res.data.id}`
                     })
                   })
                 }

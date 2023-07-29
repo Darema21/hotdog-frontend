@@ -28,13 +28,6 @@ Page({
     /**
      * Lifecycle function--Called when page load
      */
-    onLoad: function () {
-      setInterval(() => {
-        this.setData({
-          pushList: []
-        })
-      }, 5000)
-    },
 
     onLoad(options) {
       const page = this
@@ -93,7 +86,7 @@ Page({
             selected: 2
           })
         } 
-      let page = this;
+  
       console.log("index.js", app.globalData.header)
       
         // Get api data
@@ -115,22 +108,21 @@ Page({
         },
         fail(e) {
           console.log(e)
-        }
+        },
+        // wx.request({
+        //   url: `${app.globalData.baseUrl}owners/${app.globalData.owner.id}/matches`,
+        //   method: 'GET',
+        //   header: app.globalData.header,
+        //   success(res){
+        //     console.log("Matches:", res);
+        //     const matches = res.data;
 
-        wx.request({
-          url: `${app.globalData.baseUrl}owners/${app.globalData.owner.id}/matches`,
-          method: 'GET',
-          header: app.globalData.header,
-          success(res){
-            console.log("Matches:", res);
-            const matches = res.data;
+        //     page.setData({
+        //       matches: matches
+        //     })
 
-            page.setData({
-              matches: matches
-            })
-
-          }
-        })
+        //   }
+      })
     },
 
     /**

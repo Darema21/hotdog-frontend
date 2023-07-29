@@ -1,2 +1,95 @@
-<!--pages/dogs/form.wxml-->
-<text>pages/dogs/form.wxml</text>
+<!-- <view class="profile-container">
+  <view class="profile-card"> -->
+<view class="container flex column">
+  <text class="h1">Pet's Profile</text>
+  <form bindsubmit="save">
+    <!-- three buttons to choose image -->
+    <view class="add-image-button-box">
+        <button type="btn btn-filled" bindtap="listenerBtnChooseImage"> 
+          <image style="height: 250prx; width: 250rpx;" wx:if="{{src}}" src="{{src}}" mode="aspectFill"></image>
+          <image class="quality-icon" src="/pages/images/icons/plus_sign.png"  mode=""></image>
+        </button> 
+        <!-- <button type="btn btn-filled" bindtap="listenerBtnChooseImage"> 
+          <image class="quality-icon" src="/pages/images/icons/plus_sign.png"  mode=""></image>
+        </button> 
+        <button type="btn btn-filled" bindtap="listenerBtnChooseImage"> 
+          <image class="quality-icon" src="/pages/images/icons/plus_sign.png"  mode=""></image>
+        </button>  -->
+    </view>
+
+    <!-- Input Name -->
+    <view class="input-container">
+      <view class="breed-title"> Your Pet's Name</view>
+      <input id="name" name="name" placeholder="" maxlength="20" bindinput="setInputData" data-field="name"> 
+      </input>
+        <!-- <input id="name" placeholder="Pet's Name" value="{{ formData.name }}" 
+        bind:change="inputName"
+        type="text" name="name" data-field ="name" /> -->
+    </view>
+    <!-- Input Age -->
+    <view class="input-container">
+      <view class="breed-title"> Your Pet's Age </view>
+      <input id="age" name="age" placeholder="" maxlength="10" bindinput="setInputData" data-field="age">
+      </input>
+      <!-- <input id="age" placeholder="Pet's Age" value="{{ formData.age }}"
+      bind:change="inputAge"
+      type="text" name="age" data-field ="age" /> -->
+    </view>
+
+    <!-- Picker Select Breed -->
+    <view class="input-container">
+      <picker id="breed" mode="selector" range="{{ breed }}" bindchange="onBreedChange"  data-field ="breed" >
+        <view class="breed-title"> Select Your Pet's Breed </view>
+        <view>{{breedSelected}}</view>
+      </picker>
+    </view>
+
+    <!-- Picker Select Gender -->
+    <view class="input-container">
+      <picker id="gender" mode="selector" range="{{ gender }}" bindchange="onGenderChange"  data-field ="gender" >
+          <view  class="gender-title"> Select Your Pet's Gender </view>
+          <view> {{genderSelected}}</view>
+    </picker>
+    </view>
+    
+    <view>
+      <!-- Switch: Neutered -->
+      <view class="switch-container">
+        <text> Is your pet neutered?  </text>
+        <switch name="neutered" value="{{formData.vaccinated}}" bindchange="onSwitchNeutered"></switch>
+      </view>
+
+      <!-- Switch: Vaccinated -->
+      <view class="switch-container">
+          <text> Is your pet rabies vaccinated?  </text>
+          <switch name="vaccinated" value="{{formData.vaccinated}}" bindchange="onSwitchVaccinated"></switch>
+      </view>
+      <!-- <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+  <label for="vehicle1"> I have a bike</label> -->
+     </view>
+    
+    <!-- Input Address -->
+    <view class="input-container">
+      <input id="address" placeholder="Address" bindinput="setInputData" type="text" name="address" data-field ="address" />
+    </view>
+    
+    <!-- Input Pets Bio -->
+    <view class="bio-title">Pet's Bio</view>
+    <view class="input-container">
+      <textarea id="bio" placeholder="Write a fun & punchy intro" bindinput="setInputData" name="bio" data-field ="bio" ></textarea>
+    </view>
+    
+    <!-- <view class="input-container">
+      <icon class="input-icon" type="category"/>
+      <view class="category_selector"></view>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{categories}}">
+        <view class="picker">
+          Category: {{categories[index]}}
+        </view>
+      </picker>
+  </view> -->
+
+    <button class="btn btn-filled" form-type="submit">Save</button>
+
+  </form>
+</view>

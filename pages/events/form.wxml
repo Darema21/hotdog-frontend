@@ -1,0 +1,54 @@
+<!--pages/events/form.wxml-->
+<view class="container flex column ai-c jc-c">
+
+<text class="h1">Create New Event</text>
+<button type="btn btn-filled" bindtap="listenerBtnChooseImage">Upload Poster</button> 
+<image src="{{src}}" mode="aspecFill" bindlongtap="imgLongTap"/>
+
+<form bindsubmit="save">
+  <view class="input-container">
+    <input id="title" placeholder="Title" value="{{ formData.title }}" bindinput="setInputData" type="text" name="title" data-field ="title" />
+  </view>
+
+  <view class="input-container">
+    <textarea id="description" placeholder="Description" value="{{ formData.description }}" bindinput="setInputData" name="description" data-field ="description" ></textarea>
+  </view>
+
+  <view class="input-container">
+    <picker mode="selector" range="{{ category }}" value="{{ formData.categoryIndex }}" bindchange="bindCategoryChange" data-field ="category" >
+      <view>Category{{category[formData.categoryIndex]}}</view>
+      <input id="category" placeholder="Category" bindchange="bindCategoryChange" value="{{ formData.category }}" disabled />
+    </picker>
+  </view>
+
+  <view class="time-inputs">
+    <view class="input-container">
+      <picker mode="date" value="{{ formData.start_time }}" start="2023-06-24" end="2023-12-31" bindchange="bindDateChange" data-field="start_time">
+        <input id="start-time" placeholder="Start Time" value="{{ formData.start_time }}" disabled />
+      </picker>
+    </view>
+    <view class="input-container">
+      <picker mode="date" value="{{ formData.end_time }}" start="2023-06-24" end="2023-12-31" bindchange="bindDateChange" data-field="end_time">
+        <input id="end-time" placeholder="End Time" value="{{ formData.end_time }}" disabled />
+      </picker>
+    </view>
+  </view>
+
+  <view class="input-container">
+    <input id="address" placeholder="Address" value="{{ formData.address }}" bindinput="setInputData" type="text" name="address" data-field ="address" />
+  </view>
+
+  <!-- <view class="input-container">
+    <icon class="input-icon" type="category"/>
+    <view class="category_selector"></view>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{categories}}">
+      <view class="picker">
+        Category: {{categories[index]}}
+      </view>
+    </picker>
+</view> -->
+
+  <button class="btn btn-filled" form-type="submit">Save</button>
+
+</form>
+</view>

@@ -1,0 +1,31 @@
+<!--pages/events/category.wxml-->
+<!--pages/events/category.wxml-->
+<view class="container flex column ai-c">
+  <text class="h1">{{category}} Events</text>
+
+  <block wx:if="{{events.length > 0}}">
+        <view class="cards">
+            <view class="card card-hor" wx:for="{{events}}" wx:key="category" wx:for-item="event">
+                <view class="card-image img-small" style="background-image: url('https://images.unsplash.com/photo-1687421419353-db28220cef00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80')" bindtap="goToShow" data-id="{{event.id}}">
+                    <text class="poster-details p">Details</text>
+                </view>
+                <view class="card-info-hor">
+                    <view class="flex column">
+                        <text class="card-date">{{event.start_time}}</text>
+                        <text class="h3">{{event.title}}</text>
+                        <text class="card-address">{{event.address}}</text>
+                    </view>
+                    <button class="booking-button {{event.has_booking ? 'booking-button-going' : 'booking-button-attend'}}" bindtap="addBooking" data-eventid="{{event.id}}">
+                        {{ event.has_booking ? 'Going!!!' : 'Attend'}}
+                    </button>
+                </view>
+            </view>
+        </view>
+    </block>
+    <block wx:else>
+        <view class="flex column">
+            <text>No {{category}} events posted yet. Be the first one</text>
+            <navigator open-type="switchTab" url="/pages/events/form">Post event →</navigator>
+        </view>
+    </block>
+</view>

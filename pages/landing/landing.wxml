@@ -8,8 +8,8 @@
       <text class="app-name">Dog!</text>
     </view>
   </view>
-    <navigator class="flex column ai-с jc-c" open-type="switchTab" url="/pages/dogs/index">
+    <navigator class="flex column ai-с jc-c" open-type="switchTab" url="/pages/home/index">
       <image class="btn-icon" src="../images/icons/icon_paw.png" mode="widthFix"/>
-      <text class="btn-text">Add Your Pooch</text>
+      <text class="btn-text">Match Your Pooch</text>
     </navigator>
 </view>

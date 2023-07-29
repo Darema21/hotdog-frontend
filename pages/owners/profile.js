@@ -2,99 +2,76 @@
 const app = getApp();
 
 Page({
+  /**
+   * Page initial data
+   */
+  data: {
+    owner: {},
+    dog: {}
+  },
 
-    /**
-     * Page initial data
-     */
-    data: {
+  /**
+   * Lifecycle function--Called when page load
+   */
+  onLoad(options) {
+    console.log("Profile:", options)
+    // Set the owner and dog data from app.globalData
+    this.setData({
+      owner: app.globalData.owner,
+      dog: app.globalData.currentOwnerDog
+    });
+  },
 
-    },
+  onReady() {
 
-    /**
-     * Lifecycle function--Called when page load
-     */
-    onLoad(options) {
-      let page = this;
-      console.log("index.js", app.globalData.header)
-      
-        // Get api data
-      wx.request({
-        url: `${app.globalData.baseUrl}owners/:id`,
-        method: 'GET',
-        header: app.globalData.header,
-        success(res) {
-          console.log(res)
-          const owner = res.data.owner;
-          console.log(owner)
+  },
+
+  /**
+   * Lifecycle function--Called when page show
+   */
+  onShow() {
+      const page = this
     
-          // Update local data
-          page.setData({
-            owner_name: res.data.owner.name,
-            dog_name: res.data.dog.name
-          });
-      
-          wx.hideToast();
-        },
-        fail(e) {
-          console.log(e)
-        }
-      });
+      if (typeof this.getTabBar === 'function' &&
+      this.getTabBar()) {
+        this.getTabBar().setData({
+          selected: 3
+        })
+      }
+  },
 
-    },
+  /**
+   * Lifecycle function--Called when page hide
+   */
+  onHide() {
 
-    /**
-     * Lifecycle function--Called when page is initially rendered
-     */
-    onReady() {
+  },
 
-    },
+  /**
+   * Lifecycle function--Called when page unload
+   */
+  onUnload() {
 
-    /**
-     * Lifecycle function--Called when page show
-     */
-    onShow() {
-        const page = this
-      
-        if (typeof this.getTabBar === 'function' &&
-        this.getTabBar()) {
-          this.getTabBar().setData({
-            selected: 3
-          })
-        }
-    },
+  },
 
-    /**
-     * Lifecycle function--Called when page hide
-     */
-    onHide() {
+  /**
+   * Page event handler function--Called when user drop down
+   */
+  onPullDownRefresh() {
 
-    },
+  },
 
-    /**
-     * Lifecycle function--Called when page unload
-     */
-    onUnload() {
+  /**
+   * Called when page reach bottom
+   */
+  onReachBottom() {
 
-    },
+  },
 
-    /**
-     * Page event handler function--Called when user drop down
-     */
-    onPullDownRefresh() {
+  /**
+   * Called when user click on the top right corner to share
+   */
+  onShareAppMessage() {
 
-    },
-
-    /**
-     * Called when page reach bottom
-     */
-    onReachBottom() {
-
-    },
-
-    /**
-     * Called when user click on the top right corner to share
-     */
-    onShareAppMessage() {
-
-    }
-})
+  }
+});

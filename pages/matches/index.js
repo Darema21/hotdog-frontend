@@ -1,5 +1,4 @@
 // pages/matches/index.js
-
 const app = getApp()
 const utils = require('../../utils/util')
 
@@ -12,6 +11,12 @@ Page({
 
     },
 
+    goToShow: function (e) {
+      console.log(e)
+      const id = e.currentTarget.dataset.id;
+      utils.goToShow(id);
+    },
+  
     goToMatch(event) {
       console.log('ID:', event.currentTarget.dataset.matchId);
       const match_id = event.currentTarget.dataset.matchId;
@@ -79,6 +84,9 @@ Page({
      * Lifecycle function--Called when page show
      */
     onShow() {
+
+      const page = this;
+
         if (typeof this.getTabBar === 'function' &&
         this.getTabBar()) {
           this.getTabBar().setData({
@@ -108,7 +116,21 @@ Page({
         fail(e) {
           console.log(e)
         }
-      });
+
+        wx.request({
+          url: `${app.globalData.baseUrl}owners/${app.globalData.owner.id}/matches`,
+          method: 'GET',
+          header: app.globalData.header,
+          success(res){
+            console.log("Matches:", res);
+            const matches = res.data;
+
+            page.setData({
+              matches: matches
+            })
+
+          }
+        })
     },
 
     /**

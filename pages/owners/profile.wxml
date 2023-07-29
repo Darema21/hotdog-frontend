@@ -1,36 +1,46 @@
 <!--pages/users/profile.wxml-->
-<view class="profile-container">
-  <view class="profile-card">
+<view class="container">
+
+  <!-- Profile card -->
+  <view class="profile-card flex ai-c">
     <view class="owner-dog-avatar">
-      <image class="avatar-user-lg profile-owner" src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" mode=""/>
-      <image class="avatar-dog profile-dog-avatar" src="https://images.unsplash.com/photo-1575383095193-52195a64e3a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60" mode="aspectFill" />
+      <image class="avatar-user-lg" src="{{ owner.image_url }}" mode="aspectFill" />
+      <image class="avatar-dog" src="{{ 'currentOwnerDogImage' }}" mode="aspectFill" />
     </view>
-    <view class="h3 profile-greeting welcome">Welcome back!
-      <view class="--dark owner-dog-name h2"> #S {{owner_name}} & #{{dog_name}} Baoan</view>
+
+    <view class="flex column">
+      <text class="p p-pink">Welcome back!</text>
+      <text class="h3">{{ owner.name }} & {{ dog.name }}</text>
     </view>
+  </view>
+
+  <!-- Separator -->
+  <view>
+    <image class="separator" src="../images/separator.png" alt="" />
+  </view>
+
+  <!-- Tabs -->
+  <view class="tabs">
+    <navigator url="#" class="setting-card flex">
+      <view class="flex ai-c">
+        <image class="icon" src="/pages/images/icons/profile-user_icon.png" mode="" />
+        <text> Edit User info </text>
+      </view>
+      <image class="icon" src="/pages/images/icons/profile-arrow.png" class="arrow" mode="" />
+    </navigator>
+    <navigator url="/pages/dogs/form" class="setting-card flex">
+      <view class="flex ai-c">
+        <image class="icon" src="/pages/images/icons/profile-dog.png" mode="" />
+        <text> Edit dog's info </text>
+      </view>
+      <image class="icon" src="/pages/images/icons/profile-arrow.png" class="arrow" mode="" />
+    </navigator>
+    <navigator url="#" class="setting-card flex">
+      <view class="flex ai-c">
+        <image class="icon" src="/pages/images/icons/profile-settings_icon.png" mode="" />
+        <text> Set your preferences </text>
+      </view>
+      <image class="icon" src="/pages/images/icons/profile-arrow.png" class="arrow" mode="" />
+    </navigator>
   </view>
 </view>
-
-  <view>
-  <image class="separator" src="/pages/images/icons/profile-separator.png" mode=""/>
-  </view>
-
-  <view class="setting-container p">
-    <navigator url="#" class="setting-card">
-      <image src="/pages/images/icons/profile-user_icon.png" mode=""/>
-        <text> Edit User info </text>
-      <image src="/pages/images/icons/profile-arrow.png" class="arrow" mode=""/>
-    </navigator>
-    <navigator url="/pages/dogs/form" class="setting-card">
-    <image src="/pages/images/icons/profile-dog.png" mode=""/>
-      <text>  Edit dog's info </text> 
-      <image src="/pages/images/icons/profile-arrow.png" class="arrow" mode=""/>
-    </navigator>
-    <navigator url="#" class="setting-card">
-      <image src="/pages/images/icons/profile-settings_icon.png" mode=""/>
-        <text> Set your preferences </text> 
-      <image src="/pages/images/icons/profile-arrow.png" class="arrow" mode=""/>
-    </navigator>
-  </view>
-
-

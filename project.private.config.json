@@ -1,4 +1,5 @@
 {
+  "projectname": "Hot Dog",
   "condition": {
     "miniprogram": {
       "list": [
@@ -9,9 +10,59 @@
           "scene": null
         },
         {
-          "name": "index",
-          "pathName": "pages/index/index",
+          "name": "pages/wiki/show",
+          "pathName": "pages/wiki/show",
+          "query": "id=12",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/wiki/index",
           "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/dogs/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/dogs/show",
+          "query": "id=2",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/landing/landing",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/matches/mutual",
+          "query": "from_owner_id=2&to_owner_id=$3",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/matches/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/owners/profile",
+          "query": "",
+          "launchMode": "default",
           "scene": null
         },
         {
@@ -19,11 +70,28 @@
           "pathName": "pages/dogs/form",
           "query": "",
           "launchMode": "default",
-          "scene": null,
-          "partialCompile": {
-            "enabled": false,
-            "pages": []
-          }
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/home/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/events/show",
+          "query": "id=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/events/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

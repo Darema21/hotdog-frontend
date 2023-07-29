@@ -1,0 +1,32 @@
+/* pages/events/index.wxss */
+.category {
+  background-color: var(--accent-pink);
+}
+
+.category-buttons {
+  z-index: 100;
+  margin-top: -1rem;
+  margin-bottom: 1em;
+  white-space: nowrap;
+}
+
+.category-buttons .category {
+  display: inline-block;
+  width: fit-content;
+  padding: .7em 1.2em;
+  height: 40rpx;
+  margin-right: 8rpx;
+  font-size: 28rpx;
+  color: var(--white);
+  border-radius: 100rpx;
+}  
+
+.category image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+}
+
+.category text {
+  font-weight: 700;
+}

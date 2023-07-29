@@ -1,12 +1,9 @@
 <!--pages/dogs/show.wxml-->
 
-<scroll-view class="container-horizontal" scroll-x="{{true}}">
-  <!-- <block wx:for="{{ dog.image_url.length > 0}}" wx:key="image"> -->
-    <!-- <image class="dog-show-image" src="{{ image.image_url}}" mode="aspectFill" /> -->
-  <!-- </block> -->
-  <image class="dog-show-image" src="https://images.unsplash.com/photo-1518374835801-2c7d993de05c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" mode="aspectFill" />
-  <image class="dog-show-image" src="https://images.unsplash.com/photo-1529343097104-386dca989049?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" mode="aspectFill" />
-  <image class="dog-show-image" src="https://images.unsplash.com/photo-1535914125057-dc89f2ec083d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" mode="aspectFill" />
+<scroll-view class="container-horizontal flex ai-c jc-c" scroll-x="{{true}}">
+  <block wx:for="{{ dog.image_urls }}" wx:key="imageKey" wx:for-item="image">
+    <image class="dog-show-image" src="https://res.cloudinary.com/ds0c8uqvx/image/upload/v1689510757/hotdog/{{ image }}.jpg" mode="aspectFill" />
+  </block>
 </scroll-view>
 
 <view class="dog-description">
@@ -62,7 +59,7 @@
 
     <!-- Owner -->
     <view class="owner flex ai-с">
-      <image class="avatar-user avatar-user-lg" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=761&q=80" mode="aspectFill" />
+      <image class="avatar-user avatar-user-lg" src="https://res.cloudinary.com/ds0c8uqvx/image/upload/v1689510757/hotdog/{{owner.image_url}}.jpg" mode="aspectFill" />
       <view class="owner-text flex column jc-c">
         <text class="h2">{{ owner.name }}</text>
         <block wx:if="{{ owner.age % 10 == 1 && owner.age != 11 }}">

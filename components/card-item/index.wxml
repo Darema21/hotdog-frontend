@@ -1,7 +1,6 @@
-<view class="mp-swipe-card-item" bind:tap="handleTap" data-id="{{itemData.id}}">
-  <view class="item" style="background-image: url(https://images.unsplash.com/photo-1615751072497-5f5169febe17?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80);">
-    <image class="avatar-user avatar-user-lg" src="https://images.unsplash.com/photo-1689363199550-d0f417ed21db?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" mode="aspectFill" />
-
+<view class="mp-swipe-card-item" >
+  <view class="item" bind:tap="handleTap" data-id="{{itemData.id}}" style="background-image:url('{{itemData.imageUrl}}');">
+    <image class="avatar-user avatar-user-lg" src="{{itemData.ownerImg}}" mode="aspectFill" />
     <view class="item-data flex column">
       <view class="item-name flex ai-c">
         <text class="name-text">{{itemData.name}}</text>
@@ -21,9 +20,11 @@
       </view>
     </view>
   </view>
-    <!-- Buttons -->
-    <view class="match-buttons">
-      <image class="match-button" src="/pages/images/buttons/No.png" mode="aspectFit"/>
-      <image class="match-button" src="/pages/images/buttons/Yes.png" mode=""/>
-    </view>
+  <!-- Buttons -->
+  <view class="match-buttons">
+    <image class="match-button" src="/pages/images/buttons/No.png" mode="aspectFit" bind:tap="onButtonTap" data-direction="left" data-id="{{itemData.id}}"/>
+
+    <image class="match-button" src="/pages/images/buttons/Yes.png" mode="" bind:tap="onButtonTap" data-direction="right" data-id="{{itemData.id}}" />
+
+  </view>
 </view>

@@ -1,5 +1,26 @@
 /* pages/users/profile.wxss */
 
+.avatar-wrapper{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color:transparent;
+  position: relative;
+}
+
+.avatar{
+  display: block;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0px 3px 3px 0 rgba(0, 0, 0, 0.15);
+}
+
+.avatar-container{
+  position: relative;
+}
+
 .profile-card {
   display: flex;
   flex-wrap: wrap;

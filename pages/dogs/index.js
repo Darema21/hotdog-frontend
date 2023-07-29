@@ -27,6 +27,13 @@ Page({
     let page = this;
     console.log("index.js", app.globalData.header)
     
+    if (typeof this.getTabBar === 'function' &&
+    this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 1
+      })
+    }
+    
       // Get api data
     wx.request({
       url: `${app.globalData.baseUrl}dogs`,

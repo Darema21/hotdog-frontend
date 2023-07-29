@@ -10,6 +10,18 @@ Page({
     dog: {}
   },
 
+  onChooseAvatar(e) {
+    const { avatarUrl } = e.detail
+    this.setData({
+      avatarUrl,
+    })
+  },
+
+  setNickname (e) {
+    const input = e.detail.value;
+    this.setData({ nickname: input });
+  },
+
   /**
    * Lifecycle function--Called when page load
    */

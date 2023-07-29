@@ -1,16 +1,28 @@
 <!--pages/users/profile.wxml-->
+
+
 <view class="container">
+  <view class="avatar-container" wx:if="{{firstPage}}">
+    <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+      <image class="avatar" src="{{avatarUrl}}"></image>
+    </button>
+  </view>
 
   <!-- Profile card -->
   <view class="profile-card flex ai-c">
     <view class="owner-dog-avatar">
-      <image class="avatar-user-lg" src="{{ owner.image_url }}" mode="aspectFill" />
+      <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+        <image class="avatar" src="{{avatarUrl}}"></image>
+      </button>
       <image class="avatar-dog" src="{{ 'currentOwnerDogImage' }}" mode="aspectFill" />
     </view>
 
     <view class="flex column">
       <text class="p p-pink">Welcome back!</text>
-      <text class="h3">{{ owner.name }} & {{ dog.name }}</text>
+      <view class="input w-100">
+        <view class="p label" bind>Name:</view>
+        <input class="p" type="nickname" bindblur="setNickname" />
+      </view>
     </view>
   </view>
 

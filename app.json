@@ -1,16 +1,20 @@
 {
   "pages": [
     "pages/landing/landing",
+    "pages/home/index",
     "pages/dogs/index",
     "pages/dogs/show",
     "pages/dogs/form",
-    "custom-tab-bar/index",
     "pages/wiki/index",
     "pages/wiki/show",
     "pages/matches/index",
     "pages/matches/show",
     "pages/matches/mutual",
+    "pages/events/index",
+    "pages/events/show",
+    "pages/events/form",
     "pages/owners/profile",
+    "custom-tab-bar/index",
     "pages/logs/logs",
     "components/swipe-card/index",
     "components/card-item/index"
@@ -25,24 +29,24 @@
     "backgroundColor": "#fff",
     "list": [
       {
-        "pagePath": "pages/dogs/index", 
-        "iconPath": "./pages/images/tabbar-icons/dog.png",
-        "selectedIconPath": "./pages/images/tabbar-icons/dog_filled.png"
+        "pagePath": "pages/home/index", 
+        "iconPath": "/pages/images/tabbar-icons/home_default.png",
+        "selectedIconPath": "/pages/images/tabbar-icons/home_filled.png"
       },
       {
-        "pagePath": "pages/wiki/index", 
-        "iconPath": "./pages/images/tabbar-icons/wiki.png",
-        "selectedIconPath": "./pages/images/tabbar-icons/wiki_filled.png"
+        "pagePath": "pages/dogs/index", 
+        "iconPath": "/pages/images/tabbar-icons/dog.png",
+        "selectedIconPath": "/pages/images/tabbar-icons/dog_filled.png"
       },
       {
         "pagePath": "pages/matches/index",
-        "iconPath": "./pages/images/tabbar-icons/messages.png",
-        "selectedIconPath": "./pages/images/tabbar-icons/messages_filled.png"
+        "iconPath": "/pages/images/tabbar-icons/messages.png",
+        "selectedIconPath": "/pages/images/tabbar-icons/messages_filled.png"
       },
       {
         "pagePath": "pages/owners/profile",
-        "iconPath": "./pages/images/tabbar-icons/profile.png",
-        "selectedIconPath": "./pages/images/tabbar-icons/profile_filled.png"
+        "iconPath": "/pages/images/tabbar-icons/profile.png",
+        "selectedIconPath": "/pages/images/tabbar-icons/profile_filled.png"
       }
     ]
   },

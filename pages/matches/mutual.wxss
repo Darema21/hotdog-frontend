@@ -55,3 +55,21 @@ navigator {
 navigator image {
   margin-bottom: .3rem;
 }
+
+.card-container {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.slide-in-left,
+.slide-in-right {
+  transition: transform 0.5s ease;
+}
+
+.slide-in-left {
+  transform: translateX(-100%);
+}
+
+.slide-in-right {
+  transform: translateX(100%);
+}

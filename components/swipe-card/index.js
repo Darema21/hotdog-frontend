@@ -1,3 +1,5 @@
+//swipe-card.js
+
 const HTRESHOLD = 150;
 
 Component({
@@ -36,10 +38,6 @@ Component({
       type: Boolean,
       value: false
     },
-    // goToShow: {
-    //   type: Function,
-    //   required: true
-    // }
   },
 
   /**

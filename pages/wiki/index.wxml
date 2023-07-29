@@ -1,6 +1,7 @@
 <!--pages/wiki/index.wxml-->
-<view class="banner">
+<view class="banner flex column ai-c">
   <text class="h1">Dog Wiki</text>
+  <text class="p" style="text-align: center;">Comprehensive resource, powered by a sophisticated algorithm!</text>
 </view>
 
 <view class="wrap">

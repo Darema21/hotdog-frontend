@@ -3,14 +3,14 @@ Component({
   data: {
     "list": [
       {
-        "pagePath": "/pages/dogs/index",
-        "iconPath": "/pages/images/tabbar-icons/dog.png",
-        "selectedIconPath": "/pages/images/tabbar-icons/dog_filled.png"
+        "pagePath": "/pages/home/index", 
+        "iconPath": "/pages/images/tabbar-icons/home_default.png",
+        "selectedIconPath": "/pages/images/tabbar-icons/home_filled.png"
       },
       {
-        "pagePath": "/pages/wiki/index",
-        "iconPath": "/pages/images/tabbar-icons/wiki.png",
-        "selectedIconPath": "/pages/images/tabbar-icons/wiki_filled.png"
+        "pagePath": "/pages/dogs/index", 
+        "iconPath": "/pages/images/tabbar-icons/dog.png",
+        "selectedIconPath": "/pages/images/tabbar-icons/dog_filled.png"
       },
       {
         "pagePath": "/pages/matches/index",

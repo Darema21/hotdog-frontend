@@ -1,0 +1,48 @@
+<!-- Carousel -->
+<view class="banner" style="background-image: url('https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');" bindtap="openFullImage">
+</view>
+
+<view class="container flex column ai-c">
+  <!-- Attendees -->
+  <view class="attendees flex ai-c jc-c">
+    <image class="category-icon" src="/pages/images/icons/going.png" mode="" />
+    <block wx:if="{{event.bookings_count == 0}}">
+      <text>No one is going</text>
+    </block>
+    <block wx:elif="{{event.bookings_count % 10 == 1 && event.bookings_count != 11}}">
+      <text class="p p-dark">{{event.bookings_count}} person going</text>
+    </block>
+    <block wx:else>
+        <text class="p p-dark">{{event.bookings_count}} people going</text>
+    </block>
+  </view>
+
+
+  <!-- Title -->
+  <text class="h1">{{event.title}}</text>
+
+  <!-- Event Details -->
+  <view class="info flex column jc-sb">
+    <view class="details flex">
+      <image class="details-img" src="/pages/images/icons/date.png" mode="widthFix" />
+      <view class="details-text flex column">
+        <text class="label p p-dark">Date</text>
+        <text class="value p p-light">{{event.start_time}}</text>
+      </view>
+    </view>
+    <view class="details flex">
+      <image class="details-img" src="/pages/images/icons/location.png" mode="widthFix" />
+      <view class="details-text flex column">
+        <text class="label p p-dark">Address</text>
+        <text class="value p p-light">{{event.address}}</text>
+      </view>
+    </view>
+    <button class="profile-btn" bindtap="goToPromoter" data-id="{{event.user_id}}">Profile</button>
+  </view>
+</view>
+
+<!-- About -->
+<view class="event-description container flex column">
+  <text class="h2">About the Event</text>
+  <text class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </text>
+</view>

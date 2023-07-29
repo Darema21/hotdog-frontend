@@ -13,41 +13,18 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    console.log(options)
-    // options object contains query parameters from the previous page
-    const fromOwnerId = options.from_owner_id;
-    const toOwnerId = options.to_owner_id;
+    console.log("Mutual options", options);
+    let page = this;
 
-    wx.request({
-      url: `${app.globalData.baseUrl}owners/${fromOwnerId}`,
-      method: 'GET',
-      header: app.globalData.header,
-      success: (res) => {
-        console.log("res", res)
-        const dogsForFromOwner = res.data;
-        console.log("dogsForFromOwner", dogsForFromOwner);
-        console.log('Dogs for from_owner_id:', dogsForFromOwner);
-      },
-      fail: (error) => {
-        console.error('Failed to fetch dogs for from_owner_id:', error);
-      },
-    });
-
-    wx.request({
-      url: `${app.globalData.baseUrl}owners/${toOwnerId}`,
-      method: 'GET',
-      header: app.globalData.header,
-      success: (res) => {
-        const dogsForToOwner = res.data;
-        console.log('Dogs for to_owner_id:', dogsForToOwner);
-      },
-      fail: (error) => {
-        console.error('Failed to fetch dogs for to_owner_id:', error);
-      },
-    });
-
-    // Perform any other necessary operations with the owner IDs or data
+    page.setData({
+      match_id: options.match_id,
+      from_dog_img: options.from_dog_img,
+      to_dog_id: options.to_dog_id,
+      to_dog_img: options.to_dog_img,
+      to_dog_name: options.to_dog_name
+    })
   },
+  
 
   /**
    * Lifecycle function--Called when page is initially rendered
@@ -108,7 +85,7 @@ Page({
   /**
    * Called when user click on floating tab
    */
-  onTabItemTap(item) {
+  onTabItemTap: function (item) { // Corrected the method name
     // Do something when tab item tapped
   },
 });

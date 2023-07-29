@@ -12,15 +12,30 @@ page {
   margin-bottom: 1rem;
 }
 
+.match-chat {
+  margin-bottom: .3em;
+  padding: .5rem;
+}
+
+.match-chat:nth-child(odd) {
+  background-color: var(--background-color);
+  border-radius: 18rpx;
+}
+
+.match-chat-photos {
+  position: relative;
+  margin-right: .3em;
+}
+
 .avatar-user {
   position: relative;
   top: 0;
   left: 0;
 }
 
-/* adding this to make it attached to owner photo */
 .avatar-dog {
   position: absolute;
-  top: 540rpx;
-  left: 150rpx;  
+  margin-left: -1em;
+  bottom: 0;
+  right: 0;
 }

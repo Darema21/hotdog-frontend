@@ -12,20 +12,34 @@
 
   <image class="separator" src="../images/separator.png" alt="" />
 
+
   <!-- Recent Chats -->
   <view class="recent-chats">
     <view class="section-text">
       <text class="p">Recent Chats</text>
     </view>
-    <view class="match-chat flex ai-c jc-c" bindtap="goToMatch" data-id="matchId">
-      <view class="match-chat-photos">
-        <image class="avatar-user avatar-user-sm" src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" mode="aspectFill" />
-        <image class="avatar-dog" src="https://images.unsplash.com/photo-1575383095193-52195a64e3a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60" mode="aspectFill" />
-      </view>
-      <view class="match-chat-text flex column">
-        <text class="h3">Sammin & Baoan</text>
-        <text class="p truncate">The concept of Lorem Ipsum was created by and for the Chinese in order to make U.S.</text>
-      </view>
+
+
+    <!-- To Loop All Matches --> 
+    <view class="cards">
+      <block wx:if="{{matches.length <= 0}}">
+        <view>Oops, there are no matches yet</view>
+      </block>
+        <block wx:else>
+          <!-- <view wx:for="{{matches}}" wx:for-item="match" 
+            data-id="{{match.id}}"> -->
+            <view class="match-chat flex ai-c jc-c" bindtap="goToMatch" data-id="matchId">
+              <view class="match-chat-photos">
+                <image class="avatar-user avatar-user-sm" src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" mode="aspectFill" />
+                <image class="avatar-dog" src="https://images.unsplash.com/photo-1575383095193-52195a64e3a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60" mode="aspectFill" />
+              </view>
+              <view class="match-chat-text flex column">
+                <text class="h3">Sammin & Baoan</text>
+                <text class="p truncate">The concept of Lorem Ipsum was created by and for the Chinese in order to make U.S.</text>
+              </view>
+              </view>
+          <!-- </view> -->
+        </block>
     </view>
   </view>
 </view>

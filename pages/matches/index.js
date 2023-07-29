@@ -42,7 +42,7 @@ Page({
       }
 
       wx.request({
-        url: `${app.globalData.baseUrl}owners/${owner_id}/matches/${match_id}/comments/${id}`,
+        url: `${app.globalData.baseUrl}owners/${owner_id}/matches`,
         method: 'GET',
         header: getApp().globalData.header,
         success(res) {
@@ -52,12 +52,13 @@ Page({
           const updatedDogs = matches.map((matches) => {
             return {
               id: match.id,
-              name: match.name,
+              name: owner.name,
+              dog: dog.name,
               imageUrl: dog.image_urls ? dog.image_urls[0] : '', // Get the first image URL
               ownerId: dog.owner_id
             };
           });
-
+           console.log(updatedDogs)
           // page.setData({
           //   pushList: updatedDogs, // Set the updated dogs array to pushList
           // }, () => {

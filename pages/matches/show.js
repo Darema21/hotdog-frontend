@@ -1,19 +1,19 @@
 // pages/matches/show.js
 const app = getApp()
 Page({
-
-    /**
-     * Page initial data
-     */
+  /**
+   * Page initial data
+   */
     data: {
       owner: "Owner",
     },
+
     formSubmit (e) {
       let owner = e.detail.value.owner;
       let comment = e.detail.value.comment;
       let story = {
         owner: owner,
-        comment: comment
+        comment: comment,
       }
       wx.request({
         url: `${app.globalData.baseUrl}owners/:owner_id/matches/:match_id/comments`,
@@ -61,14 +61,33 @@ Page({
      * Lifecycle function--Called when page show
      */
     onShow() {
+      const page = this
+  
+      wx.request({
+        // url: 'http://localhost:3000/api/v1/stories',
+        url: `${app.globalData.baseUrl}owners/${id}/matches/${match_id}/comments`,
+        method: 'GET',
+        header: {},
+        data: {},
+        success(res) {
+          console.log({res})
+          page.setData({
+            comment: res.data.comment
+          })
+        },
+      })
+      const comments = wx.getStorageSync('comments')
+      this.setData({
+        comments: comments
+      })
     },
 
     addComment(e) {
-      const app = getApp();
       const comment = e.detail.value; 
     
       wx.request({
         url: `${app.globalData.baseUrl}matches/${match_id}/comments`,
+
         method: 'POST',
         data: { comment: comment },
         success(res) {
@@ -125,5 +144,5 @@ Page({
      */
     onShareAppMessage() {
 
-    }
+    },
 })

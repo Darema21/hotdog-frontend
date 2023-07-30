@@ -13,33 +13,16 @@ Page({
     /**
      * Lifecycle function--Called when page load
      */
-    onLoad(options) {
-      let page = this;
-      console.log("index.js", app.globalData.header)
-      
-        // Get api data
-      wx.request({
-        url: `${app.globalData.baseUrl}owners/:id`,
-        method: 'GET',
-        header: app.globalData.header,
-        success(res) {
-          console.log(res)
-          const owner = res.data.owner;
-          console.log(owner)
-    
-          // Update local data
-          page.setData({
-            owner_name: res.data.owner.name,
-            dog_name: res.data.dog.name
-          });
-      
-          wx.hideToast();
-        },
-        fail(e) {
-          console.log(e)
-        }
-      });
-
+    onLoad: function () {
+      // getting current owner name from globalData
+      if (app.globalData.userInfo && app.globalData.userInfo.nickName) {
+        this.setData({
+          owner_name: app.globalData.userInfor.nickName,
+        });
+        console.log(owner_name)
+      } else {
+        console.log('Owner name not available')
+      }
     },
 
     /**

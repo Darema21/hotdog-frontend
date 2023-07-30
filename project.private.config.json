@@ -24,6 +24,13 @@
             "enabled": false,
             "pages": []
           }
+        },
+        {
+          "name": "",
+          "pathName": "pages/owners/profile",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

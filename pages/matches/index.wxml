@@ -25,7 +25,7 @@
 
     <block wx:if="{{ matches.length > 0}}">
       <block wx:for="{{ matches }}" wx:key="index" wx:for-item="match">
-        <view class="match-chat flex ai-c" bindtap="goToMatch" data-id="match.id">
+        <view class="match-chat flex ai-c" bindtap="goToMatch" data-id="{{ match.id }}" data-owner-name="{{ match.matched_owner.name }}" data-dog-name="{{ match.matched_dog.name }}" data-owner-image-url="{{ match.matched_owner.image_url }}" data-dog-image-url="{{ match.matched_dog.image_url }}">
           <view class="match-chat-photos flex">
             <image class="avatar-user avatar-user-sm" src="{{ match.matched_owner.image_url }}" mode="aspectFill" />
             <image class="avatar-dog" src="{{ match.matched_dog.image_url }}" mode="aspectFill" />

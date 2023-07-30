@@ -14,25 +14,25 @@
       <text>Food</text>
     </view>
   </view>
-  <view class="category" bindtap="navigateToCategoryPage" data-category="food">
+  <view class="category" bindtap="navigateToCategoryPage" data-category="music">
     <view class="flex ai-c jc-c">
       <image src="/pages/images/icons/category/category-icon-guitar-white.png" mode="" />
       <text>Music</text>
     </view>
   </view>
-  <view class="category" bindtap="navigateToCategoryPage" data-category="food">
+  <view class="category" bindtap="navigateToCategoryPage" data-category="sports">
     <view class="flex ai-c jc-c">
       <image src="/pages/images/icons/category/category-icon-football-ball-white.png" mode="" />
       <text>Sports</text>
     </view>
   </view>
-  <view class="category" bindtap="navigateToCategoryPage" data-category="food">
+  <view class="category" bindtap="navigateToCategoryPage" data-category="nightlife">
     <view class="flex ai-c jc-c">
       <image src="/pages/images/icons/category/category-icon-nightlife-white.png" mode="" />
       <text>Nightlife</text>
     </view>
   </view>
-  <view class="category" bindtap="navigateToCategoryPage" data-category="food">
+  <view class="category" bindtap="navigateToCategoryPage" data-category="art">
     <view class="flex ai-c jc-c">
       <image src="/pages/images/icons/category/category-icon-drawing-palette-white.png" mode="" />
       <text>Art</text>
@@ -50,14 +50,17 @@
         <view class="card-info-hor">
           <view class="flex column">
             <view class="date flex ai-с jc-sb">
-                <text class="p p-pink start-time">{{event.start_time}}</text>
-                <image class="category-icon" src="{{event.has_booking ? '/pages/images/icons/bookmark_checked.png' : '/pages/images/icons/bookmark_unchecked.png'}}" bindtap="addBooking" data-id="{{event.id}}" mode="aspectFill" />
-              </view>
+              <text class="p p-pink start-time">{{event.start_time}}</text>
+              <image class="category-icon" src="{{event.has_booking ? '/pages/images/icons/bookmark_checked.png' : '/pages/images/icons/bookmark_unchecked.png'}}" bindtap="addBooking" data-id="{{event.id}}" mode="aspectFill" />
+            </view>
+            <view class="card-category">
+              <text>Category: {{ event.category }}</text>
+            </view>
             <text class="h3 truncate">{{event.title}}</text>
             <view class="address flex ai-c">
-                <image class="geo-icon" src="/pages/images/icons/geo.png" mode="" />
-                <text class="card-address">{{event.address}}</text>
-              </view>
+              <image class="geo-icon" src="/pages/images/icons/geo.png" mode="" />
+              <text class="card-address truncate">{{event.address}}</text>
+            </view>
           </view>
         </view>
       </view>

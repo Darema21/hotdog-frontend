@@ -7,7 +7,13 @@ Page({
      */
     data: {
       owner: "Owner",
+      match_id: '', 
+      owner_name: '',
+      dog_name: '',
+      owner_image_url: '',
+      dog_image_url: '',
     },
+
     formSubmit (e) {
       let owner = e.detail.value.owner;
       let comment = e.detail.value.comment;
@@ -31,7 +37,17 @@ Page({
      * Lifecycle function--Called when page load
      */
     onLoad(options) {
-      const page = this
+      console.log("Options show match", options);
+      const page = this;
+
+      page.setData({
+        match_id: options.id,
+        owner_name: options.owner_name,
+        dog_name: options.dog_name,
+        owner_image_url: options.owner_image_url,
+        dog_image_url: options.dog_image_url,
+      });
+
       wx.request({
         url: `${app.globalData.baseUrl}owners/:owner_id/matches/:match_id/comments`,
         method: 'GET',

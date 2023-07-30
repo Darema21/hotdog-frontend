@@ -4,7 +4,7 @@
     <text class="p">Fetch a Pawfect Date for Your Dog!</text>
     <view class="app flex ai-c">
     <text class="app-name">Hot</text>
-      <image class="app-logo" src="../images/icons/Icon_laiba.png" mode="" />
+      <image class="app-logo" src="../images/icons/Icon_laiba.png" mode="" animation="{{ heartbeatAnimationData }}"/>
       <text class="app-name">Dog!</text>
     </view>
   </view>

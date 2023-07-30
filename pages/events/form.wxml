@@ -16,7 +16,7 @@
 
   <view class="input-container">
     <picker mode="selector" range="{{ category }}" value="{{ formData.categoryIndex }}" bindchange="bindCategoryChange" data-field ="category" >
-      <view>Category{{category[formData.categoryIndex]}}</view>
+      <view>{{category[formData.categoryIndex]}}</view>
       <input id="category" placeholder="Category" bindchange="bindCategoryChange" value="{{ formData.category }}" disabled />
     </picker>
   </view>

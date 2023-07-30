@@ -1,12 +1,13 @@
 <!--pages/matches/mutual.wxml-->
-
 <view class="container">
   <text class="h1">Pawfect Match!</text>
+
   <view class="flex ai-c jc-c">
-    <image class="match-image" src="{{ from_dog_img }}" mode="aspectFill" />
-    <image class="match-image" src="{{ 'https://res.cloudinary.com/ds0c8uqvx/image/upload/v1689510757/hotdog/' + to_dog_img + '.png' }}" mode="aspectFill" />
+    <image class="match-image match-image-left" src="{{ from_dog_img }}" mode="aspectFill" animation="{{ fromDogAnimationData }}" />
+    <image class="match-image match-image-right" src="{{ 'https://res.cloudinary.com/ds0c8uqvx/image/upload/v1689510757/hotdog/' + to_dog_img + '.png' }}" mode="aspectFill" animation="{{ toDogAnimationData }}" />
   </view>
-  <navigator class="flex column ai-с jc-c" open-type="switchTab" url="/pages/matches/index">
+
+<navigator class="flex column ai-c jc-c" open-type="switchTab" url="/pages/matches/index">
     <image class="btn-icon" src="../images/icons/icon_paw.png" mode="widthFix" />
     <text class="btn-text">Let's go chat!</text>
   </navigator>

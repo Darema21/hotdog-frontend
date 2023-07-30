@@ -5,7 +5,7 @@ Page({
      * Page initial data
      */
     data: {
-
+      heartbeatAnimationData: {}
     },
 
     /**
@@ -18,8 +18,26 @@ Page({
     /**
      * Lifecycle function--Called when page is initially rendered
      */
-    onReady() {
+    onReady: function () {
+      const heartbeatAnimation = wx.createAnimation({
+        duration: 1000,
+        timingFunction: 'ease'
+      });
+  
+      // Define the heartbeat animation
+      function runHeartbeatAnimation() {
+        heartbeatAnimation.scale(1.2).step(); 
+        heartbeatAnimation.scale(1).step(); 
+  
+        this.setData({
+          heartbeatAnimationData: heartbeatAnimation.export()
+        });
+  
+        setTimeout(runHeartbeatAnimation.bind(this), 500);
+      }
+  
 
+      runHeartbeatAnimation.call(this);
     },
 
     /**

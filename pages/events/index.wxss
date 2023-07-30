@@ -1,21 +1,18 @@
 /* pages/events/index.wxss */
-.category {
-  background: var(--accent-pink);
-}
-
 .category-buttons {
-  margin-top: 1em;
-  margin-bottom: 1em;
+  margin: .6em 0;
   white-space: nowrap;
 }
 
-.category-buttons .category {
+.category {
   display: inline-block;
+  background: var(--accent-pink);
   width: fit-content;
   padding: .7em 1.2em;
   height: 40rpx;
   margin-right: 8rpx;
   font-size: 28rpx;
+  font-weight: 700;
   color: var(--white);
   border-radius: 100rpx;
 }  
@@ -26,6 +23,3 @@
   margin-right: 10rpx;
 }
 
-.category text {
-  font-weight: 700;
-}

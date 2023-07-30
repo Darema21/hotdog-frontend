@@ -22,7 +22,7 @@
 
 .h3 {
   font-size: 40rpx;
-  margin-bottom: .3em;
+  margin-bottom: .1em;
 }
 
 .white {

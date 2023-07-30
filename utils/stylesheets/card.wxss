@@ -1,4 +1,3 @@
-
 .cards {
   border-radius: 1rem;
 }
@@ -14,7 +13,7 @@
 }
 
 .card-hor {
-  height: 130px;
+  height: 200rpx;
   align-items: flex-start;
 }
 
@@ -96,14 +95,7 @@
   margin-top: .5em;
 }
 
-/* .card-image::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 35%;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.83) 100%);
-  border-top-left-radius: 20rpx;
-  border-top-right-radius: 20rpx;
-} */
+.card-category {
+  text-transform: capitalize;
+  color: var(--grey-light);
+}

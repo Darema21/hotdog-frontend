@@ -19,8 +19,8 @@
 
     <!-- Input Name -->
     <view class="input-container">
-      <view class="breed-title"> Your Pet's Name</view>
-      <input id="name" name="name" placeholder="Charlie" maxlength="20" bindinput="setInputData" data-field="name"  /> 
+      <view class="breed-title"> What's Your Pet's Name? </view>
+      <input id="name" name="name" placeholder="Name" maxlength="20" bindinput="setInputData" data-field="name"  /> 
    
         <!-- <input id="name" placeholder="Pet's Name" value="{{ formData.name }}" 
         bind:change="inputName"
@@ -28,8 +28,8 @@
     </view>
     <!-- Input Age -->
     <view class="input-container">
-      <view class="breed-title"> Your Pet's Age </view>
-      <input id="age" name="age" placeholder="2" maxlength="10" bindinput="setInputData" data-field="age" type="number" />
+      <view class="breed-title"> How Old Is Your Pet? </view>
+      <input id="age" name="age" placeholder="Age" maxlength="10" bindinput="setInputData" data-field="age" type="number" />
      
       <!-- <input id="age" placeholder="Pet's Age" value="{{ formData.age }}"
       bind:change="inputAge"

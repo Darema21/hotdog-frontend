@@ -6,12 +6,18 @@ Page({
    * Page initial data
    */
   data: {
-    // Add any initial data if needed
+    fromDogAnimation: null,
+    toDogAnimation: null
   },
 
   /**
    * Lifecycle function--Called when page load
    */
+  data: {
+    fromDogAnimationData: {}, 
+    toDogAnimationData: {} 
+  },
+
   onLoad: function (options) {
     console.log("Mutual options", options);
     let page = this;
@@ -22,15 +28,39 @@ Page({
       to_dog_id: options.to_dog_id,
       to_dog_img: options.to_dog_img,
       to_dog_name: options.to_dog_name
-    })
-  },
-  
+    });
 
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
+  },
+
   onReady: function () {
-    // Do something when page ready
+    // Create animation objects for both images
+    const animationFrom = wx.createAnimation({
+      duration: 1000,
+      timingFunction: 'ease'
+    });
+
+
+    animationFrom.right('10%').step();
+    animationFrom.rotate(15).step();
+
+    this.setData({
+      fromDogAnimationData: animationFrom.export()
+    });
+
+ 
+    const animationTo = wx.createAnimation({
+      duration: 1000,
+      timingFunction: 'ease'
+    });
+
+
+    animationTo.left('10%').step();
+
+    animationTo.rotate(-15).step();
+
+    this.setData({
+      toDogAnimationData: animationTo.export()
+    });
   },
 
   /**

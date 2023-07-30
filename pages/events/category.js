@@ -1,4 +1,7 @@
 // pages/events/category.js
+const app = getApp()
+const utils = require('../../utils/util');
+
 Page({
 
   /**
@@ -8,11 +11,38 @@ Page({
 
   },
 
+  goToEvent(e) {
+    const id = e.currentTarget.dataset.id;
+    utils.goToEvent(id);
+  },
+
   /**
    * Lifecycle function--Called when page load
    */
   onLoad(options) {
+    console.log("Options", options);
+    let page = this;
+    const category = this.options.category;
 
+    wx.request({
+      url: `${getApp().globalData.baseUrl}events/category`,
+      method: 'GET',
+      header: app.globalData.header,
+      data: {
+        category: category
+      },
+      success: function(res) {
+        console.log("Category response", res.data);
+        const events = res.data
+        page.setData({
+          category: category,
+          events: events
+        })
+      },
+      fail: function(error) {
+        console.error(error);
+      }
+    });
   },
 
   /**
@@ -26,27 +56,7 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow: function() {
-    const category = this.options.category;
-    let page = this;
 
-    wx.request({
-      url: `${getApp().globalData.baseUrl}events/category`,
-      method: 'GET',
-      data: {
-        category: category
-      },
-      success: function(res) {
-        console.log(res.data);
-        const events = res.data.events
-        page.setData({
-          category: category,
-          events: events
-        })
-      },
-      fail: function(error) {
-        console.error(error);
-      }
-    });
   },
   
   /**

@@ -11,6 +11,5 @@
 
       <text class="breed-name p">{{ breed.name }}</text>
     </view>
-    <view class="place-box"></view>
   </scroll-view>
 </view>

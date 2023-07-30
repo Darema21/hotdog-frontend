@@ -1,4 +1,5 @@
-const dog = require('../../pages/dogs/index'); 
+const app = getApp();
+const utils = require('../../utils/util');
 
 Component({
 
@@ -10,13 +11,6 @@ Component({
   },
 
   methods: {
-    handleSwipeOut(e, direction) {
-      const dogId = this.properties.itemData.id; 
-      const toOwnerId = this.properties.itemData.ownerId; 
-      const fromOwnerId = app.globalData.owner.id; 
-
-      dog.sendPostRequest(this, direction, dogId, toOwnerId, fromOwnerId);
-    },
 
     handleTap(e) {
       console.log(e);
@@ -26,14 +20,23 @@ Component({
       });
     },
 
-    onButtonTap(e) {
-      const direction = e.currentTarget.dataset.direction;
-      if (direction === "left") {
-        console.log("No button tapped");
-      } else if (direction === "right") {
-        console.log("Yes button tapped");
-        this.handleSwipeOut(e, direction);
-      }
+
+    handleSwipeOut(direction) {
+      const dogId = this.properties.itemData.id;
+      const toOwnerId = this.properties.itemData.ownerId;
+      const fromOwnerId = app.globalData.owner.id;
+      
+      sendPostRequest(direction, dogId, toOwnerId, fromOwnerId);
+    },
+
+    onNoButtonTap(e) {
+      console.log("No button tapped");
+      this.handleSwipeOut("left");
+    },
+
+    onYesButtonTap(e) {
+      console.log("Yes button tapped");
+      this.handleSwipeOut("right");
     }
   }
 })

@@ -10,7 +10,7 @@
 
   <!-- Profile card -->
   <view class="profile-card flex ai-c">
-    <view class="owner-dog-avatar">
+    <view>
       <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
         <image class="avatar" src="{{avatarUrl}}"></image>
       </button>

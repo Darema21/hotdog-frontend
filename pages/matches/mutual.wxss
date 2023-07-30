@@ -1,5 +1,6 @@
 /* pages/matches/mutual.wxss */
 page {
+  height: 100%;
   background-image: var(--gradient);
   font-family: "Quicksand";
   color: var(--white);
@@ -26,16 +27,30 @@ image {
 }
 
 .h1{
+  position: fixed;
+  top: 15%;
   color: var(--white);
   margin-bottom: 1.5rem;
 }
 
 .match-image {
+  position: absolute;
   width: 300rpx;
   height: 400rpx;
   border-radius: 20rpx;
   border: 6rpx solid var(--white);
 }
+
+.match-image-left {
+  right: -120%;
+  background: aqua;
+}
+
+.match-image-right {
+  left: -120%;
+  background: red;
+}
+
 
 .btn-icon {
   width: 80rpx;
@@ -48,28 +63,10 @@ image {
 
 navigator {
   position: fixed;
-  bottom: 10%;
+  bottom: 15%;
   align-items: center;
 }
 
 navigator image {
   margin-bottom: .3rem;
-}
-
-.card-container {
-  display: inline-block;
-  overflow: hidden;
-}
-
-.slide-in-left,
-.slide-in-right {
-  transition: transform 0.5s ease;
-}
-
-.slide-in-left {
-  transform: translateX(-100%);
-}
-
-.slide-in-right {
-  transform: translateX(100%);
 }

@@ -24,15 +24,14 @@ Page({
     utils.goToEvent(id);
   },
 
-  addBooking: function(options) {
-    console.log("Index options", options);
+  addBooking: function (options) {
     const page = this;
-    const eventId = options.currentTarget.dataset.id;
-    console.log({ eventId })
-  
+    const event_id = options.currentTarget.dataset.id;
+    console.log("Event id:", event_id);
+
     const events = page.data.events;
     const updatedEvents = events.map(event => {
-      if (event.id === eventId) {
+      if (event.id === event_id) {
         if (event.has_booking) {
           event.has_booking = false; // Cancel the booking
         } else {
@@ -41,34 +40,28 @@ Page({
       }
       return event;
     });
-  
-    page.setData({ events: updatedEvents });
-  
+
+    page.setData({
+      events: updatedEvents
+    });
+
     // Send a request to the server to add/delete the booking
     wx.request({
-      url: `${getApp().globalData.baseUrl}events/${eventId}/booking`,
+      url: `${getApp().globalData.baseUrl}events/${event_id}/booking`,
       method: 'POST', // or 'DELETE' depending on the scenario
+      header: app.globalData.header,
+    
       data: {
         booking: {
-          event_id: eventId,
-          user_id: 1
+          event_id: event_id,
+          owner_id: app.globalData.owner.id 
         }
-      },
+      },  
       success(res) {
-        // Handle the success response
-        console.log(res)
         if (res.statusCode === 200) {
-          wx.showToast({
-            title: 'Booking updated successfully',
-            icon: 'success',
-            duration: 2000
-          });
+          console.log("Created booking");
         } else {
-          wx.showToast({
-            title: 'Failed to update booking',
-            icon: 'none',
-            duration: 2000
-          });
+          console.log("Failed to update booking");
         }
       },
       fail(res) {
@@ -81,9 +74,10 @@ Page({
         });
       }
     });
+    
+
   },
   
-
   /**
    * Lifecycle function--Called when page load
    */

@@ -3,7 +3,6 @@ page {
   background-image: var(--gradient);
   font-family: "Quicksand";
   color: var(--white);
-  background-image: url('https://i.imgur.com/HDCCYo5.png');
 }
 
 image {
@@ -32,9 +31,9 @@ image {
 }
 
 .app-logo {
-  width: 144rpx;
+  width: 128rpx;
   height: 120rpx;
-  margin-left: .7em;
+  margin: 1em;
 }
 
 .btn-icon {

@@ -31,7 +31,7 @@ App({
                  
                 const current_dog_img = res.data.current_owner_dog_image
                 app.globalData.currentOwnerDogImage = current_dog_img
-                // Transform the dogs' information and store it in globalData
+
                 app.globalData.dogs = dogs.map((dog) => {
                   return {
                     id: dog.id,
@@ -125,9 +125,11 @@ App({
   globalData: {
     userInfo: null,
     owner: null,
+    avatarUrl: null,
+    nickname: null,
     header: {},
-    // baseUrl: 'http://localhost:3000/api/v1/',
-    baseUrl: 'https://hotdog.wogengapp.cn/api/v1/',
+    baseUrl: 'http://localhost:3000/api/v1/',
+    // baseUrl: 'https://hotdog.wogengapp.cn/api/v1/',
     dogs: [],
     currentOwnerDog: null,
     currentOwnerDogImage: null

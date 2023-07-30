@@ -62,7 +62,6 @@ Page({
       events: updatedEvents
     });
 
-    // Send a request to the server to add/delete the booking
     wx.request({
       url: `${getApp().globalData.baseUrl}events/${event_id}/booking`,
       method: 'POST', // or 'DELETE' depending on the scenario
@@ -119,7 +118,6 @@ Page({
       });
     }
 
-    // Store the reference to the page instance in a variable
     const page = this;
 
     wx.request({

@@ -2,7 +2,7 @@
 
 <scroll-view class="container-horizontal flex ai-c jc-c" scroll-x="{{true}}">
   <block wx:for="{{ dog.image_urls }}" wx:key="imageKey" wx:for-item="image">
-    <image class="dog-show-image" src="https://res.cloudinary.com/ds0c8uqvx/image/upload/v1689510757/hotdog/{{ image }}.jpg" mode="aspectFill" />
+    <image class="dog-show-image" src="{{image}}" mode="aspectFill" />
   </block>
 </scroll-view>
 
@@ -59,7 +59,7 @@
 
     <!-- Owner -->
     <view class="owner flex ai-с">
-      <image class="avatar-user avatar-user-lg" src="https://res.cloudinary.com/ds0c8uqvx/image/upload/v1689510757/hotdog/{{owner.image_url}}.jpg" mode="aspectFill" />
+      <image class="avatar-user avatar-user-lg" src="{{owner.image_url}}" mode="aspectFill" />
       <view class="owner-text flex column jc-c">
         <text class="h2">{{ owner.name }}</text>
         <block wx:if="{{ owner.age % 10 == 1 && owner.age != 11 }}">

@@ -6,7 +6,6 @@ Page({
      * Page initial data
      */
     data: {
-      owner: "Owner",
       match_id: '', 
       owner_name: '',
       dog_name: '',
@@ -24,7 +23,8 @@ Page({
       wx.request({
         url: `${app.globalData.baseUrl}owners/:owner_id/matches/:match_id/comments`,
         method: 'POST',
-        data: { comment: comment },
+        data: { 
+          comment: comment },
         success() {
           // redirect to index page when done
           wx.redirectTo({

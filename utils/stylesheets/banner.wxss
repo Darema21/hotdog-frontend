@@ -10,6 +10,11 @@
   font-size: .85rem;
 }
 
+.banner-event {
+  height: 32vh;
+  width: 100vw;
+}
+
 .banner-dark::before {
   content: "";
   position: absolute;

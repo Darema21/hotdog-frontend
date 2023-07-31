@@ -4,7 +4,7 @@
 
   <view class="flex ai-c jc-c">
     <image class="match-image match-image-left" src="{{ from_dog_img }}" mode="aspectFill" animation="{{ fromDogAnimationData }}" />
-    <image class="match-image match-image-right" src="{{ 'https://res.cloudinary.com/ds0c8uqvx/image/upload/v1689510757/hotdog/' + to_dog_img + '.png' }}" mode="aspectFill" animation="{{ toDogAnimationData }}" />
+    <image class="match-image match-image-right" src="{{ app.globalData.currentOwnerDogImage }}" mode="aspectFill" animation="{{ toDogAnimationData }}" />
   </view>
 
 <navigator class="flex column ai-c jc-c" open-type="switchTab" url="/pages/matches/index">

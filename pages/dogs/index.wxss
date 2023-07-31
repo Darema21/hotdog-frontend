@@ -1,6 +1,8 @@
 /**index.wxss**/
 page {
+  height: 100vh;
   background:var(--primary-color);
+  padding-top: 15%;
 }
 
 .icons {
@@ -15,7 +17,6 @@ page {
 .swipe-card-container {
   width: 680rpx;
   height: 70vh;
-  margin-top: 20rpx;
   margin-left: auto;
   margin-right: auto;
   position: relative;

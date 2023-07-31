@@ -37,9 +37,9 @@ button {
 /* Images */
 .separator {
     display: inline-block;
-    width: 100%;
+    width: 80%;
     height: 40px;
-    margin: 24rpx 0;
+    margin: 24rpx auto;
 }
 
 .stats-icon {

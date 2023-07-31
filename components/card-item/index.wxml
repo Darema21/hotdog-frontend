@@ -21,10 +21,10 @@
     </view>
   </view>
   <!-- Buttons -->
-  <view class="match-buttons">
+  <!-- <view class="match-buttons">
     <image class="match-button" src="/pages/images/buttons/No.png" mode="aspectFit" bind:tap="onNoButtonTap" data-direction="left" data-id="{{itemData.id}}"/>
 
     <image class="match-button" src="/pages/images/buttons/Yes.png" mode="" bind:tap="onYesButtonTap" data-direction="right" data-id="{{itemData.id}}" />
 
-  </view>
+  </view> -->
 </view>

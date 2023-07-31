@@ -66,3 +66,9 @@ image {
 .icon {
   margin-right: 20rpx;
 }
+
+input {
+  background-color: var(--primary-color);
+  border-radius: 18rpx;
+  height: 24rpx;
+}

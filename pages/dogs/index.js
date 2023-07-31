@@ -26,46 +26,40 @@ Page({
 
     let page = this;
     console.log("index.js", app.globalData.header)
-    
-    if (typeof this.getTabBar === 'function' &&
-    this.getTabBar()) {
-      this.getTabBar().setData({
-        selected: 1
-      })
-    }
-    
-      // Get api data
-    wx.request({
-      url: `${app.globalData.baseUrl}dogs`,
-      method: 'GET',
-      header: app.globalData.header,
-      success(res) {
-        console.log(res)
-        const dogs = res.data.dogs;
-        console.log(dogs)
-  
-        // Update local data
-        page.setData({
-          dogs: dogs
-        });
-    
-        wx.hideToast();
-      },
-      fail(e) {
-        console.log(e)
-      }
-    });
-    },
-    
-  onLoad(options) {
-    const page = this
 
     if (typeof this.getTabBar === 'function' &&
       this.getTabBar()) {
       this.getTabBar().setData({
         selected: 1
-      });
+      })
     }
+
+    // Get api data
+    // wx.request({
+    //   url: `${app.globalData.baseUrl}dogs`,
+    //   method: 'GET',
+    //   header: app.globalData.header,
+    //   success(res) {
+    //     console.log(res)
+    //     const dogs = res.data.dogs;
+    //     console.log(dogs)
+
+    //     // Update local data
+    //     page.setData({
+    //       dogs: dogs
+    //     });
+
+    //     wx.hideToast();
+    //   },
+    //   fail(e) {
+    //     console.log(e)
+    //   }
+    // });
+  },
+
+  onLoad(options) {
+    let page = this;
+
     // Retrieve the dogs from globalData and set them in the pushList
     this.setData({
       pushList: app.globalData.dogs,
@@ -78,6 +72,13 @@ Page({
     const to_owner_id = args.detail.item.ownerId;
     const from_owner_id = app.globalData.owner.id;
     console.log("To Owner id", to_owner_id)
+
+    // Remove the swiped dog from pushList
+    const newPushList = this.data.pushList.filter(dog => dog.ownerId !== to_owner_id);
+    this.setData({
+      pushList: newPushList,
+    });
+
     sendPostRequest(direction, to_owner_id, from_owner_id);
   },
 
@@ -135,7 +136,7 @@ function handleSuccessResponse(res) {
     if (match.status === "like") {
       navigateToMutualPage(match_id, from_dog_img, to_dog_id, to_dog_img, to_dog_name);
     } else {
-      console.log("Dogs not found for the specified owners");
+      console.log("Like is not mutual");
     }
   } else {
     showToast('Failed to create match');

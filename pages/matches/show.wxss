@@ -40,7 +40,7 @@ button {
 }
 
 textarea {
-  border: 1rpx solid var(--primary-color);
+  border: 4rpx solid var(--primary-color);
   border-radius: 60rpx; 
   padding: 10rpx;
   width: auto;

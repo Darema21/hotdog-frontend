@@ -1,24 +1,17 @@
 <!--index.wxml-->
 
 <view class="swipe-card-container">
-<!-- Icons -->
-  <view class="icons flex ai-с jc-sb">
-        <image src="../images/icons/notifications.png" mode="" />
-        <image src="../images/icons/settings.png" mode="" />
-    </view>
-    
-<!-- Card -->
+
+  <!-- Card -->
   <view class="">
-    <view class="placeholder-0"></view>
-    <view class="placeholder-1"></view>
-    <view class="placeholder-2"></view>
-    <mp-swipe-card
-      push-list="{{pushList}}"
-      wx:key="unique"
-      bind:swipeout="handleSwipeOut"
-      generic:mp-swipe-card-item="card-item"   
-    >
-      <view>{{item}}</view>  
-    </mp-swipe-card>
+    <view class="placeholder-0" style="{{ pushList.length <= 1 ? 'opacity: 0;' : '' }}"></view>
+    <view class="placeholder-1" style="{{ pushList.length <= 1 ? 'opacity: 0;' : '' }}"></view>
+    <view class="placeholder-2" style="{{ pushList.length <= 1 ? 'opacity: 0;' : '' }}"></view>
+    <block wx:if="{{ pushList.length === 0 }}"><text>No more people. Come back later</text></block>
+    <block wx:else>
+      <mp-swipe-card push-list="{{pushList}}" wx:key="unique" bind:swipeout="handleSwipeOut" generic:mp-swipe-card-item="card-item">
+        <view>{{item}}</view>
+      </mp-swipe-card>
+    </block>
   </view>
-</view>
+</view>  

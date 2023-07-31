@@ -1,6 +1,6 @@
-<view class="banner" style="background-image: url('{{ event.image_url }}');" bindtap="openFullImage">
-  <image src="{{ event.image_url }}" mode="widthFix" bindtap="openFullImage"></image>
-</view>
+
+  <image class="banner-event" src="{{ event.image_url }}" mode="aspectFill" bindtap="openFullImage"></image>
+
 
 <view class="container flex column ai-c">
   <!-- Attendees -->

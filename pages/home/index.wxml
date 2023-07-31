@@ -9,13 +9,6 @@
   <view>
     <text class="h3">All Around Pet-Friendly</text>
     <view class="categories flex">
-      <view class="category flex ai-c">
-        <image class="category-icon" src="/pages/images/icons/restaurant.png" mode="aspectFill" />
-        <view class="flex column">
-          <text class="p">Venues</text>
-          <text class="p p-light">Eat Up!</text>
-        </view>
-      </view>
       <view class="category flex ai-c" bindtap="navigateToEvents">
         <image class="category-icon" src="/pages/images/icons/event.png" mode="aspectFill" />
         <view class="flex column">

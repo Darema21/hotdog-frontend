@@ -52,7 +52,7 @@
 
           <!-- Event card image -->
           <view>
-            <image bindtap="goToEvent" data-id="{{event.id}}" class="card-image img-big " src="https://img.freepik.com/free-vector/organic-birthday-background_52683-58494.jpg?w=1480&t=st=1690564445~exp=1690565045~hmac=8b646353931b39d42be136b44ecabef296603f4d8d56ada1d75d433f649fef99" mode="aspectFill" />
+            <image bindtap="goToEvent" data-id="{{event.id}}" class="card-image img-big " src="{{ event.image_url }}" mode="aspectFill" />
           </view>
 
           <!-- Event card text -->

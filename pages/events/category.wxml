@@ -16,7 +16,7 @@
   <block wx:if="{{events.length > 0}}">
     <view class="cards">
       <view class="card card-hor flex" wx:for="{{events}}" wx:key="index" wx:for-item="event">
-        <image bindtap="goToEvent" data-id="{{event.id}}" class="card-image img-small" src="https://img.freepik.com/free-photo/cute-puppy-celebrates-birthday-with-colorful-balloons-generative-ai_188544-9519.jpg?w=2000&t=st=1690605981~exp=1690606581~hmac=7932ddf5796a17f1d1cff42423bb883ccb02117fda87432f3cf4bd0c30b86491" mode="aspectFill" />
+        <image bindtap="goToEvent" data-id="{{event.id}}" class="card-image img-small" src="{{ event.image_url }}" mode="aspectFill" />
         <view class="card-info-hor">
           <view class="flex column">
             <view class="date flex ai-с jc-sb">

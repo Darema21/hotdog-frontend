@@ -1,5 +1,5 @@
-<!-- Carousel -->
-<view class="banner" style="background-image: url('https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');" bindtap="openFullImage">
+<view class="banner" style="background-image: url('{{ event.image_url }}');" bindtap="openFullImage">
+  <image src="{{ event.image_url }}" mode="widthFix" bindtap="openFullImage"></image>
 </view>
 
 <view class="container flex column ai-c">
@@ -43,5 +43,5 @@
 <!-- About -->
 <view class="event-description container flex column">
   <text class="h2">About the Event</text>
-  <text class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </text>
+  <text class="paragraph">{{ event.description }} </text>
 </view>

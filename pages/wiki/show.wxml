@@ -1,6 +1,6 @@
 <!--pages/wiki/show.wxml-->
 <view class="flex ai-c jc-c">
-    <image class="breed-image" src="{{ 'https://res.cloudinary.com/ds0c8uqvx/image/upload/v1689510757/hotdog/' + breed.image_url + '.png' }}" mode="aspectFit" />
+    <image class="breed-image" src="{{ breed.image_url }}" mode="aspectFit" />
 </view>
 <view class="breed-description">
     <view class="container">
@@ -45,7 +45,7 @@
         <text class="h2">Best Matches With</text>
         <view class="best-match flex ai-с jc-sb" wx:for="{{ bestMatches }}" wx:for-item="match" wx:key="id" bindtap="goToBreed" data-id="{{ match.id }}">
             <view class="flex ai-c">
-                <image class="avatar-dog" src="{{ 'https://res.cloudinary.com/ds0c8uqvx/image/upload/v1689510757/hotdog/' + match.image_url + '.png' }}" mode="aspectFit" />
+                <image class="avatar-dog" src="{{ match.image_url }}" mode="aspectFit" />
                 <text class="p">{{match.name}}</text>
             </view>
             <text class="p p-pink percentage">{{match.similarity_score}}</text>

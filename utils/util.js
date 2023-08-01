@@ -15,28 +15,10 @@ const formatNumber = n => {
 }
 
 function goToShow(i) {
-    console.log('ID:', i);
-
     wx.navigateTo({
       url: `/pages/dogs/show?id=${i}`,
     })
 }
-
-// function goToBreed(data) {
-  
-//     // Check if the data is an ID or a name
-//     if (typeof data === 'number') {
-//       // Data is an ID
-//       wx.navigateTo({
-//         url: `/pages/wiki/show?id=${data}`,
-//       });
-//     } else if (typeof data === 'string') {
-//       // Data is a name
-//       wx.navigateTo({
-//         url: `/pages/wiki/show?name=${encodeURIComponent(data)}`,
-//       });
-//     }
-//   }  
 
 function goToBreed(e) {
     wx.navigateTo({
@@ -44,8 +26,15 @@ function goToBreed(e) {
     })
 }
 
+function goToEvent(event_id) {  
+  wx.navigateTo({
+    url: `/pages/events/show?id=${event_id}`,
+  });
+}
+
 module.exports = {
   formatTime,
   goToBreed,
-  goToShow
+  goToShow,
+  goToEvent
 }

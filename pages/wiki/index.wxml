@@ -1,14 +1,16 @@
 <!--pages/wiki/index.wxml-->
-<view class="banner">
+<view class="banner flex column ai-c">
   <text class="h1">Dog Wiki</text>
+  <text class="p" style="text-align: center;">Comprehensive resource, powered by a sophisticated algorithm!</text>
 </view>
 
 <view class="wrap">
-  <view class="flexbox">
+  <scroll-view class="flexbox" scroll-y	enable-flex>
     <view class="breed flex column ai-c jc-c" wx:for="{{ breeds }}" wx:for-item="breed" wx:key="id" bindtap="goToBreed" data-id="{{ breed.id }}">
-      <image class="breed-image" src="{{ 'https://res.cloudinary.com/ds0c8uqvx/image/upload/v1689510757/hotdog/' + breed.image_url + '.png' }}" mode="aspectFit" />
+      <image class="breed-image" src="{{ breed.image_url }}" mode="aspectFit" />
 
       <text class="breed-name p">{{ breed.name }}</text>
     </view>
-  </view>
+    <view class="place-box"></view>
+  </scroll-view>
 </view>

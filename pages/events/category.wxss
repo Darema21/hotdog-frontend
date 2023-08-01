@@ -1,0 +1,4 @@
+/* pages/events/category.wxss */
+.h1{
+  margin-top: 2rem;
+}

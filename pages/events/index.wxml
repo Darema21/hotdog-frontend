@@ -1,0 +1,66 @@
+<!--pages/events/index.wxml-->
+
+<!-- **Banner** -->
+<view class="banner">
+  <text class="h1">Pet-Friendly Events</text>
+  <text class="p">Have fun together with your doggo!</text>
+</view>
+
+<!-- Category -->
+<scroll-view class="container-horizontal category-buttons" scroll-x="{{true}}">
+  <view class="category" bindtap="navigateToCategoryPage" data-category="food">
+    <view class="flex ai-c jc-c">
+      <image src="/pages/images/icons/category/category-icon-food-white.png" mode="" />
+      <text>Food</text>
+    </view>
+  </view>
+  <view class="category" bindtap="navigateToCategoryPage" data-category="food">
+    <view class="flex ai-c jc-c">
+      <image src="/pages/images/icons/category/category-icon-guitar-white.png" mode="" />
+      <text>Music</text>
+    </view>
+  </view>
+  <view class="category" bindtap="navigateToCategoryPage" data-category="food">
+    <view class="flex ai-c jc-c">
+      <image src="/pages/images/icons/category/category-icon-football-ball-white.png" mode="" />
+      <text>Sports</text>
+    </view>
+  </view>
+  <view class="category" bindtap="navigateToCategoryPage" data-category="food">
+    <view class="flex ai-c jc-c">
+      <image src="/pages/images/icons/category/category-icon-nightlife-white.png" mode="" />
+      <text>Nightlife</text>
+    </view>
+  </view>
+  <view class="category" bindtap="navigateToCategoryPage" data-category="food">
+    <view class="flex ai-c jc-c">
+      <image src="/pages/images/icons/category/category-icon-drawing-palette-white.png" mode="" />
+      <text>Art</text>
+    </view>
+  </view>
+</scroll-view>
+
+
+<!-- Event-cards -->
+<view class="container">
+  <block wx:if="{{events.length > 0}}">
+    <view class="cards">
+      <view class="card card-hor flex" wx:for="{{events}}" wx:key="index" wx:for-item="event">
+        <image class="card-image img-small" src="https://img.freepik.com/free-photo/cute-puppy-celebrates-birthday-with-colorful-balloons-generative-ai_188544-9519.jpg?w=2000&t=st=1690605981~exp=1690606581~hmac=7932ddf5796a17f1d1cff42423bb883ccb02117fda87432f3cf4bd0c30b86491" mode="aspectFill" />
+        <view class="card-info-hor">
+          <view class="flex column">
+            <text class="p p-pink card-date">{{event.start_time}}</text>
+            <text class="h3 truncate">{{event.title}}</text>
+            <text class="card-address">{{event.address}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="flex column">
+      <text>No events posted yet. Be the first one</text>
+      <navigator open-type="switchTab" url="/pages/events/form">Post event →</navigator>
+    </view>
+  </block>
+</view>

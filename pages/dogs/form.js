@@ -113,15 +113,22 @@ Page({
     },
 
     // not used
-    inputName(e) {
-      this.onChange('inputName', e)
-    },
-    inputAge(e) {
-      this.onChange('inputAge', e)
-    },
-    inputBio(e) {
-      this.onChange('inputBio', e)
-    },
+    // inputName(e) {
+    //   this.onChange('inputName', e)
+    // },
+    // inputAge(e) {
+    //   this.onChange('inputAge', e)
+    // },
+    // inputBio(e) {
+    //   this.onChange('inputBio', e)
+    // },
+
+    // inputOwnerAge(e) {
+    //   this.onChange('inputOwnerAge', e)
+    // },
+    // inputOwnerBio(e) {
+    //   this.onChange('inputOwnerBio', e)
+    // },
 
     // set input data of name, age, bio
     setInputData(e) {
@@ -208,6 +215,24 @@ Page({
       console.log('e.detail.value', e.detail.value)
     },
 
+    onOwnerGenderChange(e) {
+      console.log('e from ownergenderchange', e)
+      let { formData } = this.data
+      console.log('this.data', this.data)
+      let { field } = e.currentTarget.dataset
+      formData[field] = e.detail.value
+      // formData[e.detail.value] = e.detail.value
+      this.setData({
+        formData:{
+          ...formData,
+          [field]: this.data.gender[e.detail.value]
+        },
+        genderSelected: this.data.gender[e.detail.value]
+      })
+      console.log('formData from gender change', formData)
+      console.log('this.data.gender', this.data.gender)
+      console.log('e.detail.value', e.detail.value)
+    },
     // not used - picker confirm sets the value
     onConfirm(e) {
       // const { index } = e.currentTarget.dataset

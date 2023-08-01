@@ -1,25 +1,31 @@
 <!--pages/matches/show.wxml-->
-<view class="banner">
-  <view>
-    <image class="avatar-user avatar-user-sm" src="owner_image_url" mode="aspectFill" />
-
-    <image class="avatar-dog" src="{{ dog_image_url }}" mode="aspectFill" />
-  </view>
-  <text class="h3">{{ owner_name }} & {{ dog_name }}</text>
-</view>
-
-<!--Comment Cards-->
-<view class="cards">
-    <view class="card" wx:for="{{comments}}" wx:for-item="comment" bindtap="goToShow" data-id="{{comment.id}}">
-      <text>{{comment}}</text>
-    </view>
-</view>
-
-<!--Comment Form-->
 <view class="container">
-  <view class="comments">
-    <form bindsubmit="addComment">
-      <textarea name="comment" placeholder="Send Message Here" bindconfirm="addComment"></textarea>
-    </form>
+  <view class="banner">
+    <view>
+      <image class="avatar-user avatar-user-sm" src="owner_image_url" mode="aspectFill" />
+      <image class="avatar-dog" src="{{ dog_image_url }}" mode="aspectFill" />
+    </view>
+    <text class="h3">{{ owner_name }} & {{ dog_name }}</text>
+  </view>
+
+  <view class="input-container">
+    <text>Enter Your Comment:</text>
+    <input type="text" value="{{wechatId}}" bindinput="handleInput" placeholder="You can share your WeChat ID" />
+  </view>
+  <button bindtap="handleAccept" class="accept-button">接受/Authorize</button>
+  <text class="description">We collect your data to provide a better service. By clicking "Authorize", you agree to our data collection policy.</text>
+
+  <!--Comment Cards-->
+  <view class="cards">
+  <view class="card" wx:key="index" wx:for="{{comments}}" wx:for-item="comment">
+    <text>{{comment.message}}</text>
   </view>
 </view>
+
+  <!--Comment Form-->
+  <!-- <view class="comments">
+    <form bindsubmit="addComment">
+      <textarea name="comment" placeholder="Send Message Here" bindblur="addComment"></textarea>
+    </form>
+  </view>-->
+</view> 

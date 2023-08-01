@@ -49,8 +49,8 @@ textarea {
   padding-top: 10rpx;
 }
 
-.container {
+/* .container {
   position: fixed; left: 50%; 
   bottom: 20rpx; 
   transform: translateX(-50%);
-}
+} */

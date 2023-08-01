@@ -92,6 +92,27 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/matches/show",
+          "query": "id=140",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/matches/show",
+          "query": "id=140",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/matches/show",
+          "query": "id=140",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

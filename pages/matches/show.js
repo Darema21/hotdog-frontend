@@ -11,35 +11,61 @@ Page({
       dog_name: '',
       owner_image_url: '',
       dog_image_url: '',
+      comments: [],
     },
 
-    formSubmit (e) {
-      let owner = e.detail.value.owner;
-      let comment = e.detail.value.comment;
-      let story = {
-        owner: owner,
-        comment: comment
-      }
-      wx.request({
-        url: `${app.globalData.baseUrl}owners/:owner_id/matches/:match_id/comments`,
-        method: 'POST',
-        data: { 
-          comment: comment },
-        success() {
-          // redirect to index page when done
-          wx.redirectTo({
-            url: '/pages/matches/show'
-          });
-        }
+    handleInput: function(e) {
+      this.setData({
+        wechatId: e.detail.value
       });
     },
+  
+    handleAccept: function() {
+      const app = getApp();
+      const comment = this.data.wechatId; 
+      const match_id = this.data.match_id;
+    
+      wx.request({
+        url: `${app.globalData.baseUrl}matches/${match_id}/comments`,
+        method: 'POST',
+        header: app.globalData.header,
+        data: { 
+          comment: {
+            message: comment,
+            owner_id: app.globalData.owner.id
+          }
+        },
+        success: (res) => {
+          console.log('update success?', res)
+          if (res.statusCode === 422) {
+            wx.showModal({
+              title: 'Error!',
+              content: res.data.errors.join(', '),
+              showCancel: false,
+              confirmText: 'OK'
+            })
+          } else {
+            // Update the comments data property to include the new comment
+            this.setData({
+              comments: [...this.data.comments, comment]
+            });
+          }
+        },
+        fail(error) {
+          console.log({ error })
+        }
+      })
+    },
+    
+
+
     /**
      * Lifecycle function--Called when page load
      */
     onLoad(options) {
       console.log("Options show match", options);
       const page = this;
-
+    
       page.setData({
         match_id: options.id,
         owner_name: options.owner_name,
@@ -47,24 +73,24 @@ Page({
         owner_image_url: options.owner_image_url,
         dog_image_url: options.dog_image_url,
       });
-
+    
       wx.request({
-        url: `${app.globalData.baseUrl}owners/:owner_id/matches/:match_id/comments`,
+        url: `${app.globalData.baseUrl}matches/${page.data.match_id}/comments`,
         method: 'GET',
-        // header: {},
+        header: app.globalData.header,
         // data: {},
         success(res) {
-          console.log({res})
+          console.log("Comments from API", res);
           page.setData({
-            comment: res.data.comment
+            comments: res.data
           })
         }
       })
-      const stories = wx.getStorageSync('comment')
-      this.setData({
-        comment: comment
-        // stories: []
-      })
+      // const stories = wx.getStorageSync('comment')
+      // this.setData({
+      //   comment: comment
+      //   // stories: []
+      // })
     },
     /**
      * Lifecycle function--Called when page is initially rendered
@@ -77,35 +103,6 @@ Page({
      * Lifecycle function--Called when page show
      */
     onShow() {
-    },
-
-    addComment(e) {
-      const app = getApp();
-      const comment = e.detail.value; 
-    
-      wx.request({
-        url: `${app.globalData.baseUrl}matches/${match_id}/comments`,
-        method: 'POST',
-        data: { comment: comment },
-        success(res) {
-          console.log('update success?', res)
-          if (res.statusCode === 422) {
-            wx.showModal({
-              title: 'Error!',
-              content: res.data.errors.join(', '),
-              showCancel: false,
-              confirmText: 'OK'
-            })
-          } else {
-            wx.switchTab({
-              url: '/pages/matches/show',
-            })
-          }
-        },
-        fail(error) {
-          console.log({ error })
-        }
-      })
     },
 
     /**

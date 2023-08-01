@@ -22,6 +22,7 @@ Page({
   },
 
   setNickname(e) {
+    console.log("NICKNAME", e);
     const input = e.detail.value;
     console.log("Nickname Input:", input);
     this.setData({ nickname: input });
@@ -31,6 +32,16 @@ Page({
     // Make API call to update the owner's record with the new nickname
     this.updateOwnerProfile();
   },
+
+  onShow() {
+    const page = this;
+
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 3,
+      });
+    }
+  },  
 
   /**
    * Lifecycle function--Called when page load

@@ -1,31 +1,32 @@
 <!--pages/matches/show.wxml-->
-<view class="container">
-  <view class="banner">
-    <view>
-      <image class="avatar-user avatar-user-sm" src="owner_image_url" mode="aspectFill" />
-      <image class="avatar-dog" src="{{ dog_image_url }}" mode="aspectFill" />
-    </view>
-    <text class="h3">{{ owner_name }} & {{ dog_name }}</text>
-  </view>
 
-  <view class="input-container">
-    <text>Enter Your Comment:</text>
-    <input type="text" value="{{wechatId}}" bindinput="handleInput" placeholder="You can share your WeChat ID" />
+<view class="banner">
+  <view>
+    <image class="avatar-user avatar-user-sm" src="owner_image_url" mode="aspectFill" />
+    <image class="avatar-dog" src="{{ dog_image_url }}" mode="aspectFill" />
   </view>
-  <button bindtap="handleAccept" class="accept-button">接受/Authorize</button>
-  <text class="description">We collect your data to provide a better service. By clicking "Authorize", you agree to our data collection policy.</text>
-
-  <!--Comment Cards-->
-  <view class="cards">
-  <view class="card" wx:key="index" wx:for="{{comments}}" wx:for-item="comment">
-    <text>{{comment.message}}</text>
-  </view>
+  <text class="h3">{{ owner_name }} & {{ dog_name }}</text>
 </view>
 
-  <!--Comment Form-->
-  <!-- <view class="comments">
-    <form bindsubmit="addComment">
-      <textarea name="comment" placeholder="Send Message Here" bindblur="addComment"></textarea>
-    </form>
-  </view>-->
-</view> 
+
+<view class="container">
+  <!--Comment Cards-->
+  <scroll-view class="cards" scroll-y enable-flex>
+    <view wx:for="{{comments}}" wx:key="index" wx:for-item="comment">
+      <view class="message {{ comment.owner.id === current_owner.id ? 'current-owner-message' : 'match-owner-message' }} flex column" wx:key="index">
+        <text class="message-author"> {{ comment.created_at }}</text>
+        <text class="card message-text">{{comment.message}}</text>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
+<!-- Input form -->
+<view class="container">
+  <view class="input-container flex column">
+    <text>Enter Your Comment:</text>
+    <input type="text" value="{{wechatId}}" bindinput="handleInput" placeholder="You can share your WeChat ID" />
+    <button class="btn btn-filled" bindtap="handleAccept" class="accept-button">接受/Authorize</button>
+    <text class="disclaimer">We collect your data to provide a better service. By clicking "Authorize", you agree to our data collection policy.</text>
+  </view>
+</view>

@@ -95,12 +95,12 @@
     
    <view class="input-container">
       <view class="owner-title"> What's Your Nickname? </view>
-      <input id="ownerName" name="name" placeholder="Name" maxlength="20" bindinput="setOwnerInputData" data-field="name" />
+      <input id="ownerName" name="ownerName" placeholder="Name" maxlength="20" bindinput="setOwnerInputData" data-field="ownerName" />
     </view>
 
     <view class="input-container">
       <view class="owner-title"> How Old Are you? </view>
-      <input id="ownerAge" name="age" placeholder="Age" maxlength="10" bindinput="setOwnerInputData" data-field="age" type="number" />
+      <input id="ownerAge" name="ownerAge" placeholder="Age" maxlength="10" bindinput="setOwnerInputData" data-field="ownerAge" type="number" />
      
       <!-- <input id="age" placeholder="Pet's Age" value="{{ formData.age }}"
       bind:change="inputAge"
@@ -109,7 +109,7 @@
 
     <!-- Picker Select Gender -->
     <view class="input-container">
-      <picker id="ownerGender" mode="selector" range="{{ gender }}" bindchange="onOwnerGenderChange"  data-field ="gender" >
+      <picker id="ownerGender" mode="selector" range="{{ ownerGender }}" bindchange="onOwnerGenderChange"  data-field ="ownerGender" >
           <view  class="gender-title"> Select Your Gender </view>
           <view> {{ownerGenderSelected}}</view>
     </picker>
@@ -118,7 +118,7 @@
     <!-- Input Owner Bio -->
     <view class="bio-title"> Owner Bio</view>
     <view class="input-container">
-      <textarea id="ownerBio" placeholder="Write about yourself :) " bindinput="setOwnerInputData" name="bio" data-field ="bio" ></textarea>
+      <textarea id="ownerBio" placeholder="Write about yourself :) " bindinput="setOwnerInputData" name="ownerBio" data-field ="ownerBio" ></textarea>
     </view>
 
     <button class="btn btn-filled" form-type="submit">Save</button>

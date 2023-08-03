@@ -1,10 +1,5 @@
 <!--pages/matches/show.wxml-->
 <view class="banner">
-  <view>
-    <image class="avatar-user avatar-user-sm" src="owner_image_url" mode="aspectFill" />
-
-    <image class="avatar-dog" src="{{ dog_image_url }}" mode="aspectFill" />
-  </view>
   <text class="h3">{{ owner_name }} & {{ dog_name }}</text>
 </view>
 

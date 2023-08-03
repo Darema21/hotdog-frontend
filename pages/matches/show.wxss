@@ -1,8 +1,7 @@
 /* pages/matches/show.wxss */
 
 .banner{
-  background-color: var(--white);
-  height: 310rpx;
+  height: 15мр;
   box-shadow: 0 0 15rpx rgba(0,0,0,0.2);
 }
 
@@ -19,6 +18,7 @@
 }
 
 .h3 {
+  color: var(--white);
   margin-left: 10rpx;
   margin-top: 50rpx;
 }

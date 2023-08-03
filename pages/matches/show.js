@@ -43,9 +43,7 @@ Page({
       page.setData({
         match_id: options.id,
         owner_name: options.owner_name,
-        dog_name: options.dog_name,
-        owner_image_url: options.owner_image_url,
-        dog_image_url: options.dog_image_url,
+        dog_name: options.dog_name
       });
 
       wx.request({
@@ -63,7 +61,6 @@ Page({
       const stories = wx.getStorageSync('comment')
       this.setData({
         comment: comment
-        // stories: []
       })
     },
     /**
@@ -76,7 +73,18 @@ Page({
     /**
      * Lifecycle function--Called when page show
      */
-    onShow() {
+    onShow(options) {
+
+      const page = this;
+
+      page.setData({
+        match_id: options.id,
+        owner_name: options.owner_name,
+        dog_name: options.dog_name,
+        owner_image_url: options.owner_image_url,
+        dog_image_url: options.dog_image_url,
+      });
+
     },
 
     addComment(e) {

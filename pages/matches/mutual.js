@@ -7,7 +7,8 @@ Page({
    */
   data: {
     fromDogAnimation: null,
-    toDogAnimation: null
+    toDogAnimation: null,
+    match_id: null
   },
 
   /**
@@ -21,17 +22,12 @@ Page({
   onLoad: function (options) {
     console.log("Mutual options", options);
     let page = this;
-
     page.setData({
-      match_id: options.match_id,
-      from_dog_img: options.from_dog_img,
-      to_dog_id: options.to_dog_id,
-      to_dog_img: options.to_dog_img,
-      to_dog_name: options.to_dog_name
+      match_id: options.id
     });
-
   },
-
+  
+  
   onReady: function () {
     // Create animation objects for both images
     const animationFrom = wx.createAnimation({
@@ -66,9 +62,24 @@ Page({
   /**
    * Lifecycle function--Called when page show
    */
-  onShow: function () {
+  onShow() {
     // Do something when page shown
+    let page = this;
+  
+    wx.request({
+      url: `${app.globalData.baseUrl}owners/${app.globalData.owner.id}/matches/${page.data.match_id}`,
+      method: 'GET',
+      header: app.globalData.header,
+      success(res) {
+        const matches = res.data;
+  
+        page.setData({
+          matches: matches
+        });
+      }
+    });
   },
+  
 
   /**
    * Lifecycle function--Called when page hide

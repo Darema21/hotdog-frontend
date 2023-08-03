@@ -28,7 +28,7 @@
 </view>
 
 <!-- Banner -->
-<image class="ad" src="/pages/images/banner.png" mode="aspectFit" bindtap="navigateToEventsForm" />
+<image class="ad" src="/pages/images/banner.png" mode="aspectFit" />
 
 <!-- Events -->
 <view class="container">

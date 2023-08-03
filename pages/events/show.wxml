@@ -1,5 +1,4 @@
-
-  <image class="banner-event" src="{{ event.image_url }}" mode="aspectFill" bindtap="openFullImage"></image>
+<image class="banner-event" src="{{ event.image_url }}" mode="aspectFill" bindtap="openFullImage"></image>
 
 
 <view class="container flex column ai-c">
@@ -13,7 +12,7 @@
       <text class="p p-dark">{{event.bookings_count}} person going</text>
     </block>
     <block wx:else>
-        <text class="p p-dark">{{event.bookings_count}} people going</text>
+      <text class="p p-dark">{{event.bookings_count}} people going</text>
     </block>
   </view>
 
@@ -33,7 +32,7 @@
     <view class="details flex">
       <image class="details-img" src="/pages/images/icons/location.png" mode="widthFix" />
       <view class="details-text flex column">
-        <text class="label p p-dark">Address</text>        
+        <text class="label p p-dark">Address</text>
         <text class="value p p-light">{{event.address}}</text>
       </view>
     </view>

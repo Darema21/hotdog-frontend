@@ -4,6 +4,7 @@ page {
   background-color: var(--white);
 }
 
+
 .section-text {
   margin-bottom: .5em;
 }

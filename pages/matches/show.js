@@ -1,34 +1,50 @@
-// pages/matches/show.js
-const app = getApp()
+const app = getApp();
+
 Page({
+  /**
+   * Page initial data
+   */
+  data: {
+    match_id: '',
+    owner_id: '',
+    owner_name: '',
+    dog_name: '',
+    owner_image_url: '',
+    dog_image_url: '',
+    comments: [],
+    current_owner: '',
+    wechatId: '',
+  },
 
-    /**
-     * Page initial data
-     */
-    data: {
-      match_id: '', 
-      owner_name: '',
-      dog_name: '',
-      owner_image_url: '',
-      dog_image_url: '',
-    },
+  handleInput: function (e) {
+    this.setData({
+      wechatId: e.detail.value,
+    });
+  },
 
-    formSubmit (e) {
-      let owner = e.detail.value.owner;
-      let comment = e.detail.value.comment;
-      let story = {
-        owner: owner,
-        comment: comment
-      }
-      wx.request({
-        url: `${app.globalData.baseUrl}owners/:owner_id/matches/:match_id/comments`,
-        method: 'POST',
-        data: { 
-          comment: comment },
-        success() {
-          // redirect to index page when done
-          wx.redirectTo({
-            url: '/pages/matches/show'
+  handleAccept: function () {
+    const page = this;
+    const comment = this.data.wechatId;
+    const match_id = this.data.match_id;
+
+    wx.request({
+      url: `${app.globalData.baseUrl}matches/${match_id}/comments`,
+      method: 'POST',
+      header: app.globalData.header,
+      data: {
+        comment: {
+          message: comment,
+          owner_id: app.globalData.owner.id,
+        },
+      },
+      success: (res) => {
+        console.log('update success?', res);
+        if (res.statusCode === 422) {
+          wx.showModal({
+            title: 'Error!',
+            content: res.data.errors.join(', '),
+            showCancel: false,
+            confirmText: 'OK',
           });
         }
       });
@@ -113,41 +129,72 @@ Page({
         fail(error) {
           console.log({ error })
         }
-      })
-    },
+      },
+      fail(error) {
+        console.log({ error });
+      },
+    });
+  },
 
-    /**
-     * Lifecycle function--Called when page hide
-     */
-    onHide() {
+  /**
+   * Lifecycle function--Called when page load
+   */
+  onLoad(options) {
+    console.log('Options show match', options);
+    let page = this;
+    const match_id = options.id;
+    const current_owner = app.globalData.owner;
 
-    },
+    wx.request({
+      url: `${app.globalData.baseUrl}matches/${match_id}/comments`,
+      method: 'GET',
+      header: app.globalData.header,
+      success(res) {
+        page.setData({
+          comments: res.data,
+          current_owner: current_owner,
+          match_id: options.id,
+          owner_name: options.owner_name,
+          dog_name: options.dog_name,
+          owner_image_url: options.owner_image_url,
+          dog_image_url: options.dog_image_url,
+        });
+      },
+    });
+  },
 
-    /**
-     * Lifecycle function--Called when page unload
-     */
-    onUnload() {
+  /**
+   * Lifecycle function--Called when page is initially rendered
+   */
+  onReady() {},
 
-    },
+  /**
+   * Lifecycle function--Called when page show
+   */
+  onShow() {},
 
-    /**
-     * Page event handler function--Called when user drop down
-     */
-    onPullDownRefresh() {
+  /**
+   * Lifecycle function--Called when page hide
+   */
+  onHide() {},
 
-    },
+  /**
+   * Lifecycle function--Called when page unload
+   */
+  onUnload() {},
 
-    /**
-     * Called when page reach bottom
-     */
-    onReachBottom() {
+  /**
+   * Page event handler function--Called when user drop down
+   */
+  onPullDownRefresh() {},
 
-    },
+  /**
+   * Called when page reach bottom
+   */
+  onReachBottom() {},
 
-    /**
-     * Called when user click on the top right corner to share
-     */
-    onShareAppMessage() {
-
-    }
-})
+  /**
+   * Called when user click on the top right corner to share
+   */
+  onShareAppMessage() {},
+});

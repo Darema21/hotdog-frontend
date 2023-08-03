@@ -1,0 +1,48 @@
+<!--pages/booked_events/bookings.wxml-->
+
+<!-- **Banner** -->
+<view class="banner">
+  <text class="h1 white">Your Events</text>
+  <text class="p">All your bookings in one place!</text>
+</view>
+
+<!-- Event-cards -->
+<view class="container">
+  <view wx:if="{{booked_events.length % 10 == 1 && booked_events.length != 11}}">
+    <text class="p p-dark">Total: {{ booked_events.length }} event</text>
+  </view>
+  <view wx:else>
+    <text class="p p-dark">Total: {{ booked_events.length }} booked_events</text>
+  </view>
+
+  <view wx:if="{{booked_events.length > 0}}">
+    <view class="cards">
+      <view class="card card-hor flex" wx:for="{{booked_events}}" wx:key="index" wx:for-item="event">
+        <image bindtap="goToEvent" data-id="{{event.id}}" class="card-image img-small" src="{{ event.image_url }}" mode="aspectFill" />
+        <view class="card-info-hor">
+          <view class="flex column">
+            <view class="date flex ai-с jc-sb">
+              <text class="p p-pink start-time">{{event.start_time}}</text>
+              <!-- <image class="category-icon" src="{{event.has_booking ? '/pages/images/icons/bookmark_checked.png' : '/pages/images/icons/bookmark_unchecked.png'}}" bindtap="addBooking" data-id="{{event.id}}" mode="aspectFill" /> -->
+            </view>
+            <view class="card-category">
+              <text>Category: {{ event.category }}</text>
+            </view>
+            <text class="h3 truncate">{{event.title}}</text>
+            <view class="address flex ai-c">
+              <image class="geo-icon" src="/pages/images/icons/geo.png" mode="" />
+              <text class="card-address truncate">{{event.address}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:else>
+    <view class="flex column">
+      <text>No booked_events posted yet. Be the first one</text>
+      <navigator open-type="switchTab" url="/pages/booked_events/form">Post event →</navigator>
+    </view>
+  </view>
+</view>
+

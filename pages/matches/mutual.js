@@ -19,37 +19,13 @@ Page({
     toDogAnimationData: {} 
   },
 
-    onLoad: function (options) {
-      console.log("Mutual options", options);
-      const page = this;
-      const match_id = options.match_id; // Get match_id from options
-  
-      if (!match_id) {
-        console.error("Match ID not provided.");
-        return;
-      }
-  
-      page.setData({
-        match_id: match_id,
-      });
-  
-      const owner_id = app.globalData.owner.id;
-      wx.request({
-        url: `${app.globalData.baseUrl}matches/${match_id}`,
-        method: 'GET',
-        header: app.globalData.header,
-        success(res) {
-          console.log("Mutual data", res);
-          const matches = res.data;
-          page.setData({
-            matches: matches,
-          });
-        },
-        fail(err) {
-          console.error("Failed to fetch match data:", err);
-        },
-      });
-    },
+  onLoad: function (options) {
+    console.log("Mutual options", options);
+    let page = this;
+    page.setData({
+      match_id: options.id
+    });
+  },
   
   
   onReady: function () {
@@ -88,33 +64,23 @@ Page({
    */
   onShow() {
     // Do something when page shown
-    // const page = this;
-    // const owner_id = app.globalData.owner.id;
-    // const match_id = page.data.match_id; // Access the match_id from this.data
+
+    let page = this;
   
-    // if (match_id) {
-    //   wx.request({
-    //     url: `${app.globalData.baseUrl}owners/${owner_id}/matches/${match_id}`,
-    //     method: 'GET',
-    //     header: app.globalData.header,
-    //     success(res) {
-    //       console.log("Mutual data", res);
-    //       const matches = res.data;
+    wx.request({
+      url: `${app.globalData.baseUrl}owners/${app.globalData.owner.id}/matches/${page.data.match_id}`,
+      method: 'GET',
+      header: app.globalData.header,
+      success(res) {
+        const matches = res.data;
   
-    //       page.setData({
-    //         matches: matches
-    //       });
-    //     },
-    //     fail(err) {
-    //       console.error("Failed to fetch match data:", err);
-    //     }
-    //   });
-    // } else {
-    //   console.error("Match ID not available.");
-    // }
+        page.setData({
+          matches: matches
+        });
+      }
+    });
   },
-  
-  
+ 
 
   /**
    * Lifecycle function--Called when page hide

@@ -12,7 +12,7 @@
   margin-bottom: 30rpx;
 }
 
-.breed-title, .gender-title, .bio-title, .title-title {
+.breed-title, .gender-title, .bio-title, .title-title, .owner-title {
   font-size: 32rpx;
   font-weight: 600;
   color: black;

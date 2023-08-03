@@ -7,15 +7,18 @@ Page({
     data: {
       name: "",
       gender: ["male", "female"],
+      ownerGender: ["male", "female"],
+      ownerGenderSelected: '',
       age: '',
       breed: ["Beagle", "Bulldog", "Chihuahua", "Corgi", "French Bulldog", "German Shepherd", "Golden Retriever", "Husky", "Labrador", "Parson Russell Terrier", "Pug", "Poodle (Toy)", "Other"],
-      breed_value: "",
-      gender_value: "",
+      // breed_value: "",
+      // gender_value: "",
       bio: "",
       neutered: false,
       vaccinated: false,
       address: "",
       formData: {},
+      ownerData:{},
       src: ""
     },
 
@@ -113,15 +116,22 @@ Page({
     },
 
     // not used
-    inputName(e) {
-      this.onChange('inputName', e)
-    },
-    inputAge(e) {
-      this.onChange('inputAge', e)
-    },
-    inputBio(e) {
-      this.onChange('inputBio', e)
-    },
+    // inputName(e) {
+    //   this.onChange('inputName', e)
+    // },
+    // inputAge(e) {
+    //   this.onChange('inputAge', e)
+    // },
+    // inputBio(e) {
+    //   this.onChange('inputBio', e)
+    // },
+
+    // inputOwnerAge(e) {
+    //   this.onChange('inputOwnerAge', e)
+    // },
+    // inputOwnerBio(e) {
+    //   this.onChange('inputOwnerBio', e)
+    // },
 
     // set input data of name, age, bio
     setInputData(e) {
@@ -151,7 +161,7 @@ Page({
         [field]: e.detail.value,
         formData
       })
-      console.log('from onChange, formData', formData)
+      console.log('--->> from onChange, formData', formData)
       console.log('from onChange, e', e)
     },
 
@@ -182,10 +192,9 @@ Page({
           [field]: this.data.breed[e.detail.value]
         },
         breedSelected: this.data.breed[e.detail.value]
-     
       })
-      console.log('formData from breed change', formData)
-      console.log('this.data.breed', this.data.breed)
+      console.log('----> formData from breed change', formData)
+      console.log('---- this.data.breed', this.data.breed)
       console.log('e.detail.value', e.detail.value)
     },
     // gender picker
@@ -208,6 +217,34 @@ Page({
       console.log('e.detail.value', e.detail.value)
     },
 
+    setOwnerInputData(e) {
+      let {formData} = this.data
+      formData[e.currentTarget.dataset.field] = e.detail.value
+      const { field } = e.currentTarget.dataset
+      this.setData({formData})
+      // formData[field] = value;
+      console.log(formData)
+    },
+
+    // changing owner gender
+    onOwnerGenderChange(e) {
+      console.log('e from ownerGenderchange', e)
+      let { formData } = this.data
+      console.log('this.data', this.data)
+      let { field } = e.currentTarget.dataset
+      formData[field] = e.detail.value
+      // formData[e.detail.value] = e.detail.value
+      this.setData({
+        formData:{
+          ...formData,
+          [field]: this.data.ownerGender[e.detail.value]
+        },
+        ownerGenderSelected: this.data.ownerGender[e.detail.value]
+      })
+      console.log('formData from gender change', formData)
+      console.log('this.data.gender', this.data.ownerGender)
+      console.log('e.detail.value', e.detail.value)
+    },
     // not used - picker confirm sets the value
     onConfirm(e) {
       // const { index } = e.currentTarget.dataset
@@ -262,26 +299,32 @@ Page({
       console.log('e from save btn --> ', e)
       // Post data to API
       const page = this;
+      // const dog_data 
+      // let dog = page.data.formData
+      console.log('--->. pagae.data.formData',page.data.formData)
       console.log('header from save btn: ', app.globalData.header)
-      let dog = page.data.formData
-      console.log("---------dog send-----------")
-      console.log(dog)
-      console.log("---------------------------")
-
+      const dog = { 
+        ...this.data.formData, 
+        owner_id: app.globalData.owner.id};
+      // let dog = page.data.formData
+      console.log('----> dog data ',dog)
+      // saving owner details
+      // let owner = page.data.ownerData
+      // console.log(owner)
       console.log('from save btn, page.data ->', page.data)
-      page.setData({dog})
-      // const event = e.detail.value;
-      // event.owner_id = 1;
-  
+      page.setData({
+        dog,
+        // owner_id
+      })
       // if dog id exists, edit this form
       if (page.data.editedId !== undefined && page.data.editedId !== null) {
         wx.request({
           header: app.globalData.header,
           url: `${app.globalData.baseUrl}dogs/${page.data.editedId}`,
           method: 'PUT',
-          data: { 
-            dog: dog, 
-            owner_id: app.globalData.owner.id
+          data: {
+            dog,
+            // owner
           },
           success(res) {
             console.log('update success? ', res)
@@ -295,19 +338,25 @@ Page({
       } else {
         // if dog id doesn't exist, create new form
         console.log('Create: new dog ', dog)
-        console.log('this data to send ->', page.data.dog)
-        console.log('this owner_id to send ->',  app.globalData.owner.id)
+        // console.log('Add owner details', owner)
+        console.log('the dog data to send ->', page.data.dog)
+        // console.log('the owner data to send ->', page.data.owner)
+        // console.log('this owner_id to send ->',  app.globalData.owner.id)
         wx.request({
           header: app.globalData.header,
           url: `${app.globalData.baseUrl}dogs/`,
           method: 'POST',
-          data: { 
+          data: {
+            // ...dog,
             dog: {
-              ...dog,
-              owner_id: app.globalData.owner.id
-            },       
-          },
+              ...this.data.formData,
+            owner_id: app.globalData.owner.id
+            },
+            // owner: owner
+          }, 
+
           success(res) {
+            console.log('dog details -->', dog)
             console.log('create success?', res)
             if (res.statusCode === 422) {
               wx.showModal({

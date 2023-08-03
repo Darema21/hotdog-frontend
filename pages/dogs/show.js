@@ -22,11 +22,15 @@ Page({
      * Lifecycle function--Called when page load
      */
     onLoad(options) {
-        const id = options.id
+        const editedId = options.id
+        // this.setData({
+        //   editedId: options.id
+        // })
         let page = this;
         console.log('options from onload ->', options)
+
         wx.request({
-          url: `${app.globalData.baseUrl}dogs/${id}`,
+          url: `${app.globalData.baseUrl}dogs/${editedId}`,
           method: 'GET',
           header: app.globalData.header,
           success(res){

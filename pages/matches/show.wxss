@@ -31,6 +31,7 @@ page {
 }
 
 .h3 {
+  color: var(--white);
   margin-left: 10rpx;
   margin-top: 50rpx;
 }

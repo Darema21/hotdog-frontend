@@ -46,12 +46,88 @@ Page({
             showCancel: false,
             confirmText: 'OK',
           });
-        } else {
-          // Update the comments data property to include the new comment
+        }
+      });
+    },
+    /**
+     * Lifecycle function--Called when page load
+     */
+    onLoad(options) {
+      console.log("Options show match", options);
+      const page = this;
+
+      page.setData({
+        match_id: options.id,
+        owner_name: options.owner_name,
+        dog_name: options.dog_name
+      });
+
+      wx.request({
+        url: `${app.globalData.baseUrl}owners/:owner_id/matches/:match_id/comments`,
+        method: 'GET',
+        // header: {},
+        // data: {},
+        success(res) {
+          console.log({res})
           page.setData({
-            comments: [...page.data.comments, comment],
-            wechatId: '', // Clear the input field after successful comment submission
-          });
+            comment: res.data.comment
+          })
+        }
+      })
+      const stories = wx.getStorageSync('comment')
+      this.setData({
+        comment: comment
+      })
+    },
+    /**
+     * Lifecycle function--Called when page is initially rendered
+     */
+    onReady() {
+
+    },
+
+    /**
+     * Lifecycle function--Called when page show
+     */
+    onShow(options) {
+
+      const page = this;
+
+      page.setData({
+        match_id: options.id,
+        owner_name: options.owner_name,
+        dog_name: options.dog_name,
+        owner_image_url: options.owner_image_url,
+        dog_image_url: options.dog_image_url,
+      });
+
+    },
+
+    addComment(e) {
+      const app = getApp();
+      const comment = e.detail.value; 
+    
+      wx.request({
+        url: `${app.globalData.baseUrl}matches/${match_id}/comments`,
+        method: 'POST',
+        data: { comment: comment },
+        success(res) {
+          console.log('update success?', res)
+          if (res.statusCode === 422) {
+            wx.showModal({
+              title: 'Error!',
+              content: res.data.errors.join(', '),
+              showCancel: false,
+              confirmText: 'OK'
+            })
+          } else {
+            wx.switchTab({
+              url: '/pages/matches/show',
+            })
+          }
+        },
+        fail(error) {
+          console.log({ error })
         }
       },
       fail(error) {

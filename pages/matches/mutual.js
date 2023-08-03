@@ -7,7 +7,8 @@ Page({
    */
   data: {
     fromDogAnimation: null,
-    toDogAnimation: null
+    toDogAnimation: null,
+    match_id: null
   },
 
   /**
@@ -18,20 +19,39 @@ Page({
     toDogAnimationData: {} 
   },
 
-  onLoad: function (options) {
-    console.log("Mutual options", options);
-    let page = this;
-
-    page.setData({
-      match_id: options.match_id,
-      from_dog_img: options.from_dog_img,
-      to_dog_id: options.to_dog_id,
-      to_dog_img: options.to_dog_img,
-      to_dog_name: options.to_dog_name
-    });
-
-  },
-
+    onLoad: function (options) {
+      console.log("Mutual options", options);
+      const page = this;
+      const match_id = options.match_id; // Get match_id from options
+  
+      if (!match_id) {
+        console.error("Match ID not provided.");
+        return;
+      }
+  
+      page.setData({
+        match_id: match_id,
+      });
+  
+      const owner_id = app.globalData.owner.id;
+      wx.request({
+        url: `${app.globalData.baseUrl}matches/${match_id}`,
+        method: 'GET',
+        header: app.globalData.header,
+        success(res) {
+          console.log("Mutual data", res);
+          const matches = res.data;
+          page.setData({
+            matches: matches,
+          });
+        },
+        fail(err) {
+          console.error("Failed to fetch match data:", err);
+        },
+      });
+    },
+  
+  
   onReady: function () {
     // Create animation objects for both images
     const animationFrom = wx.createAnimation({
@@ -66,9 +86,35 @@ Page({
   /**
    * Lifecycle function--Called when page show
    */
-  onShow: function () {
+  onShow() {
     // Do something when page shown
+    // const page = this;
+    // const owner_id = app.globalData.owner.id;
+    // const match_id = page.data.match_id; // Access the match_id from this.data
+  
+    // if (match_id) {
+    //   wx.request({
+    //     url: `${app.globalData.baseUrl}owners/${owner_id}/matches/${match_id}`,
+    //     method: 'GET',
+    //     header: app.globalData.header,
+    //     success(res) {
+    //       console.log("Mutual data", res);
+    //       const matches = res.data;
+  
+    //       page.setData({
+    //         matches: matches
+    //       });
+    //     },
+    //     fail(err) {
+    //       console.error("Failed to fetch match data:", err);
+    //     }
+    //   });
+    // } else {
+    //   console.error("Match ID not available.");
+    // }
   },
+  
+  
 
   /**
    * Lifecycle function--Called when page hide

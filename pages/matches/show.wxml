@@ -1,17 +1,13 @@
 <!--pages/matches/show.wxml-->
 
 <view class="banner">
-  <view>
-    <image class="avatar-user avatar-user-sm" src="owner_image_url" mode="aspectFill" />
-    <image class="avatar-dog" src="{{ dog_image_url }}" mode="aspectFill" />
-  </view>
   <text class="h3">{{ owner_name }} & {{ dog_name }}</text>
 </view>
 
+<!--Comment Cards-->
 
-<view class="container">
-  <!--Comment Cards-->
-  <scroll-view class="cards" scroll-y enable-flex>
+<view class="wrap">
+  <scroll-view class="cards" scroll-y	enable-flex>
     <view wx:for="{{comments}}" wx:key="index" wx:for-item="comment">
       <view class="message {{ comment.owner.id === current_owner.id ? 'current-owner-message' : 'match-owner-message' }} flex column" wx:key="index">
         <text class="message-author"> {{ comment.created_at }}</text>
@@ -20,6 +16,7 @@
     </view>
   </scroll-view>
 </view>
+
 
 <!-- Input form -->
 <view class="container">

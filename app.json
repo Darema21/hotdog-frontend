@@ -14,6 +14,7 @@
     "pages/events/category",
     "pages/events/show",
     "pages/events/form",
+    "pages/events/bookings",
     "pages/owners/profile",
     "custom-tab-bar/index",
     "pages/logs/logs",

@@ -8,14 +8,6 @@ Page({
 
   bindViewTap: function () {},
 
-  onLoad: function () {
-
-    setInterval(() => {
-      this.setData({
-        pushList: [],
-      });
-    }, 5000);
-  },
 
   goToShow: function (e) {
     const id = e.currentTarget.dataset.dogid;
@@ -60,6 +52,12 @@ Page({
   onLoad(options) {
     let page = this;
 
+    // setInterval(() => {
+    //   this.setData({
+    //     pushList: [],
+    //   });
+    // }, 5000);
+
     // Retrieve the dogs from globalData and set them in the pushList
     this.setData({
       pushList: app.globalData.dogs,
@@ -71,15 +69,15 @@ Page({
     const direction = args.detail.direction;
     const to_owner_id = args.detail.item.ownerId;
     const from_owner_id = app.globalData.owner.id;
-    console.log("To Owner id", to_owner_id)
-
+    console.log("To Owner id", to_owner_id);
+    console.log("From Owner id", from_owner_id);
     // Remove the swiped dog from pushList
     const newPushList = this.data.pushList.filter(dog => dog.ownerId !== to_owner_id);
     this.setData({
       pushList: newPushList,
     });
 
-    sendPostRequest(direction, to_owner_id, from_owner_id);
+    sendPostRequest(direction, from_owner_id, to_owner_id);
   },
 
   getUserInfo: function (e) {},
@@ -100,6 +98,9 @@ Page({
 });
 
 function sendPostRequest(direction, from_owner_id, to_owner_id) {
+  console.log("Send post request", direction);
+  console.log("Send post request", from_owner_id);
+  console.log("Send post request", to_owner_id);
   wx.request({
     url: `${app.globalData.baseUrl}owners/${from_owner_id}/matches`,
     method: 'POST',
@@ -127,14 +128,14 @@ function handleSuccessResponse(res) {
   if (res.statusCode === 200 || res.statusCode === 201) {
     const match = res.data;
     const match_id = match.id;
-    const from_dog_img = match.from_dog.image_url;
+    const from_dog_id = match.from_dog.id;
     const to_dog_id = match.to_dog.id;
-    const to_dog_img = match.to_dog.image_url;
     const to_dog_name = match.to_dog.name;
+    const to_owner = match.to_owner.id
 
     console.log("Match status:", match.status);
     if (match.status === "like") {
-      navigateToMutualPage(match_id, from_dog_img, to_dog_id, to_dog_img, to_dog_name);
+      navigateToMutualPage(match_id, from_dog_id, to_dog_id, to_dog_name);
     } else {
       console.log("Like is not mutual");
     }
@@ -150,11 +151,11 @@ function handleFailureResponse(res) {
   showToast('Failed to create match');
 }
 
-function navigateToMutualPage(match_id, from_dog_img, to_dog_id, to_dog_img, to_dog_name) {
-  console.log("Navigating to mutual page: From dog", app.globalData.currentOwnerDog.id, "To dog:", to_dog_id);
+function navigateToMutualPage(match_id, from_dog_id, to_dog_id, to_dog_name) {
+  console.log("Navigating to mutual page: From dog", from_dog_id, "To dog:", to_dog_id);
 
   wx.navigateTo({
-    url: `/pages/matches/mutual?match_id=${match_id}&from_dog_img=${from_dog_img}&to_dog_id=${to_dog_id}&to_dog_img=${to_dog_img}&to_dog_name=${to_dog_name}`,
+    url: `/pages/matches/mutual?match_id=${match_id}&from_dog_id=${from_dog_id}&to_dog_id=${to_dog_id}&to_dog_name=${to_dog_name}`,
     success(res) {
       console.log("Navigation success:", res);
     },

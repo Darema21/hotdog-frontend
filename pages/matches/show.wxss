@@ -1,8 +1,20 @@
 /* pages/matches/show.wxss */
 
+page {
+  background-color: var(--white);
+  overflow-y: hidden;
+}
+
+.wrap {
+  background-color: var(--white);
+  border-top-left-radius: 40rpx;
+  border-top-right-radius: 40rpx;
+  margin-top: -3%;
+}
+
 .banner{
   background-color: var(--white);
-  height: 310rpx;
+  height: 20vh;
   box-shadow: 0 0 15rpx rgba(0,0,0,0.2);
 }
 

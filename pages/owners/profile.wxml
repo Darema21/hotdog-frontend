@@ -44,17 +44,17 @@
 
   <!-- Tabs -->
   <view class="tabs">
-    <navigator url="#" class="setting-card flex">
+    <navigator url="/pages/events/bookings" class="setting-card flex">
       <view class="flex ai-c">
         <image class="icon" src="/pages/images/icons/profile-user_icon.png" mode="" />
-        <text> Edit User info </text>
+        <text> Check Your Events </text>
       </view>
       <image class="icon" src="/pages/images/icons/profile-arrow.png" class="arrow" mode="" />
     </navigator>
     <navigator url="/pages/dogs/form" class="setting-card flex">
       <view class="flex ai-c">
         <image class="icon" src="/pages/images/icons/profile-dog.png" mode="" />
-        <text> Edit dog's info </text>
+        <text> Edit dog's and owner's info </text>
       </view>
       <image class="icon" src="/pages/images/icons/profile-arrow.png" class="arrow" mode="" />
     </navigator>

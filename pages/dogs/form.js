@@ -110,7 +110,7 @@ Page({
     
     // resets (clear) the form
     resetForm() {
-      this.setData({formData: {}})
+      this.setData({formData: {}}, {ownerData:{}})
     },
 
     // not used
@@ -159,7 +159,7 @@ Page({
         [field]: e.detail.value,
         formData
       })
-      console.log('from onChange, formData', formData)
+      console.log('--->> from onChange, formData', formData)
       console.log('from onChange, e', e)
     },
 
@@ -190,10 +190,9 @@ Page({
           [field]: this.data.breed[e.detail.value]
         },
         breedSelected: this.data.breed[e.detail.value]
-     
       })
-      console.log('formData from breed change', formData)
-      console.log('this.data.breed', this.data.breed)
+      console.log('----> formData from breed change', formData)
+      console.log('---- this.data.breed', this.data.breed)
       console.log('e.detail.value', e.detail.value)
     },
     // gender picker
@@ -348,11 +347,14 @@ Page({
           url: `${app.globalData.baseUrl}dogs/`,
           method: 'POST',
           data: {
-            ...dog,
+            // ...dog,
+            dog: dog,
             owner_id: app.globalData.owner.id,
             owner: owner
           }, 
+
           success(res) {
+            console.log('dog details -->', dog, 'owner details -->', owner)
             console.log('create success?', res)
             if (res.statusCode === 422) {
               wx.showModal({

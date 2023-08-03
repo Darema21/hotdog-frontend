@@ -300,21 +300,21 @@ Page({
       // Post data to API
       const page = this;
       // const dog_data 
-      let dog = page.data.formData
+      // let dog = page.data.formData
       console.log('--->. pagae.data.formData',page.data.formData)
       console.log('header from save btn: ', app.globalData.header)
-      const dog_data= { 
+      const dog = { 
         ...this.data.formData, 
         owner_id: app.globalData.owner.id};
       // let dog = page.data.formData
-      console.log('----> dog data ',dog_data)
+      console.log('----> dog data ',dog)
       // saving owner details
       // let owner = page.data.ownerData
       // console.log(owner)
       console.log('from save btn, page.data ->', page.data)
       page.setData({
-        dog_data,
-        // owner
+        dog,
+        // owner_id
       })
       // if dog id exists, edit this form
       if (page.data.editedId !== undefined && page.data.editedId !== null) {
@@ -323,7 +323,7 @@ Page({
           url: `${app.globalData.baseUrl}dogs/${page.data.editedId}`,
           method: 'PUT',
           data: {
-            dog_data,
+            dog,
             // owner
           },
           success(res) {
@@ -337,9 +337,9 @@ Page({
         });
       } else {
         // if dog id doesn't exist, create new form
-        console.log('Create: new dog ', dog_data)
+        console.log('Create: new dog ', dog)
         // console.log('Add owner details', owner)
-        console.log('the dog data to send ->', page.data.dog_data)
+        console.log('the dog data to send ->', page.data.dog)
         // console.log('the owner data to send ->', page.data.owner)
         // console.log('this owner_id to send ->',  app.globalData.owner.id)
         wx.request({
@@ -348,7 +348,7 @@ Page({
           method: 'POST',
           data: {
             // ...dog,
-            dog_data: {
+            dog: {
               ...this.data.formData,
             owner_id: app.globalData.owner.id
             },
@@ -356,7 +356,7 @@ Page({
           }, 
 
           success(res) {
-            console.log('dog details -->', dog_data)
+            console.log('dog details -->', dog)
             console.log('create success?', res)
             if (res.statusCode === 422) {
               wx.showModal({

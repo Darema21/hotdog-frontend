@@ -4,7 +4,6 @@ page {
   background-image: var(--gradient);
   font-family: "Quicksand";
   color: var(--white);
-  background-image: url('https://i.imgur.com/HDCCYo5.png');
 }
 
 image {

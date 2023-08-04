@@ -70,7 +70,7 @@ Page({
         data: {
           owner: {
             name: app.globalData.nickname,
-            avatar_url: app.globalData.avatarUrl
+            image_url: app.globalData.avatarUrl
           }
         },
         success(res) {

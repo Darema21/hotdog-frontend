@@ -1,5 +1,5 @@
 .btn {
-  color: var(--white);
+  color: var(--dark);
   padding: 8rpx 24rpx;
   border-radius: 10rpx;
 }

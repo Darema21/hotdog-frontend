@@ -17,21 +17,23 @@ App({
             app.globalData.header = loginRes.data.headers;
             console.log(123, loginRes.data.headers); // { data: { headers: { "X-USER-TOKEN": <User Token> }, user: <User Object> }, ... }
             console.log("owner", loginRes.data.owner);
-  
+
             // Fetch dogs' information after successful login
             wx.request({
               url: `${app.globalData.baseUrl}dogs`,
               method: 'GET',
               header: app.globalData.header,
               success(res) {
+                console.log("App", res);
                 const dogs = res.data.dogs;
-                console.log("App data", res)
                 const current_owner_dog = res.data.current_owner_dog;
+                const current_dog_img = res.data.current_owner_dog_image;
+                const current_dog_breed = res.data.current_owner_dog_breed;
                 app.globalData.currentOwnerDog = current_owner_dog;
-                 
-                const current_dog_img = res.data.current_owner_dog_image
-                app.globalData.currentOwnerDogImage = current_dog_img
+                app.globalData.currentOwnerDogBreed = current_dog_breed;
+                app.globalData.currentOwnerDogImage = current_dog_img;
 
+                // Map the dogs and store in globalData
                 app.globalData.dogs = dogs.map((dog) => {
                   return {
                     id: dog.id,
@@ -57,7 +59,7 @@ App({
         });
       }
     });
-  
+
     wx.getSetting({
       success: res => {
         if (res.authSetting['scope.userInfo']) {
@@ -76,11 +78,10 @@ App({
         }
       }
     });
-  
+
     this.loadCustomFont();
   },
-  
-    
+
   loadCustomFont: function () {
     wx.loadFontFace({
       family: "Quicksand",
@@ -94,7 +95,7 @@ App({
         // console.log(msg)
       }
     });
-  
+
     wx.loadFontFace({
       family: "Quicksand",
       global: true,
@@ -121,7 +122,7 @@ App({
       }
     });
   },
-  
+
   globalData: {
     userInfo: null,
     owner: null,
@@ -134,6 +135,7 @@ App({
 
     dogs: [],
     currentOwnerDog: null,
+    currentOwnerDogBreed: null,
     currentOwnerDogImage: null
   }
-})
+});

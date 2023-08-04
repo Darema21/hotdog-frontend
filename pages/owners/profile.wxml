@@ -1,16 +1,17 @@
 <view class="container">
-  <!-- <view class="flex ai-c column"> -->
+  <view class="flex">
 
     <!-- Render the avatar and nickname input if they are not available in globalData -->
-    <!-- <block wx:if="{{ !app.globalData.nickname && !app.globalData.avatarUrl }}">
+    <block wx:if="{{ !app.globalData.nickname && !app.globalData.avatarUrl }}">
       <view class="avatar-container" wx:if="{{firstPage}}">
         <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+          <view class="p">Tap to change</view>
           <image class="avatar" src="{{avatarUrl}}"></image>
         </button>
-      </view> -->
+      </view>
 
       <!-- Profile card -->
-      <!-- <view class="profile-card flex ai-c">
+      <view class="profile-card flex ai-c">
         <view>
           <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
             <image class="avatar" src="{{avatarUrl}}"></image>
@@ -22,10 +23,10 @@
           <input class="p" type="nickname" bindblur="setNickname" data-nickname="nickname" placeholder="Set your nickname" />
         </view>
       </view>
-    </block> -->
+    </block>
 
-    <!-- Render the nickname and avatar directly from globalData if available -->
-    <!-- <block wx:else>
+    <!-- Render the avatar and nickname if they are available in globalData  -->
+    <block wx:else>
       <view class="input w-100">
         <view class="p label">Nickname</view>
         <input class="p" type="text" bindinput="setNickname" value="{{ app.globalData.nickname }}" />
@@ -37,7 +38,7 @@
       </view>
       <image class="avatar-dog" src="{{ 'currentOwnerDogImage' }}" mode="aspectFill" />
     </block>
-  </view> -->
+  </view>
 
   <!-- Separator -->
   <image class="separator" src="../images/separator.png" alt="" />
@@ -47,21 +48,21 @@
     <navigator url="/pages/events/bookings" class="setting-card flex">
       <view class="flex ai-c">
         <image class="icon" src="/pages/images/icons/profile-user_icon.png" mode="" />
-        <text> Check Your Events </text>
+        <text>Check Your Events </text>
+      </view>
+      <image class="icon" src="/pages/images/icons/profile-arrow.png" class="arrow" mode="" />
+    </navigator>
+    <navigator url="/pages/owners/dog_profile" class="setting-card flex">
+      <view class="flex ai-c">
+        <image class="icon" src="/pages/images/icons/profile-dog.png" mode="" />
+        <text> Dog's Profile Page</text>
       </view>
       <image class="icon" src="/pages/images/icons/profile-arrow.png" class="arrow" mode="" />
     </navigator>
     <navigator url="/pages/dogs/form" class="setting-card flex">
       <view class="flex ai-c">
-        <image class="icon" src="/pages/images/icons/profile-dog.png" mode="" />
-        <text> Edit dog's and owner's info </text>
-      </view>
-      <image class="icon" src="/pages/images/icons/profile-arrow.png" class="arrow" mode="" />
-    </navigator>
-    <navigator url="#" class="setting-card flex">
-      <view class="flex ai-c">
         <image class="icon" src="/pages/images/icons/profile-settings_icon.png" mode="" />
-        <text> Set your preferences </text>
+        <text> Edit Dog's Info </text>
       </view>
       <image class="icon" src="/pages/images/icons/profile-arrow.png" class="arrow" mode="" />
     </navigator>

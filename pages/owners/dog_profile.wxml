@@ -1,0 +1,67 @@
+<!--pages/owners/dog_profile.wxml-->
+<view wx:if="{{ app.globalData.currentOwnerDog.id !== null }}">
+<scroll-view class="container-horizontal flex ai-c jc-c" scroll-x="{{true}}">
+  <block wx:for="{{ dog.image_urls }}" wx:key="imageKey" wx:for-item="image">
+    <image class="dog-show-image" src="{{image}}" mode="aspectFill" />
+  </block>
+</scroll-view>
+
+<view class="dog-description">
+  <view class="container">
+    <text class="h1">{{ dog.name }}</text>
+
+    <!-- XXX stats -->
+    <view class="dog-stats flex ai-с jc-sb">
+      <view class="dog-data flex column ai-c">
+        <image class="stats-icon" src="../images/icons/gender.png" mode="" />
+        <text class="p-light">Gender</text>
+        <text class="p">{{ dog.gender }}</text>
+      </view>
+      <view class="dog-data flex column ai-c">
+        <image class="stats-icon" src="../images/icons/date.png" mode="" />
+        <text class="p-light">Age</text>
+        <block wx:if="{{ dog.age % 10 == 1 && dog.age != 11 }}">
+          <text class="p">{{ dog.age }} year old</text>
+        </block>
+        <block wx:else>
+          <text class="p">{{ dog.age }} years old</text>
+        </block>
+      </view>
+      <view class="dog-data flex column ai-c" bindtap="goToBreed" data-id="{{ breed.id }}">
+        <image class="stats-icon" src="../images/icons/breed.png" mode="" />
+        <text class="p-light">Breed</text>
+        <text class="p link">{{ dog_breed }}</text>
+      </view>
+
+    </view>
+
+    <!-- Description -->
+    <view class="dog-description flex column">
+      <text class="h3">Description:</text>
+      <text>{{ dog.bio }}</text>
+    </view>
+
+    <!-- Vaccine, neutered -->
+    <view class="flex">
+
+      <view class="flex ai-c dog-attribute {{ dog.neutered ? 'attribute-true' : 'attribute-false' }}">
+        <image class="quality-icon" src="{{ dog.neutered ? '/pages/images/icons/neuter_true.png' : '/pages/images/icons/neuter_false.png' }}" mode="aspectFit" />
+        <text>{{ dog.neutered ? 'Neutered' : 'Not neutered' }}</text>
+      </view>
+      <view class="flex ai-c dog-attribute {{ dog.vaccinated ? 'attribute-true' : 'attribute-false' }}">
+        <image class="quality-icon" src="{{ dog.vaccinated ? '/pages/images/icons/vaccine_true.png' : '/pages/images/icons/vaccine_false.png' }}" mode="aspectFit" />
+        <text>{{ dog.vaccinated ? 'Vaccinated' : 'Not vaccinated' }}</text>
+      </view>
+    </view>
+
+  </view>
+</view>
+</view>
+
+<view wx:else>
+  <!-- Show message when there is no current dog -->
+  <view class="flex column ai-c jc-c">
+    <text class="h2">You haven't added a dog yet!</text>
+    <button class="btn btn-filled" bindtap="addDog">Let's do that now!</button>
+  </view>
+</view>

@@ -19,7 +19,7 @@ Page({
     address: "",
     formData: {},
     ownerData: {},
-    src: ""
+    images: []
   },
 
   listenerBtnChooseImage: function () {
@@ -39,9 +39,9 @@ Page({
         page.setData({
           formData:{
             ...formData,
-            src: res.tempFiles[0].tempFilePath
+            images: res.tempFiles[0].tempFilePath
           },
-          src: res.tempFiles[0].tempFilePath
+          images: res.tempFiles[0].tempFilePath
         })
         console.log('after chooseMedia, formData -->', formData)
       }
@@ -95,7 +95,7 @@ Page({
           page.setData({
             formData: res.data,
             editedId: id,
-            src: res.data.image
+            images: res.data.images
           });
           wx.removeStorageSync('editedId');
         }
@@ -346,11 +346,11 @@ Page({
     // let dog = page.data.formData
     console.log("FormData", '--->. page.data.formData', page.data.formData)
     console.log('header from save btn: ', app.globalData.header)
-    const image = page.data.src;
+    const images = page.data.images;
     const dog = {
       ...this.data.formData,
       owner_id: app.globalData.owner.id,
-      image:image
+      images:images
     };
     // let dog = page.data.formData
     console.log('----> dog data ', dog)
@@ -360,7 +360,7 @@ Page({
     console.log('from save btn, page.data ->', page.data)
     page.setData({
       dog,
-      image
+      images
       // owner_id
     });
     // if dog id exists, edit this form
@@ -371,7 +371,7 @@ Page({
         method: 'PUT',
         data: {
           dog,
-          image
+          images
           // owner
         },
         success(res) {
@@ -402,7 +402,7 @@ Page({
           dog: {
             ...this.data.formData,
             owner_id: app.globalData.owner.id,
-            image: [image]
+            images: [images]
           },
 
           // owner: owner
@@ -456,9 +456,9 @@ Page({
   // uploads the image to dogs/id/upload
   upload(id) {
     const page = this
-    const filePath = page.data.src;
+    const filePath = page.data.images[0];
     console.log("Image file path", filePath);
-    console.log("Page data src", page.data.src);
+    console.log("Page data image", page.data.images);
     wx.uploadFile({
       url: `${app.globalData.baseURL}dogs/${id}/upload`,
       filePath: filePath,

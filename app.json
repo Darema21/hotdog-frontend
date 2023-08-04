@@ -16,6 +16,7 @@
     "pages/events/form",
     "pages/events/bookings",
     "pages/owners/profile",
+    "pages/owners/dog_profile",
     "custom-tab-bar/index",
     "pages/logs/logs",
     "components/swipe-card/index",

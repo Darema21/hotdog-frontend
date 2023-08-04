@@ -2,7 +2,6 @@
 
 page {
   background-color: var(--white);
-  overflow-y: hidden;
 }
 
 .wrap {
@@ -45,8 +44,8 @@ input[type="text"], textarea {
   background-color: rgba(233, 232, 232, 0.3);
   border-radius: 18rpx;
   padding: 18rpx;
-  margin-bottom: 20rpx;
-  width: 100%;
+  margin: 10rpx 0;
+  width: 90%;
 }
 
 button {
@@ -71,11 +70,6 @@ textarea {
   padding-top: 10rpx;
 }
 
-/* .container {
-  position: fixed; left: 50%; 
-  bottom: 20rpx; 
-  transform: translateX(-50%);
-} */
 
 .current-owner-message {
   align-items: flex-end;

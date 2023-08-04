@@ -68,7 +68,7 @@ image {
 }
 
 input {
-  background-color: var(--primary-color);
-  border-radius: 18rpx;
+  border-radius: 8rpx;
   height: 24rpx;
+  text-align: center;
 }

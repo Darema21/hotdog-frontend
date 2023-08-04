@@ -399,6 +399,7 @@ Page({
     // uploads the image to dogs/id/upload
     upload(id) {
       const page = this
+      console.log('----> upload function is here')
       wx.uploadFile({
         url: `${app.globalData.baseURL}dogs/${id}/upload`,
         filePath: page.data.src[0],
@@ -410,8 +411,9 @@ Page({
           })
           page.setData({resetForm: true})
           console.log('res from upload', res)
-        }
+        },
       })
+      console.log('----> filepath here',filePath)
     }
 })
              

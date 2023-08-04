@@ -1,7 +1,8 @@
 /* pages/matches/show.wxss */
 
 .banner{
-  height: 15мр;
+  background-color: var(--white);
+  height: 20vh;
   box-shadow: 0 0 15rpx rgba(0,0,0,0.2);
 }
 

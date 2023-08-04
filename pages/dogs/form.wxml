@@ -7,7 +7,7 @@
     <!-- three buttons to choose image -->
     <view class="add-image-button-box">
         <button type="btn btn-filled" bindtap="listenerBtnChooseImage"> 
-          <image style="height: 250prx; width: 250rpx;" wx:if="{{images}}" src="{{images}}" mode="aspectFill"></image>
+          <image style="height: 250prx; width: 250rpx;" wx:if="{{image}}" src="{{image}}" mode="aspectFill"></image>
           <image class="quality-icon" src="/pages/images/icons/plus_sign.png"  mode=""></image>
         </button> 
 

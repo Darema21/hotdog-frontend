@@ -3,8 +3,8 @@
   <text class="h1">Pawfect Match!</text>
 
   <view class="flex ai-c jc-c">
-    <image class="match-image match-image-left" src="{{ from_dog_img }}" mode="aspectFill" animation="{{ fromDogAnimationData }}" />
-    <image class="match-image match-image-right" src="{{ app.globalData.currentOwnerDogImage }}" mode="aspectFill" animation="{{ toDogAnimationData }}" />
+    <image class="match-image match-image-left" src="{{ matches.from_dog.image_url }}" mode="aspectFill" animation="{{ fromDogAnimationData }}" />
+    <image class="match-image match-image-right" src="{{ amatches.to_dog.image_url }}" mode="aspectFill" animation="{{ toDogAnimationData }}" />
   </view>
 
 <navigator class="flex column ai-c jc-c" open-type="switchTab" url="/pages/matches/index">

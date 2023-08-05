@@ -47,7 +47,7 @@
         {
           "name": "",
           "pathName": "pages/matches/mutual",
-          "query": "from_owner_id=2&to_owner_id=$3",
+          "query": "match_id=88",
           "launchMode": "default",
           "scene": null
         },
@@ -90,6 +90,27 @@
           "name": "",
           "pathName": "pages/events/index",
           "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/matches/show",
+          "query": "id=140",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/matches/show",
+          "query": "id=140",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/matches/show",
+          "query": "id=140",
           "launchMode": "default",
           "scene": null
         }

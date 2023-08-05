@@ -64,6 +64,7 @@ Page({
    */
   onShow() {
     // Do something when page shown
+
     let page = this;
   
     wx.request({
@@ -79,7 +80,7 @@ Page({
       }
     });
   },
-  
+ 
 
   /**
    * Lifecycle function--Called when page hide

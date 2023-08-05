@@ -43,7 +43,14 @@
 
 <!-- Event-cards -->
 <view class="container">
-  <block wx:if="{{events.length > 0}}">
+  <view wx:if="{{events.length % 10 == 1 && events.length != 11}}">
+    <text class="p p-dark">Total: {{ events.length }} event</text>
+  </view>
+  <view wx:else>
+    <text class="p p-dark">Total: {{ events.length }} events</text>
+  </view>
+
+  <view wx:if="{{events.length > 0}}">
     <view class="cards">
       <view class="card card-hor flex" wx:for="{{events}}" wx:key="index" wx:for-item="event">
         <image bindtap="goToEvent" data-id="{{event.id}}" class="card-image img-small" src="{{ event.image_url }}" mode="aspectFill" />
@@ -65,11 +72,11 @@
         </view>
       </view>
     </view>
-  </block>
-  <block wx:else>
+  </view>
+  <view wx:else>
     <view class="flex column">
       <text>No events posted yet. Be the first one</text>
       <navigator open-type="switchTab" url="/pages/events/form">Post event →</navigator>
     </view>
-  </block>
+  </view>
 </view>
